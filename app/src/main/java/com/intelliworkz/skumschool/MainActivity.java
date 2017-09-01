@@ -27,9 +27,9 @@ public class MainActivity extends AppCompatActivity {
                 {
                     try {
                         sleep(3*1000);
-                        /*Intent i = new Intent(getApplicationContext(),LoginActivity.class);
+                        Intent i = new Intent(getApplicationContext(),LoginActivity.class);
                         startActivity(i);
-                        finish();*/
+                        finish();
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }

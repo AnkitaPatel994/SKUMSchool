@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">SKUMSchool</string>
+    <string name="app_title">SKUM School</string>
+
+    <!--Login Activity Page-->
+    <string name="txt_hint_username">Enter Your UserName</string>
+    <string name="txt_hint_password">Enter Your Password</string>
+    <string name="txt_english">English</string>
+    <string name="txt_hindi">Hindi</string>
+    <string name="txt_gujarati">Gujarati</string>
+    <string name="btn_login">Login</string>
+    <string name="err_msg_uname">Enter valid Username.</string>
+    <string name="err_msg_pass">Enter valid Password.</string>
+
 </resources>

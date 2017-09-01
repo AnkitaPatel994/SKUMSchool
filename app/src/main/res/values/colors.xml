@@ -5,6 +5,8 @@
     <color name="colorPrimaryLight">#87bcff</color>
     <color name="colorAccent">#498cff</color>
     <color name="gray">#969696</color>
+    <color name="button_press">#377aef</color>
+    <color name="button_focus">#377aef</color>
     <color name="colorWhite">#ffffff</color>
     <color name="colorBlack">#000000</color>
     <color name="sw_color">#bababa</color>

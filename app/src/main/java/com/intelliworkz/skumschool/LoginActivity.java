@@ -106,9 +106,9 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(txtUsername.getText().toString().equals("admin") && txtPassword.getText().toString().equals("admin"))
                 {
-                    /*Intent i=new Intent(getApplicationContext(),StudentDetailActivity.class);
+                    Intent i=new Intent(getApplicationContext(),StudentDetailActivity.class);
                     startActivity(i);
-                    finish();*/
+                    finish();
                 }
                 else if (!validateUname())
                 {

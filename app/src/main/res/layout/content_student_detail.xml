@@ -15,46 +15,46 @@
     android:gravity="center">
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btn_attendance"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:text="Atteandance"
         android:textAppearance="@style/TextAppearance.AppCompat"
-        android:textSize="15dp"
-        android:layout_gravity="center_horizontal"
-        android:textStyle="bold"/>
+       style="@style/ButtonStyle"
+        android:background="@drawable/button_background"
+        android:layout_gravity="center_horizontal"/>
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btn_profile"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:text="Profile"
         android:textAppearance="@style/TextAppearance.AppCompat"
-        android:textSize="15dp"
-        android:textStyle="bold"
+        style="@style/ButtonStyle"
+        android:background="@drawable/button_background"
         android:layout_marginTop="10dp"
         android:layout_gravity="center_horizontal"/>
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/btn_PReport"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:text="Progress Report"
-        android:textSize="15dp"
-        android:textStyle="bold"
+        style="@style/ButtonStyle"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
+        android:background="@drawable/button_background"
         android:textAppearance="@style/TextAppearance.AppCompat" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/btn_NBoard"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:text="Notice Board"
-        android:textSize="15dp"
-        android:textStyle="bold"
+        style="@style/ButtonStyle"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
+        android:background="@drawable/button_background"
         android:textAppearance="@style/TextAppearance.AppCompat" />
 </LinearLayout>
 

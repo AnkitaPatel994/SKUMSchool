@@ -12,10 +12,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.Toast;
 
 public class StudentDetailActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
+    Button btnAttendance,btnProfile,btnNBoard,btnPReport;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +33,37 @@ public class StudentDetailActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        btnAttendance=(Button)findViewById(R.id.btn_attendance);
+        btnProfile=(Button)findViewById(R.id.btn_profile);
+        btnNBoard=(Button)findViewById(R.id.btn_NBoard);
+        btnPReport=(Button)findViewById(R.id.btn_PReport);
+
+        btnAttendance.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(),"Attendance",Toast.LENGTH_SHORT).show();
+
+            }
+        });
+        btnProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(),"Profile",Toast.LENGTH_SHORT).show();
+            }
+        });
+        btnNBoard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(),"NBoard",Toast.LENGTH_SHORT).show();
+            }
+        });
+        btnPReport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(),"PReport",Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override

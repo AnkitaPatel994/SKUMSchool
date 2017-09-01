@@ -24,7 +24,7 @@ public class LoginActivity extends AppCompatActivity {
     TextInputLayout inputLayoutUname,inputLayoutPass;
     TextView tv_swEnglish,tv_swHindi,tv_swGujarati;
     Locale myLocale;
-    public static String str_language_Code="3";
+    public static String str_language_Code="1";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,23 +52,23 @@ public class LoginActivity extends AppCompatActivity {
             tv_swEnglish.setTextColor(getResources().getColor(R.color.colorWhite));
             tv_swHindi.setBackgroundColor(getResources().getColor(R.color.sw_color));
             tv_swHindi.setTextColor(getResources().getColor(R.color.colorBlack));
-            tv_swGujarati.setBackgroundColor(getResources().getColor(R.color.sw_color));
+            tv_swGujarati.setBackgroundResource(R.drawable.language_right_swborder);
             tv_swGujarati.setTextColor(getResources().getColor(R.color.colorBlack));
         }
         else if(str_language_Code.equals("2"))
         {
             tv_swHindi.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
             tv_swHindi.setTextColor(getResources().getColor(R.color.colorWhite));
-            tv_swGujarati.setBackgroundColor(getResources().getColor(R.color.sw_color));
+            tv_swGujarati.setBackgroundResource(R.drawable.language_right_swborder);
             tv_swGujarati.setTextColor(getResources().getColor(R.color.colorBlack));
-            tv_swEnglish.setBackgroundColor(getResources().getColor(R.color.sw_color));
+            tv_swEnglish.setBackgroundResource(R.drawable.language_left_swborder);
             tv_swEnglish.setTextColor(getResources().getColor(R.color.colorBlack));
         }
         else if(str_language_Code.equals("3"))
         {
             tv_swGujarati.setBackgroundResource(R.drawable.language_select_right_swborder);
             tv_swGujarati.setTextColor(getResources().getColor(R.color.colorWhite));
-            tv_swEnglish.setBackgroundColor(getResources().getColor(R.color.sw_color));
+            tv_swEnglish.setBackgroundResource(R.drawable.language_left_swborder);
             tv_swEnglish.setTextColor(getResources().getColor(R.color.colorBlack));
             tv_swHindi.setBackgroundColor(getResources().getColor(R.color.sw_color));
             tv_swHindi.setTextColor(getResources().getColor(R.color.colorBlack));
@@ -106,9 +106,9 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(txtUsername.getText().toString().equals("admin") && txtPassword.getText().toString().equals("admin"))
                 {
-                    /*Intent i=new Intent(getApplicationContext(),StudentDetailActivity.class);
+                    Intent i=new Intent(getApplicationContext(),StudentDetailActivity.class);
                     startActivity(i);
-                    finish();*/
+                    finish();
                 }
                 else if (!validateUname())
                 {
@@ -226,7 +226,7 @@ public class LoginActivity extends AppCompatActivity {
             startActivity(refresh);
             finish();
         }
-        else if (str_language_Code.equals("3"))
+        else
         {
             myLocale = new Locale("guj");  //gujarati
             Resources res = getResources();

@@ -1,4 +1,4 @@
-package com.intelliworkz.skumschool;
+package com.intelliworkz.skumschool.SplashScreen;
 
 import android.content.Intent;
 import android.net.ConnectivityManager;
@@ -6,6 +6,9 @@ import android.net.NetworkInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.LinearLayout;
+
+import com.intelliworkz.skumschool.LoginActivity;
+import com.intelliworkz.skumschool.R;
 
 public class MainActivity extends AppCompatActivity {
     LinearLayout lnSnackbar;

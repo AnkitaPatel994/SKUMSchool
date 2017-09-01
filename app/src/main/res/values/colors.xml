@@ -10,4 +10,5 @@
     <color name="colorWhite">#ffffff</color>
     <color name="colorBlack">#000000</color>
     <color name="sw_color">#bababa</color>
+    <color name="trans">#bababa</color>
 </resources>

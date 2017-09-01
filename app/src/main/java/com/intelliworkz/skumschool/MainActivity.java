@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         }
         else
         {
-           /* Snackbar.make(lnSnackbar, "No Connection", Snackbar.LENGTH_LONG)
+           /*Snackbar.make(lnSnackbar, "No Connection", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();*/
 
         }

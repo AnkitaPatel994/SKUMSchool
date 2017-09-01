@@ -12,4 +12,12 @@
     <string name="err_msg_uname">Enter valid Username.</string>
     <string name="err_msg_pass">Enter valid Password.</string>
 
+    <string name="title_activity_student_detail">SKUMSchool</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="ACName">Welcome</string>
+
 </resources>

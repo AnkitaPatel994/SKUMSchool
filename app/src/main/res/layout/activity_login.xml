@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_vertical"
-    tools:context="com.intelliworkz.skumschool.LoginActivity">
+    tools:context="com.intelliworkz.skumschool.Login.LoginActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -60,7 +60,7 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginLeft="40dp"
                     android:layout_marginRight="40dp"
-                    android:text="Select Language" />
+                    android:text="@string/txt_sl" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -71,8 +71,8 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:gravity="center"
-                    android:background="@drawable/language_swborder"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:background="@drawable/language_swborder">
 
                     <TextView
                         android:id="@+id/tv_sw_english"
@@ -83,9 +83,9 @@
                         android:text="@string/txt_english"
                         android:textColor="#000" />
                     <LinearLayout
-                        android:layout_width="5dp"
+                        android:layout_width="2dp"
                         android:layout_height="match_parent"
-                        android:background="@color/gray" />
+                        android:background="@color/colorPrimary" />
                     <TextView
                         android:id="@+id/tv_sw_hindi"
                         android:layout_width="match_parent"
@@ -95,9 +95,9 @@
                         android:text="@string/txt_hindi"
                         android:textColor="#000"/>
                     <LinearLayout
-                        android:layout_width="5dp"
+                        android:layout_width="2dp"
                         android:layout_height="match_parent"
-                        android:background="@color/gray" />
+                        android:background="@color/colorPrimary" />
 
                     <TextView
                         android:id="@+id/tv_sw_gujarati"
@@ -147,6 +147,20 @@
                         android:hint="@string/txt_hint_password"
                         android:inputType="textPassword" />
                 </android.support.design.widget.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/txtForgotPass"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18dp"
+                    android:textStyle="italic"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp"
+                    android:text="@string/txt_forgot_password" />
+
                 <Button
                     android:id="@+id/btnLogin"
                     style="@style/ButtonStyle"
@@ -159,6 +173,7 @@
                     android:background="@drawable/button_background"
                     android:text="@string/btn_login"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
             </LinearLayout>
 
         </LinearLayout>

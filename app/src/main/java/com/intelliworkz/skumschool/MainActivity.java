@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.LinearLayout;
 
+import com.intelliworkz.skumschool.Login.LoginActivity;
+
 public class MainActivity extends AppCompatActivity {
     LinearLayout lnSnackbar;
     @Override

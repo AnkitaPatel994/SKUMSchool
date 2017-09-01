@@ -1,4 +1,4 @@
-package com.intelliworkz.skumschool;
+package com.intelliworkz.skumschool.Login;
 
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -15,6 +15,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.intelliworkz.skumschool.Forgot_Password.Forgot_PasswordActivity;
+import com.intelliworkz.skumschool.R;
+import com.intelliworkz.skumschool.StudentDetailActivity;
+
 import java.util.Locale;
 
 public class LoginActivity extends AppCompatActivity {
@@ -22,7 +26,7 @@ public class LoginActivity extends AppCompatActivity {
     EditText txtUsername,txtPassword;
     Button btnLogin;
     TextInputLayout inputLayoutUname,inputLayoutPass;
-    TextView tv_swEnglish,tv_swHindi,tv_swGujarati;
+    TextView tv_swEnglish,tv_swHindi,tv_swGujarati,txtForgotPass;
     Locale myLocale;
     public static String str_language_Code="1";
 
@@ -37,6 +41,7 @@ public class LoginActivity extends AppCompatActivity {
 
         txtUsername = (EditText) findViewById(R.id.txtUsername);
         txtPassword = (EditText) findViewById(R.id.txtPassword);
+        txtForgotPass = (TextView) findViewById(R.id.txtForgotPass);
         btnLogin = (Button) findViewById(R.id.btnLogin);
 
         txtUsername.addTextChangedListener(new MyTextWatcher(txtUsername));
@@ -46,32 +51,34 @@ public class LoginActivity extends AppCompatActivity {
         tv_swHindi = (TextView) findViewById(R.id.tv_sw_hindi);
         tv_swGujarati = (TextView) findViewById(R.id.tv_sw_gujarati);
 
+        txtForgotPass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(getApplicationContext(), Forgot_PasswordActivity.class);
+                startActivity(i);
+            }
+        });
+
         if(str_language_Code.equals("1"))
         {
             tv_swEnglish.setBackgroundResource(R.drawable.language_select_left_swborder);
             tv_swEnglish.setTextColor(getResources().getColor(R.color.colorWhite));
-            tv_swHindi.setBackgroundColor(getResources().getColor(R.color.sw_color));
-            tv_swHindi.setTextColor(getResources().getColor(R.color.colorBlack));
-            tv_swGujarati.setBackgroundResource(R.drawable.language_right_swborder);
-            tv_swGujarati.setTextColor(getResources().getColor(R.color.colorBlack));
+            tv_swHindi.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
+            tv_swGujarati.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
         }
         else if(str_language_Code.equals("2"))
         {
             tv_swHindi.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
             tv_swHindi.setTextColor(getResources().getColor(R.color.colorWhite));
-            tv_swGujarati.setBackgroundResource(R.drawable.language_right_swborder);
-            tv_swGujarati.setTextColor(getResources().getColor(R.color.colorBlack));
-            tv_swEnglish.setBackgroundResource(R.drawable.language_left_swborder);
-            tv_swEnglish.setTextColor(getResources().getColor(R.color.colorBlack));
+            tv_swGujarati.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
+            tv_swEnglish.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
         }
         else if(str_language_Code.equals("3"))
         {
             tv_swGujarati.setBackgroundResource(R.drawable.language_select_right_swborder);
             tv_swGujarati.setTextColor(getResources().getColor(R.color.colorWhite));
-            tv_swEnglish.setBackgroundResource(R.drawable.language_left_swborder);
-            tv_swEnglish.setTextColor(getResources().getColor(R.color.colorBlack));
-            tv_swHindi.setBackgroundColor(getResources().getColor(R.color.sw_color));
-            tv_swHindi.setTextColor(getResources().getColor(R.color.colorBlack));
+            tv_swEnglish.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
+            tv_swHindi.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
         }
 
         tv_swEnglish.setOnClickListener(new View.OnClickListener() {

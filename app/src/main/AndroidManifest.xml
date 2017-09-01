@@ -19,11 +19,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity" />
+        <activity android:name=".Login.LoginActivity" />
         <activity
             android:name=".StudentDetailActivity"
             android:label="@string/title_activity_student_detail"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Forgot_Password.Forgot_PasswordActivity"></activity>
     </application>
 
 </manifest>

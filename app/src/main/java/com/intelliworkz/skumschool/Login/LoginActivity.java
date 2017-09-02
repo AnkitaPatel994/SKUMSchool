@@ -17,7 +17,7 @@ import android.widget.TextView;
 
 import com.intelliworkz.skumschool.Forgot_Password.Forgot_PasswordActivity;
 import com.intelliworkz.skumschool.R;
-import com.intelliworkz.skumschool.StudentDetail.StudentDetailActivity;
+import com.intelliworkz.skumschool.Home.HomeActivity;
 
 import java.util.Locale;
 
@@ -113,7 +113,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 /*if(txtUsername.getText().toString().equals("admin") && txtPassword.getText().toString().equals("admin"))
                 {
-                    Intent i=new Intent(getApplicationContext(),StudentDetailActivity.class);
+                    Intent i=new Intent(getApplicationContext(),HomeActivity.class);
                     startActivity(i);
                     finish();
                 }
@@ -125,7 +125,7 @@ public class LoginActivity extends AppCompatActivity {
                 {
                     return;
                 }*/
-                Intent i=new Intent(getApplicationContext(),StudentDetailActivity.class);
+                Intent i=new Intent(getApplicationContext(),HomeActivity.class);
                 startActivity(i);
                 finish();
 

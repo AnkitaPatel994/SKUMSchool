@@ -24,7 +24,27 @@
             android:name=".StudentDetail.StudentDetailActivity"
             android:label="@string/title_activity_student_detail"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Forgot_Password.Forgot_PasswordActivity"></activity>
+        <activity android:name=".Forgot_Password.Forgot_PasswordActivity" />
+        <activity
+            android:name=".Attendence.AttendenceActivity"
+            android:label="@string/title_activity_attendence"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ChangePassword.ChangePasswordActivity"
+            android:label="@string/title_activity_change_password"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".NoticeBoard.NoticeBoardActivity"
+            android:label="@string/title_activity_notice_board"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Profile.ProfileActivity"
+            android:label="@string/title_activity_profile"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ProgressReport.ProgressReportActivity"
+            android:label="@string/title_activity_progress_report"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

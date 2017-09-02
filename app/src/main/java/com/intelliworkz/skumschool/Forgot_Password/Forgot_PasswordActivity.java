@@ -14,7 +14,7 @@ import android.widget.EditText;
 
 import com.intelliworkz.skumschool.Login.LoginActivity;
 import com.intelliworkz.skumschool.R;
-import com.intelliworkz.skumschool.StudentDetailActivity;
+
 
 public class Forgot_PasswordActivity extends AppCompatActivity {
 

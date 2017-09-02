@@ -3,6 +3,10 @@
 
     <group android:checkableBehavior="single">
         <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home_black_24dp"
+            android:title="Home"/>
+        <item
             android:id="@+id/nav_attendence"
             android:icon="@drawable/ic_attendance"
             android:title="Attendence"/>
@@ -18,19 +22,23 @@
             android:id="@+id/nav_noticeboard"
             android:icon="@drawable/ic_nboard"
             android:title="NoticeBoard" />
-    </group>
+        <item
+            android:id="@+id/nav_chgpass"
+            android:icon="@drawable/ic_change_password_black_24dp"
+            android:title="Change Password" />
+        <item
+            android:id="@+id/nav_share"
+            android:icon="@drawable/ic_share_black_24dp"
+            android:title="Share App" />
+        <item
+            android:id="@+id/nav_rate"
+            android:icon="@drawable/ic_rating_black_24dp"
+            android:title="Rate App" />
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/ic_logout_black_24dp"
+            android:title="Logout" />
 
-   <!-- <item android:title="Communicate">
-        <menu>
-            <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
-        </menu>
-    </item>-->
+    </group>
 
 </menu>

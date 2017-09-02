@@ -111,7 +111,7 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*if(txtUsername.getText().toString().equals("admin") && txtPassword.getText().toString().equals("admin"))
+                if(txtUsername.getText().toString().equals("admin") && txtPassword.getText().toString().equals("admin"))
                 {
                     Intent i=new Intent(getApplicationContext(),StudentDetailActivity.class);
                     startActivity(i);
@@ -124,11 +124,7 @@ public class LoginActivity extends AppCompatActivity {
                 else if (!validatePassword())
                 {
                     return;
-                }*/
-                Intent i=new Intent(getApplicationContext(),StudentDetailActivity.class);
-                startActivity(i);
-                finish();
-
+                }
             }
         });
 

@@ -20,10 +20,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Login.LoginActivity" />
-        <activity
-            android:name=".Home.HomeActivity"
-            android:label="@string/title_activity_student_detail"
-            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Home.HomeActivity" />
         <activity android:name=".Forgot_Password.Forgot_PasswordActivity" />
         <activity
             android:name=".Attendence.AttendenceActivity"

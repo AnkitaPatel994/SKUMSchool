@@ -15,12 +15,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.intelliworkz.skumschool.ChangePassword.ChangePasswordActivity;
+import com.intelliworkz.skumschool.Home.HomeActivity;
 import com.intelliworkz.skumschool.Login.LoginActivity;
 import com.intelliworkz.skumschool.NoticeBoard.NoticeBoardActivity;
 import com.intelliworkz.skumschool.Profile.ProfileActivity;
 import com.intelliworkz.skumschool.ProgressReport.ProgressReportActivity;
 import com.intelliworkz.skumschool.R;
-import com.intelliworkz.skumschool.StudentDetail.StudentDetailActivity;
 
 public class AttendenceActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -64,13 +64,7 @@ public class AttendenceActivity extends AppCompatActivity
 
         if (id == R.id.nav_home)
         {
-            Intent i = new Intent(this, StudentDetailActivity.class);
-            startActivity(i);
-            finish();
-        }
-        else if (id == R.id.nav_attendence)
-        {
-            Intent i = new Intent(this, AttendenceActivity.class);
+            Intent i = new Intent(this, HomeActivity.class);
             startActivity(i);
             finish();
         }

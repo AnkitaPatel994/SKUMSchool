@@ -1,138 +1,133 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="10dp"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.intelliworkz.skumschool.Home.HomeActivity"
-    tools:showIn="@layout/app_bar_home">
+    android:gravity="center_vertical"
+    tools:context="com.intelliworkz.skumschool.Home.HomeActivity">
 
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="17dp"
+        android:elevation="4dp"
+        card_view:cardBackgroundColor="@color/transparent"
+        card_view:cardCornerRadius="4dp">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="150dp"
-        android:orientation="horizontal">
-        <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="150dp">
-            <ImageView
-                android:id="@+id/img_attendance"
-                style="@style/ImageStyle"
-                android:background="@drawable/notice" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <ImageView
-                style="@style/ImageStyle"
-                android:background="@drawable/gradeient_bg" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="6dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
 
-            <ImageView
-                android:id="@+id/imgic_attendance"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_gravity="center"
-                android:background="@drawable/ic_attendance_black_24dp" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="50dp"
-                android:text="Attendance"
-                android:textAlignment="center"
-                android:textColor="#fff"
-                android:textStyle="bold" />
-        </FrameLayout>
-        <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="150dp">
-            <ImageView
-                android:id="@+id/img_profile"
-                style="@style/ImageStyle"
-                android:background="@drawable/notice" />
+                <LinearLayout
+                    android:id="@+id/layout4"
+                    style="@style/main_screen_layout"
+                    android:gravity="center">
 
-            <ImageView
-                style="@style/ImageStyle"
-                android:background="@drawable/gradeient_bg" />
+                    <ImageView
+                        android:id="@+id/img4"
+                        style="@style/main_screen_image"
+                        android:src="@drawable/ic_attendance_black_24dp" />
 
-            <ImageView
-                android:id="@+id/imgic_profile"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_gravity="center"
-                android:background="@drawable/ic_attendance_black_24dp" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="50dp"
-                android:text="Profile"
-                android:textAlignment="center"
-                android:textColor="#fff"
-                android:textStyle="bold" />
-        </FrameLayout>
+                    <TextView
+                        style="@style/main_screen_text"
+                        android:layout_below="@+id/img4"
+                        android:text="ATTENDENCE" />
 
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="150dp"
-        android:orientation="horizontal">
-        <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="150dp">
-            <ImageView
-                android:id="@+id/imgpreport"
-                style="@style/ImageStyle"
-                android:background="@drawable/notice" />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:background="@android:color/transparent" />
 
-            <ImageView
-                style="@style/ImageStyle"
-                android:background="@drawable/gradeient_bg" />
+                </LinearLayout>
 
-            <ImageView
-                android:id="@+id/imgic_preport"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_gravity="center"
-                android:background="@drawable/ic_attendance_black_24dp" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="50dp"
-                android:text="Progress Report"
-                android:textAlignment="center"
-                android:textColor="#fff"
-                android:textStyle="bold" />
-        </FrameLayout>
-        <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="150dp">
-            <ImageView
-                android:id="@+id/img_nboard"
-                style="@style/ImageStyle"
-                android:background="@drawable/notice" />
+                <LinearLayout
+                    android:id="@+id/layout1"
+                    style="@style/main_screen_layout"
+                    android:gravity="center">
 
-            <ImageView
-                style="@style/ImageStyle"
-                android:background="@drawable/gradeient_bg" />
+                    <ImageView
+                        android:id="@+id/img1"
+                        style="@style/main_screen_image"
+                        android:src="@drawable/ic_attendance_black_24dp" />
 
-            <ImageView
-                android:id="@+id/imgic_nboard"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_gravity="center"
-                android:background="@drawable/ic_attendance_black_24dp" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="50dp"
-                android:text="NoticeBoard"
-                android:textAlignment="center"
-                android:textColor="#fff"
-                android:textStyle="bold" />
-        </FrameLayout>
-    </LinearLayout>
-</LinearLayout>
+                    <TextView
+                        style="@style/main_screen_text"
+                        android:layout_below="@+id/img1"
+                        android:text="PROFILE" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="6dp"
+                android:layout_marginLeft="6dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/layout7"
+                    style="@style/main_screen_layout"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/img7"
+                        style="@style/main_screen_image"
+                        android:src="@drawable/ic_attendance_black_24dp" />
+
+                    <TextView
+                        style="@style/main_screen_text"
+                        android:layout_below="@+id/img7"
+                        android:text="PROGRESS REPORT" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layout9"
+                    style="@style/main_screen_layout"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/img9"
+                        style="@style/main_screen_image"
+                        android:src="@drawable/ic_attendance_black_24dp" />
+
+                    <TextView
+                        style="@style/main_screen_text"
+                        android:layout_below="@+id/img9"
+                        android:text="NOTICE BOARD" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@android:color/transparent" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+</RelativeLayout>

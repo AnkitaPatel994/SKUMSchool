@@ -41,6 +41,10 @@
         <activity
             android:name=".ProgressReport.ProgressReportActivity"
             android:label="@string/title_activity_progress_report"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Calender.CalenderActivity"
+            android:label="@string/title_activity_calender"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

@@ -19,6 +19,7 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.intelliworkz.skumschool.Attendence.AttendenceActivity;
+import com.intelliworkz.skumschool.Calender.CalenderActivity;
 import com.intelliworkz.skumschool.ChangePassword.ChangePasswordActivity;
 import com.intelliworkz.skumschool.Login.LoginActivity;
 import com.intelliworkz.skumschool.NoticeBoard.NoticeBoardActivity;
@@ -27,19 +28,64 @@ import com.intelliworkz.skumschool.ProgressReport.ProgressReportActivity;
 import com.intelliworkz.skumschool.R;
 
 public class HomeActivity extends AppCompatActivity {
-    LinearLayout layProfile;
+ 
+
+    LinearLayout layAttendence,layProfile,layProgressReport,layNoticeBoard,layActivity;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setTitle(R.string.app_title);
         setContentView(R.layout.activity_home);
-        layProfile=(LinearLayout)findViewById(R.id.layProfile);
+     
+
+     
+        layAttendence = (LinearLayout)findViewById(R.id.layAttendence);
+        layProfile = (LinearLayout)findViewById(R.id.layProfile);
+        layProgressReport = (LinearLayout)findViewById(R.id.layProgressReport);
+        layNoticeBoard = (LinearLayout)findViewById(R.id.layNoticeBoard);
+
+        layActivity = (LinearLayout)findViewById(R.id.layActivity);
+
+        layAttendence.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(HomeActivity.this,AttendenceActivity.class);
+                startActivity(i);
+            }
+        });
 
         layProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(getApplicationContext(),ProfileActivity.class);
+                Intent i = new Intent(HomeActivity.this,ProfileActivity.class);
                 startActivity(i);
+            }
+        });
+
+        layProgressReport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(HomeActivity.this,ProgressReportActivity.class);
+                startActivity(i);
+            }
+        });
+
+        layNoticeBoard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(HomeActivity.this,NoticeBoardActivity.class);
+                startActivity(i);
+            }
+        });
+
+        layActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(HomeActivity.this,CalenderActivity.class);
+                startActivity(i);
+
             }
         });
 

@@ -23,6 +23,29 @@
             android:icon="@drawable/ic_nboard"
             android:title="Notice Board" />
         <item
+            android:id="@+id/nav_evaluation"
+            android:icon="@drawable/ic_nboard"
+            android:title="Evaluation" />
+        <item
+            android:id="@+id/nav_education"
+            android:icon="@drawable/ic_education_black_24dp"
+            android:title="Education" />
+
+        <item
+            android:id="@+id/nav_environment"
+            android:icon="@drawable/ic_nboard"
+            android:title="Environment" />
+
+        <item
+            android:id="@+id/nav_emotional"
+            android:icon="@drawable/ic_nboard"
+            android:title="Emotional Evaluation" />
+
+        <item
+            android:id="@+id/nav_activity"
+            android:icon="@drawable/ic_calendar_black_24dp"
+            android:title="Activity" />
+        <item
             android:id="@+id/nav_chgpass"
             android:icon="@drawable/ic_change_password_black_24dp"
             android:title="Change Password" />

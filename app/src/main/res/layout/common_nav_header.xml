@@ -25,7 +25,7 @@
         android:layout_width="54dp"
         android:layout_height="64dp"
         android:paddingTop="16dp"
-        app:srcCompat="@drawable/account_circle" />
+        app:srcCompat="@drawable/account" />
 
     <TextView
         android:id="@+id/textView"

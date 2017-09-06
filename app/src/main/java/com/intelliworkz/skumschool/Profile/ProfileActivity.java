@@ -28,9 +28,13 @@ import com.intelliworkz.skumschool.NoticeBoard.NoticeBoardActivity;
 import com.intelliworkz.skumschool.ProgressReport.ProgressReportActivity;
 import com.intelliworkz.skumschool.R;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class ProfileActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-    TextView txtClass;
+    CircleImageView profile_image;
+    TextView txtStudentName,txtClass,txtRollNo,txtMedium,txtAddress,txtBOD,txtAddmissionDate,txtFatherName,txtOccupation,txtCast,txtMobile,txtEmail;
+    String StudentName,Class,Rollno,Medium,Address,BOD,AddmissionDate,FatherName,Occupation,Cast,Mobile,Email;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,8 +57,48 @@ public class ProfileActivity extends AppCompatActivity
         MenuItem menuItem = menu.getItem(2);
         menuItem.setChecked(true);
 
-        txtClass=(TextView)findViewById(R.id.txt_class);
-        txtClass.setText(Html.fromHtml("<sup><small>" + "th" + "</small></sup>/<sub><small>" + "D" + "</small></sub>"));
+        /*-----------------Start Profile Activity Page--------------------*/
+
+        profile_image = (CircleImageView) findViewById(R.id.profile_image);
+        txtStudentName = (TextView) findViewById(R.id.txtStudentName);
+        txtClass = (TextView) findViewById(R.id.txtClass);
+        txtRollNo = (TextView) findViewById(R.id.txtRollNo);
+        txtMedium = (TextView) findViewById(R.id.txtMedium);
+        txtAddress = (TextView) findViewById(R.id.txtAddress);
+        txtBOD = (TextView) findViewById(R.id.txtBOD);
+        txtAddmissionDate = (TextView) findViewById(R.id.txtAddmissionDate);
+        txtFatherName = (TextView) findViewById(R.id.txtFatherName);
+        txtOccupation = (TextView) findViewById(R.id.txtOccupation);
+        txtCast = (TextView) findViewById(R.id.txtCast);
+        txtMobile = (TextView) findViewById(R.id.txtMobile);
+        txtEmail = (TextView) findViewById(R.id.txtEmail);
+
+        StudentName = "Ankita Patel";
+        Class ="7D";
+        Rollno = "75";
+        Medium = "ENG";
+        Address = "Plot no-721, Ekata Colony, Sector-27, Gandhinagar, Gujarat - 282027";
+        BOD = "15 March 1994";
+        AddmissionDate = "26 June 2017";
+        FatherName = "Pravinbhai Dahyabhai Patel";
+        Occupation = "Business";
+        Cast = "Hindu | Patel";
+        Mobile = "9925740359";
+        Email = "patelankita994@gmail.com";
+
+        txtStudentName.setText(StudentName);
+        txtClass.setText(Class);
+        txtRollNo.setText(Rollno);
+        txtMedium.setText(Medium);
+        txtAddress.setText(Address);
+        txtBOD.setText(BOD);
+        txtAddmissionDate.setText(AddmissionDate);
+        txtFatherName.setText(FatherName);
+        txtOccupation.setText(Occupation);
+        txtCast.setText(Cast);
+        txtMobile.setText(Mobile);
+        txtEmail.setText(Email);
+
     }
 
     @Override

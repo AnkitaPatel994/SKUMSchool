@@ -6,224 +6,199 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center"
     android:gravity="center"
     android:orientation="vertical"
+    android:background="@color/sw_color"
+    android:padding="17dp"
     tools:context="com.intelliworkz.skumschool.Home.HomeActivity">
 
-    <android.support.v7.widget.CardView
-        android:id="@+id/card_view"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="17dp"
-        android:elevation="4dp"
-        card_view:cardBackgroundColor="@color/transparent"
-        card_view:cardCornerRadius="4dp">
+        android:layout_height="540dp"
+        android:layout_marginLeft="2dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:id="@+id/layAttendence"
+            style="@style/main_screen_layout"
+            android:gravity="center">
 
-            <LinearLayout
+            <ImageView
+                android:id="@+id/img4"
+                style="@style/main_screen_image"
+                android:background="@drawable/attendace"/>
+
+            <TextView
+                style="@style/main_screen_text"
+                android:layout_below="@+id/img4"
+                android:text="ATTENDENCE" />
+
+            <View
                 android:layout_width="match_parent"
-                android:layout_height="540dp"
-                android:layout_marginLeft="6dp"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:id="@+id/layAttendence"
-                    style="@style/main_screen_layout"
-                    android:gravity="center">
-
-                    <ImageView
-                        android:id="@+id/img4"
-                        style="@style/main_screen_image"
-                        android:background="@drawable/ic_attendance_black_24dp"/>
-
-                    <TextView
-                        style="@style/main_screen_text"
-                        android:layout_below="@+id/img4"
-                        android:text="ATTENDENCE" />
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="0.5dp"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginRight="15dp"
-                        android:background="@android:color/transparent" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/layProfile"
-                    style="@style/main_screen_layout"
-                    android:gravity="center">
-
-                    <ImageView
-                        android:id="@+id/img1"
-                        style="@style/main_screen_image"
-                        android:background="@drawable/ic_profile"/>
-
-                    <TextView
-                        style="@style/main_screen_text"
-                        android:layout_below="@+id/img1"
-                        android:text="PROFILE" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/layProgressReport"
-                    style="@style/main_screen_layout"
-                    android:gravity="center">
-
-                    <ImageView
-                        android:id="@+id/img7"
-                        style="@style/main_screen_image"
-                        android:background="@drawable/ic_preport"/>
-
-                    <TextView
-                        style="@style/main_screen_text"
-                        android:layout_below="@+id/img7"
-                        android:text="PROGRESS REPORT" />
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="540dp"
-                android:layout_marginLeft="6dp"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:id="@+id/layNoticeBoard"
-                    style="@style/main_screen_layout"
-                    android:gravity="center">
-
-                    <ImageView
-                        android:id="@+id/img9"
-                        style="@style/main_screen_image"
-                        android:background="@drawable/ic_nboard"/>
-
-                    <TextView
-                        style="@style/main_screen_text"
-                        android:layout_below="@+id/img9"
-                        android:text="NOTICE BOARD" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/layEvaluation"
-                    style="@style/main_screen_layout"
-                    android:gravity="center">
-
-                    <ImageView
-                        android:id="@+id/img10"
-                        style="@style/main_screen_image"
-                        android:background="@drawable/ic_nboard"/>
-
-                    <TextView
-                        style="@style/main_screen_text"
-                        android:layout_below="@+id/img10"
-                        android:text="EVALUATION" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/layEducation"
-                    style="@style/main_screen_layout"
-                    android:gravity="center">
-
-                    <ImageView
-                        android:id="@+id/img11"
-                        style="@style/main_screen_image"
-                        android:background="@drawable/ic_education_black_24dp"/>
-
-                    <TextView
-                        style="@style/main_screen_text"
-                        android:layout_below="@+id/img11"
-                        android:text="EDUCATION" />
-
-                </LinearLayout>
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="540dp"
-                android:layout_marginBottom="6dp"
-                android:layout_marginLeft="6dp"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:id="@+id/layEnvironment"
-                    style="@style/main_screen_layout"
-                    android:gravity="center">
-
-                    <ImageView
-                        android:id="@+id/img91"
-                        style="@style/main_screen_image"
-                        android:background="@drawable/ic_nboard"/>
-
-                    <TextView
-                        style="@style/main_screen_text"
-                        android:layout_below="@+id/img91"
-                        android:text="ENVIRONMENT" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/layEmotional"
-                    style="@style/main_screen_layout"
-                    android:gravity="center">
-
-                    <ImageView
-                        android:id="@+id/img101"
-                        style="@style/main_screen_image"
-                        android:background="@drawable/ic_nboard"/>
-
-                    <TextView
-                        style="@style/main_screen_text"
-                        android:layout_below="@+id/img101"
-                        android:text="EMOTIONAL EVALUATION" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/layActivity"
-                    style="@style/main_screen_layout"
-                    android:gravity="center">
-
-                    <ImageView
-                        android:id="@+id/img111"
-                        style="@style/main_screen_image"
-                        android:background="@drawable/ic_calendar_black_24dp"/>
-
-                    <TextView
-                        style="@style/main_screen_text"
-                        android:layout_below="@+id/img111"
-                        android:text="ACTIVITY" />
-
-                </LinearLayout>
-
-                <View
-                    android:layout_width="0.5dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginBottom="15dp"
-                    android:layout_marginTop="15dp"
-                    android:background="@android:color/transparent" />
-
-            </LinearLayout>
+                android:layout_height="0.5dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@android:color/transparent" />
 
         </LinearLayout>
 
-    </android.support.v7.widget.CardView>
+        <LinearLayout
+            android:id="@+id/layProfile"
+            style="@style/main_screen_layout"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/img1"
+                style="@style/main_screen_image"
+                android:background="@drawable/profile"/>
+
+            <TextView
+                style="@style/main_screen_text"
+                android:layout_below="@+id/img1"
+                android:text="PROFILE" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layProgressReport"
+            style="@style/main_screen_layout"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/img7"
+                style="@style/main_screen_image"
+                android:background="@drawable/progress_report"/>
+
+            <TextView
+                style="@style/main_screen_text"
+                android:layout_below="@+id/img7"
+                android:text="PROGRESS \n REPORT" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="540dp"
+        android:layout_marginLeft="2dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/layNoticeBoard"
+            style="@style/main_screen_layout"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/img9"
+                style="@style/main_screen_image"
+                android:background="@drawable/noticeboard"/>
+
+            <TextView
+                style="@style/main_screen_text"
+                android:layout_below="@+id/img9"
+                android:text="NOTICE BOARD" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layEvaluation"
+            style="@style/main_screen_layout"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/img10"
+                style="@style/main_screen_image"
+                android:background="@drawable/evaluation"/>
+
+            <TextView
+                style="@style/main_screen_text"
+                android:layout_below="@+id/img10"
+                android:text="EVALUATION" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layEducation"
+            style="@style/main_screen_layout"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/img11"
+                style="@style/main_screen_image"
+                android:background="@drawable/education"/>
+
+            <TextView
+                style="@style/main_screen_text"
+                android:layout_below="@+id/img11"
+                android:text="EDUCATION" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="540dp"
+        android:layout_marginLeft="2dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/layEnvironment"
+            style="@style/main_screen_layout"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/img91"
+                style="@style/main_screen_image"
+                android:background="@drawable/environment"/>
+
+            <TextView
+                style="@style/main_screen_text"
+                android:layout_below="@+id/img91"
+                android:text="ENVIRONMENT" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layEmotional"
+            style="@style/main_screen_layout"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/img101"
+                style="@style/main_screen_image"
+                android:background="@drawable/emotional_evaluation"/>
+
+            <TextView
+                style="@style/main_screen_text"
+                android:layout_below="@+id/img101"
+                android:text="EMOTIONAL EVALUATION" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layActivity"
+            style="@style/main_screen_layout"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/img111"
+                style="@style/main_screen_image"
+                android:background="@drawable/activity"/>
+
+            <TextView
+                style="@style/main_screen_text"
+                android:layout_below="@+id/img111"
+                android:text="ACTIVITY" />
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
 
 </LinearLayout>

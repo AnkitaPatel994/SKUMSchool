@@ -8,42 +8,42 @@
             android:title="Home"/>
         <item
             android:id="@+id/nav_attendence"
-            android:icon="@drawable/ic_attend"
+            android:icon="@drawable/attendace"
             android:title="Attendence"/>
         <item
             android:id="@+id/nav_profile"
-            android:icon="@drawable/ic_profile"
+            android:icon="@drawable/profile"
             android:title="Profile" />
         <item
             android:id="@+id/nav_progessreport"
-            android:icon="@drawable/ic_preport"
+            android:icon="@drawable/progress_report"
             android:title="Progress Report" />
         <item
             android:id="@+id/nav_noticeboard"
-            android:icon="@drawable/ic_nboard"
+            android:icon="@drawable/noticeboard"
             android:title="Notice Board" />
         <item
             android:id="@+id/nav_evaluation"
-            android:icon="@drawable/ic_nboard"
+            android:icon="@drawable/evaluation"
             android:title="Evaluation" />
         <item
             android:id="@+id/nav_education"
-            android:icon="@drawable/ic_education_black_24dp"
-            android:title="Education" />
+            android:icon="@drawable/education"
+            android:title="Education"/>
 
         <item
             android:id="@+id/nav_environment"
-            android:icon="@drawable/ic_nboard"
+            android:icon="@drawable/environment"
             android:title="Environment" />
 
         <item
             android:id="@+id/nav_emotional"
-            android:icon="@drawable/ic_nboard"
+            android:icon="@drawable/emotional_evaluation"
             android:title="Emotional Evaluation" />
 
         <item
             android:id="@+id/nav_activity"
-            android:icon="@drawable/ic_calendar_black_24dp"
+            android:icon="@drawable/activity"
             android:title="Activity" />
         <item
             android:id="@+id/nav_chgpass"

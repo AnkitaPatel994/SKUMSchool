@@ -30,20 +30,21 @@ import com.intelliworkz.skumschool.R;
 public class HomeActivity extends AppCompatActivity {
  
 
-    LinearLayout layAttendence,layProfile,layProgressReport,layNoticeBoard,layActivity;
+    LinearLayout layAttendence,layProfile,layProgressReport,layNoticeBoard,layEvaluation,layEducation,layEnvironment,layEmotional,layActivity;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setTitle(R.string.app_title);
         setContentView(R.layout.activity_home);
-     
 
-     
         layAttendence = (LinearLayout)findViewById(R.id.layAttendence);
         layProfile = (LinearLayout)findViewById(R.id.layProfile);
         layProgressReport = (LinearLayout)findViewById(R.id.layProgressReport);
         layNoticeBoard = (LinearLayout)findViewById(R.id.layNoticeBoard);
-
+        layEvaluation = (LinearLayout)findViewById(R.id.layEvaluation);
+        layEducation = (LinearLayout)findViewById(R.id.layEducation);
+        layEnvironment = (LinearLayout)findViewById(R.id.layEnvironment);
+        layEmotional = (LinearLayout)findViewById(R.id.layEmotional);
         layActivity = (LinearLayout)findViewById(R.id.layActivity);
 
         layAttendence.setOnClickListener(new View.OnClickListener() {
@@ -77,6 +78,38 @@ public class HomeActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(HomeActivity.this,NoticeBoardActivity.class);
                 startActivity(i);
+            }
+        });
+
+        layEvaluation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                /*Intent i = new Intent(HomeActivity.this,NoticeBoardActivity.class);
+                startActivity(i);*/
+            }
+        });
+
+        layEducation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                /*Intent i = new Intent(HomeActivity.this,NoticeBoardActivity.class);
+                startActivity(i);*/
+            }
+        });
+
+        layEnvironment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                /*Intent i = new Intent(HomeActivity.this,NoticeBoardActivity.class);
+                startActivity(i);*/
+            }
+        });
+
+        layEmotional.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                /*Intent i = new Intent(HomeActivity.this,NoticeBoardActivity.class);
+                startActivity(i);*/
             }
         });
 

@@ -12,13 +12,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
+import com.applandeo.materialcalendarview.CalendarView;
 import com.intelliworkz.skumschool.R;
 
 public class CalenderActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-
+    CalendarView calendarView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +37,8 @@ public class CalenderActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        /*-----------------------Calender page----------------------*/
+        /*----------------------- Calender page ----------------------*/
+        calendarView = (CalendarView)findViewById(R.id.calendarView);
 
     }
 

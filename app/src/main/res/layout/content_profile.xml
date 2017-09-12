@@ -209,6 +209,57 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="1"
+                    android:background="@android:drawable/editbox_background"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:id="@+id/txtGRNo"
+                        style="@style/profile_screen_imp_text"
+                        android:textColor="@color/colorPrimary"/>
+
+                    <TextView
+                        style="@style/profile_screen_text"
+                        android:textSize="9dp"
+                        android:text="@string/txt_GRNo"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:drawable/editbox_background"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:id="@+id/txtVanNo"
+                        style="@style/profile_screen_imp_text"
+                        android:textColor="@color/colorPrimary"/>
+
+                    <TextView
+                        style="@style/profile_screen_text"
+                        android:textSize="9dp"
+                        android:text="@string/txt_VanNo"/>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:background="@android:drawable/editbox_background"
                 android:orientation="vertical"
                 android:padding="20dp">
@@ -264,10 +315,10 @@
                         <TextView
                             style="@style/profile_screen_text"
                             android:textSize="9dp"
-                            android:text="@string/txt_cast"/>
+                            android:text="@string/txt_mobile"/>
 
                         <TextView
-                            android:id="@+id/txtCast"
+                            android:id="@+id/txtMobile"
                             style="@style/profile_screen_imp_text"
                             android:textColor="#595959"
                             android:textSize="13dp"/>
@@ -281,26 +332,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            style="@style/profile_screen_text"
-                            android:textSize="9dp"
-                            android:text="@string/txt_mobile"/>
-
-                        <TextView
-                            android:id="@+id/txtMobile"
-                            style="@style/profile_screen_imp_text"
-                            android:textColor="#595959"
-                            android:textSize="13dp"/>
-
-                    </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -326,6 +357,108 @@
                 </LinearLayout>
 
             </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:drawable/editbox_background"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    style="@style/profile_screen_text"
+                    android:text="@string/txt_mothername"/>
+
+                <TextView
+                    android:id="@+id/txtMotherName"
+                    style="@style/profile_screen_imp_text"
+                    android:textColor="@color/colorPrimary"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:background="#ccc" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/profile_screen_text"
+                            android:text="@string/txt_occupation"
+                            android:textSize="9dp"/>
+
+                        <TextView
+                            android:id="@+id/txtMOccupation"
+                            style="@style/profile_screen_imp_text"
+                            android:textColor="#595959"
+                            android:textSize="13dp"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/profile_screen_text"
+                            android:textSize="9dp"
+                            android:text="@string/txt_mobile"/>
+
+                        <TextView
+                            android:id="@+id/txtMMobile"
+                            style="@style/profile_screen_imp_text"
+                            android:textColor="#595959"
+                            android:textSize="13dp"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/profile_screen_text"
+                            android:textSize="9dp"
+                            android:text="@string/txt_emailId"/>
+
+                        <TextView
+                            android:id="@+id/txtMEmail"
+                            style="@style/profile_screen_imp_text"
+                            android:textColor="#595959"
+                            android:textAllCaps="false"
+                            android:textSize="13dp"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
         </LinearLayout>
     </ScrollView>
 

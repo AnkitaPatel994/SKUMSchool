@@ -3,21 +3,29 @@ package com.intelliworkz.skumschool.Login;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.os.AsyncTask;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.intelliworkz.skumschool.Forgot_Password.Forgot_PasswordActivity;
+import com.intelliworkz.skumschool.Postdata;
 import com.intelliworkz.skumschool.R;
 import com.intelliworkz.skumschool.Home.HomeActivity;
+import com.intelliworkz.skumschool.SplashScreen.MainActivity;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.Locale;
 
@@ -33,6 +41,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setTitle(R.string.app_title);
         setContentView(R.layout.activity_login);
 
@@ -108,14 +117,37 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+
+
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*if(txtUsername.getText().toString().equals("admin") && txtPassword.getText().toString().equals("admin"))
+
+                String Username = txtUsername.getText().toString();
+                String Password = txtPassword.getText().toString();
+
+                if(Username.equals("") && Password.equals(""))
                 {
-                    Intent i=new Intent(getApplicationContext(),HomeActivity.class);
+                    validateUname();
+                }
+                else if (Password.equals(""))
+                {
+                    validatePassword();
+                }
+                else
+                {
+                    GetLoginValid  loginValid = new GetLoginValid(Username,Password);
+                    loginValid.execute();
+                }
+
+
+
+                /*if(Username.equals("admin") && Password.equals("admin"))
+                {
+                    *//*Intent i=new Intent(getApplicationContext(),HomeActivity.class);
                     startActivity(i);
-                    finish();
+                    finish();*//*
+                    Toast.makeText(getApplicationContext(),"SuccessFully",Toast.LENGTH_SHORT).show();
                 }
                 else if (!validateUname())
                 {
@@ -126,9 +158,9 @@ public class LoginActivity extends AppCompatActivity {
                     return;
 
                 }*/
-                Intent i=new Intent(getApplicationContext(),HomeActivity.class);
+                /*Intent i=new Intent(getApplicationContext(),HomeActivity.class);
                 startActivity(i);
-                finish();
+                finish();*/
 
             }
         });
@@ -138,12 +170,6 @@ public class LoginActivity extends AppCompatActivity {
     private boolean validateUname() {
 
         if (txtUsername.getText().toString().trim().isEmpty())
-        {
-            inputLayoutUname.setError(getString(R.string.err_msg_uname));
-            requestFocus(txtUsername);
-            return false;
-        }
-        else if (!txtUsername.getText().toString().trim().equals("admin"))
         {
             inputLayoutUname.setError(getString(R.string.err_msg_uname));
             requestFocus(txtUsername);
@@ -159,12 +185,6 @@ public class LoginActivity extends AppCompatActivity {
     private boolean validatePassword() {
 
         if (txtPassword.getText().toString().trim().isEmpty())
-        {
-            inputLayoutPass.setError(getString(R.string.err_msg_pass));
-            requestFocus(txtPassword);
-            return false;
-        }
-        else if (!txtPassword.getText().toString().trim().equals("admin"))
         {
             inputLayoutPass.setError(getString(R.string.err_msg_pass));
             requestFocus(txtPassword);
@@ -253,4 +273,62 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
+    private class GetLoginValid extends AsyncTask<String,Void,String> {
+
+        String username,password,status,message;
+
+        public GetLoginValid(String username, String password) {
+
+            this.username = username;
+            this.password = password;
+        }
+
+        @Override
+        protected String doInBackground(String... params) {
+
+            JSONObject loginList=new JSONObject();
+            try
+            {
+                loginList.put("uname",username);
+                loginList.put("pass",password);
+                Postdata postdata=new Postdata();
+                String loginPd=postdata.post(MainActivity.mainUrl+"login.php",loginList.toString());
+                JSONObject j=new JSONObject(loginPd);
+                status=j.getString("status");
+                if(status.equals("1"))
+                {
+                    Log.d("Like","Successfully");
+                    message = j.getString("message");
+                }
+                else
+                {
+                    message = j.getString("message");
+                }
+            }
+            catch (JSONException e)
+            {
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+
+            if(status.equals("1"))
+            {
+                Intent i=new Intent(getApplicationContext(),HomeActivity.class);
+                startActivity(i);
+                finish();
+            }
+            else
+            {
+                txtUsername.setText("");
+                txtPassword.setText("");
+                validateUname();
+                validatePassword();
+            }
+        }
+    }
 }

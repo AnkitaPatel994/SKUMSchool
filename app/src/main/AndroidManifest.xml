@@ -45,6 +45,22 @@
         <activity
             android:name=".Calender.CalenderActivity"
             android:label="@string/title_activity_calender"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Evaluation.EvaluationActivity"
+            android:label="@string/title_activity_evaluation"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Education.EducationActivity"
+            android:label="@string/title_activity_education"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Environment.EnvironmentActivity"
+            android:label="@string/title_activity_environment"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Emotional_Evaluation.Emotional_EvaluationActivity"
+            android:label="@string/title_activity_emotional__evaluation"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

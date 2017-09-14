@@ -47,7 +47,7 @@
             android:title="Activity" />
         <item
             android:id="@+id/nav_chgpass"
-            android:icon="@drawable/ic_change_password_black_24dp"
+            android:icon="@drawable/change_password"
             android:title="Change Password" />
         <item
             android:id="@+id/nav_share"

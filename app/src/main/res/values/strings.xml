@@ -8,6 +8,10 @@
     <string name="title_activity_profile">SKUM School</string>
     <string name="title_activity_progress_report">SKUM School</string>
     <string name="title_activity_calender">SKUM School</string>
+    <string name="title_activity_evaluation">SKUM School</string>
+    <string name="title_activity_education">SKUM School</string>
+    <string name="title_activity_environment">SKUM School</string>
+    <string name="title_activity_emotional__evaluation">SKUM School</string>
 
     <!--Login Activity Page-->
     <string name="txt_hint_username">Enter Your UserName</string>
@@ -25,6 +29,12 @@
     <string name="txt_hint_email">Enter Your Email Id</string>
     <string name="err_msg_email">Enter valid Email Id.</string>
     <string name="btn_submit">Submit</string>
+
+    <!--Change Password Activity Page-->
+    <string name="txt_hint_oldPass">Enter Your Old Password</string>
+    <string name="err_msg_oldPass">Enter valid Old Password.</string>
+    <string name="txt_hint_newPass">Enter Your New Password</string>
+    <string name="err_msg_newPass">Enter valid New Password.</string>
 
     <!--Navigation Deawer-->
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -46,7 +56,6 @@
     <string name="txt_emailId">Email Id</string>
     <string name="txt_GRNo">G. R. No</string>
     <string name="txt_VanNo">Van. No</string>
-
 
 
 </resources>

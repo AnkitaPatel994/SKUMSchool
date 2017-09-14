@@ -21,6 +21,10 @@ import android.widget.Toast;
 import com.intelliworkz.skumschool.Attendence.AttendenceActivity;
 import com.intelliworkz.skumschool.Calender.CalenderActivity;
 import com.intelliworkz.skumschool.ChangePassword.ChangePasswordActivity;
+import com.intelliworkz.skumschool.Education.EducationActivity;
+import com.intelliworkz.skumschool.Emotional_Evaluation.Emotional_EvaluationActivity;
+import com.intelliworkz.skumschool.Environment.EnvironmentActivity;
+import com.intelliworkz.skumschool.Evaluation.EvaluationActivity;
 import com.intelliworkz.skumschool.Login.LoginActivity;
 import com.intelliworkz.skumschool.NoticeBoard.NoticeBoardActivity;
 import com.intelliworkz.skumschool.Profile.ProfileActivity;
@@ -84,32 +88,32 @@ public class HomeActivity extends AppCompatActivity {
         layEvaluation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*Intent i = new Intent(HomeActivity.this,NoticeBoardActivity.class);
-                startActivity(i);*/
+                Intent i = new Intent(HomeActivity.this,EvaluationActivity.class);
+                startActivity(i);
             }
         });
 
         layEducation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*Intent i = new Intent(HomeActivity.this,NoticeBoardActivity.class);
-                startActivity(i);*/
+                Intent i = new Intent(HomeActivity.this,EducationActivity.class);
+                startActivity(i);
             }
         });
 
         layEnvironment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*Intent i = new Intent(HomeActivity.this,NoticeBoardActivity.class);
-                startActivity(i);*/
+                Intent i = new Intent(HomeActivity.this,EnvironmentActivity.class);
+                startActivity(i);
             }
         });
 
         layEmotional.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*Intent i = new Intent(HomeActivity.this,NoticeBoardActivity.class);
-                startActivity(i);*/
+                Intent i = new Intent(HomeActivity.this,Emotional_EvaluationActivity.class);
+                startActivity(i);
             }
         });
 
@@ -122,5 +126,28 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.home_toolbar, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        int id = item.getItemId();
+
+        if (id == R.id.home_cp) {
+            Intent i = new Intent(getApplicationContext(),ChangePasswordActivity.class);
+            startActivity(i);
+        }
+        else if (id == R.id.home_logout)
+        {
+            Intent i = new Intent(this, LoginActivity.class);
+            startActivity(i);
+            finish();
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

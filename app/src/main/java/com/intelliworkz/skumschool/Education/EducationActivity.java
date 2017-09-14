@@ -1,22 +1,25 @@
-package com.intelliworkz.skumschool.Attendence;
+package com.intelliworkz.skumschool.Education;
 
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
+import android.util.Log;
+import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.intelliworkz.skumschool.Attendence.AttendenceActivity;
 import com.intelliworkz.skumschool.Calender.CalenderActivity;
 import com.intelliworkz.skumschool.ChangePassword.ChangePasswordActivity;
-import com.intelliworkz.skumschool.Education.EducationActivity;
 import com.intelliworkz.skumschool.Emotional_Evaluation.Emotional_EvaluationActivity;
 import com.intelliworkz.skumschool.Environment.EnvironmentActivity;
 import com.intelliworkz.skumschool.Evaluation.EvaluationActivity;
@@ -27,16 +30,16 @@ import com.intelliworkz.skumschool.Profile.ProfileActivity;
 import com.intelliworkz.skumschool.ProgressReport.ProgressReportActivity;
 import com.intelliworkz.skumschool.R;
 
-public class AttendenceActivity extends AppCompatActivity
+public class EducationActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_attendence);
+        setContentView(R.layout.activity_education);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -47,7 +50,7 @@ public class AttendenceActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         Menu menu = navigationView.getMenu();
-        MenuItem menuItem = menu.getItem(1);
+        MenuItem menuItem = menu.getItem(6);
         menuItem.setChecked(true);
     }
 
@@ -61,15 +64,21 @@ public class AttendenceActivity extends AppCompatActivity
         }
     }
 
+
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
-
         int id = item.getItemId();
 
         if (id == R.id.nav_home)
         {
             Intent i = new Intent(this, HomeActivity.class);
+            startActivity(i);
+            finish();
+        }
+        else if (id == R.id.nav_attendence)
+        {
+            Intent i = new Intent(this, AttendenceActivity.class);
             startActivity(i);
             finish();
         }
@@ -94,12 +103,6 @@ public class AttendenceActivity extends AppCompatActivity
         else if (id == R.id.nav_evaluation)
         {
             Intent i = new Intent(this, EvaluationActivity.class);
-            startActivity(i);
-            finish();
-        }
-        else if (id == R.id.nav_education)
-        {
-            Intent i = new Intent(this, EducationActivity.class);
             startActivity(i);
             finish();
         }

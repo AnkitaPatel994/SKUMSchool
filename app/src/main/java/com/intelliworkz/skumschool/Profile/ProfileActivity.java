@@ -20,8 +20,13 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.intelliworkz.skumschool.Attendence.AttendenceActivity;
+import com.intelliworkz.skumschool.Calender.CalenderActivity;
 import com.intelliworkz.skumschool.ChangePassword.ChangePasswordActivity;
 
+import com.intelliworkz.skumschool.Education.EducationActivity;
+import com.intelliworkz.skumschool.Emotional_Evaluation.Emotional_EvaluationActivity;
+import com.intelliworkz.skumschool.Environment.EnvironmentActivity;
+import com.intelliworkz.skumschool.Evaluation.EvaluationActivity;
 import com.intelliworkz.skumschool.Home.HomeActivity;
 import com.intelliworkz.skumschool.Login.LoginActivity;
 import com.intelliworkz.skumschool.NoticeBoard.NoticeBoardActivity;
@@ -153,6 +158,36 @@ public class ProfileActivity extends AppCompatActivity
         else if (id == R.id.nav_noticeboard)
         {
             Intent i = new Intent(this, NoticeBoardActivity.class);
+            startActivity(i);
+            finish();
+        }
+        else if (id == R.id.nav_evaluation)
+        {
+            Intent i = new Intent(this, EvaluationActivity.class);
+            startActivity(i);
+            finish();
+        }
+        else if (id == R.id.nav_education)
+        {
+            Intent i = new Intent(this, EducationActivity.class);
+            startActivity(i);
+            finish();
+        }
+        else if (id == R.id.nav_environment)
+        {
+            Intent i = new Intent(this, EnvironmentActivity.class);
+            startActivity(i);
+            finish();
+        }
+        else if (id == R.id.nav_emotional)
+        {
+            Intent i = new Intent(this, Emotional_EvaluationActivity.class);
+            startActivity(i);
+            finish();
+        }
+        else if (id == R.id.nav_activity)
+        {
+            Intent i = new Intent(this, CalenderActivity.class);
             startActivity(i);
             finish();
         }

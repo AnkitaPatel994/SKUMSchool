@@ -56,6 +56,22 @@
     <string name="txt_emailId">Email Id</string>
     <string name="txt_GRNo">G. R. No</string>
     <string name="txt_VanNo">Van. No</string>
-
+    <string name="title_activity_add_student">AddStudentActivity</string>
+    
+    <!--Add Student Page-->
+    <string name="txt_hint_stdname">Enter Student Name</string>
+    <string name="txt_hint_grno">Enter GR No</string>
+    <string name="txt_hint_vanno">Enter Van No</string>
+    <string name="txt_hint_standard">Enter Standard</string>
+    <string name="txt_hint_div">Enter Division</string>
+    <string name="txt_hint_rno">Enter Roll No</string>
+    <string name="txt_hint_dob">Enter Birth Date</string>
+    <string name="txt_hint_addr">Enter Address</string>
+    <string name="txt_hint_pcode">Enter Pin Code</string>
+    <string name="txt_hint_phone">Enter Phone No </string>
+    <string name="txt_hint_fname">Enter Father Name </string>
+    <string name="txt_hint_occup">Enter Occupation </string>
+    <string name="txt_hint_mono">Enter Mobile No </string>
+    <string name="txt_hint_mname">Enter Mother Name </string>
 
 </resources>

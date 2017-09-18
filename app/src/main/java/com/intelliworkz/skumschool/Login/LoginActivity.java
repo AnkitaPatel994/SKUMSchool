@@ -140,24 +140,6 @@ public class LoginActivity extends AppCompatActivity {
                     loginValid.execute();
                 }
 
-
-
-                /*if(Username.equals("admin") && Password.equals("admin"))
-                {
-                    *//*Intent i=new Intent(getApplicationContext(),HomeActivity.class);
-                    startActivity(i);
-                    finish();*//*
-                    Toast.makeText(getApplicationContext(),"SuccessFully",Toast.LENGTH_SHORT).show();
-                }
-                else if (!validateUname())
-                {
-                    return;
-                }
-                else if (!validatePassword())
-                {
-                    return;
-
-                }*/
                 /*Intent i=new Intent(getApplicationContext(),HomeActivity.class);
                 startActivity(i);
                 finish();*/
@@ -292,7 +274,7 @@ public class LoginActivity extends AppCompatActivity {
                 loginList.put("uname",username);
                 loginList.put("pass",password);
                 Postdata postdata=new Postdata();
-                String loginPd=postdata.post(MainActivity.mainUrl+"login.php",loginList.toString());
+                String loginPd=postdata.post(MainActivity.mainUrl+"login",loginList.toString());
                 JSONObject j=new JSONObject(loginPd);
                 status=j.getString("status");
                 if(status.equals("1"))

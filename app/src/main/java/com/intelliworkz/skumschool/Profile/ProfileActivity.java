@@ -3,6 +3,7 @@ package com.intelliworkz.skumschool.Profile;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -18,6 +19,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.intelliworkz.skumschool.Attendence.AttendenceActivity;
 import com.intelliworkz.skumschool.Calender.CalenderActivity;
@@ -28,18 +30,33 @@ import com.intelliworkz.skumschool.Emotional_Evaluation.Emotional_EvaluationActi
 import com.intelliworkz.skumschool.Environment.EnvironmentActivity;
 import com.intelliworkz.skumschool.Evaluation.EvaluationActivity;
 import com.intelliworkz.skumschool.Home.HomeActivity;
+import com.intelliworkz.skumschool.HttpHandler;
 import com.intelliworkz.skumschool.Login.LoginActivity;
 import com.intelliworkz.skumschool.NoticeBoard.NoticeBoardActivity;
+import com.intelliworkz.skumschool.Postdata;
 import com.intelliworkz.skumschool.ProgressReport.ProgressReportActivity;
 import com.intelliworkz.skumschool.R;
+import com.intelliworkz.skumschool.SplashScreen.MainActivity;
+import com.nostra13.universalimageloader.cache.memory.impl.WeakMemoryCache;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+import com.nostra13.universalimageloader.core.assist.ImageScaleType;
+import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class ProfileActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     CircleImageView profile_image;
-    TextView txtStudentName,txtClass,txtRollNo,txtMedium,txtAddress,txtBOD,txtAddmissionDate,txtFatherName,txtOccupation,txtMobile,txtEmail,txtGRNo,txtVanNo,txtMotherName,txtMOccupation,txtMMobile,txtMEmail;
-    String StudentName,Class,Rollno,Medium,Address,BOD,GRNo,VanNo,AddmissionDate,FatherName,Occupation,Mobile,Email,MotherName,MOccupation,MMobile,MEmail;
+    TextView txtMoEmail,txtStudentName,txtClass,txtRollNo,txtMedium,txtAddress,txtBOD,txtAddmissionDate,txtFatherName,txtOccupation,txtMobile,txtEmail,txtGRNo,txtVanNo,txtMotherName,txtMOccupation,txtMMobile,txtMEmail;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,6 +81,8 @@ public class ProfileActivity extends AppCompatActivity
 
         /*-----------------Start Profile Activity Page--------------------*/
 
+        txtMoEmail = (TextView) findViewById(R.id.txtMoEmail);
+
         profile_image = (CircleImageView) findViewById(R.id.profile_image);
         txtStudentName = (TextView) findViewById(R.id.txtStudentName);
         txtClass = (TextView) findViewById(R.id.txtClass);
@@ -83,41 +102,10 @@ public class ProfileActivity extends AppCompatActivity
         txtMMobile = (TextView) findViewById(R.id.txtMMobile);
         txtMEmail = (TextView) findViewById(R.id.txtMEmail);
 
-        StudentName = "Ankita Patel";
-        Class ="7D";
-        Rollno = "75";
-        Medium = "ENG";
-        Address = "Plot no-721, Ekata Colony, Sector-27, Gandhinagar, Gujarat - 282027";
-        BOD = "15 March 1994";
-        GRNo = "G. J. 18";
-        VanNo = "155036";
-        AddmissionDate = "26 June 2017";
-        FatherName = "Pravinbhai Dahyabhai Patel";
-        Occupation = "Business";
-        Mobile = "9925740359";
-        Email = "patelankita994@gmail.com";
-        MotherName = "Patel Parvatiben Pravinbhai";
-        MOccupation = "Business";
-        MMobile = "9925740359";
-        MEmail = "patelankita994@gmail.com";
+        GetProfileList profileList = new GetProfileList();
+        profileList.execute();
 
-        txtStudentName.setText(StudentName);
-        txtClass.setText(Class);
-        txtRollNo.setText(Rollno);
-        txtMedium.setText(Medium);
-        txtAddress.setText(Address);
-        txtBOD.setText(BOD);
-        txtGRNo.setText(GRNo);
-        txtVanNo.setText(VanNo);
-        txtAddmissionDate.setText(AddmissionDate);
-        txtFatherName.setText(FatherName);
-        txtOccupation.setText(Occupation);
-        txtMobile.setText(Mobile);
-        txtEmail.setText(Email);
-        txtMotherName.setText(MotherName);
-        txtMOccupation.setText(MOccupation);
-        txtMMobile.setText(MMobile);
-        txtMEmail.setText(MEmail);
+        /**/
 
     }
 
@@ -242,6 +230,119 @@ public class ProfileActivity extends AppCompatActivity
         catch (ActivityNotFoundException e)
         {
             return false;
+        }
+    }
+
+    private class GetProfileList extends AsyncTask<String,Void,String> {
+        String status,message;
+        String StudentName,pic,Class,Rollno,Medium,Address,BOD,GRNo,VanNo,AddmissionDate,FatherName,Occupation,Mobile,Email,MotherName,MOccupation,MMobile,MEmail;
+        @Override
+        protected String doInBackground(String... params) {
+
+            JSONObject stuList=new JSONObject();
+            try {
+                stuList.put("profile_id","1");
+                Postdata postdata=new Postdata();
+                String stuPd=postdata.post(MainActivity.mainUrl+"profile",stuList.toString());
+                JSONObject j=new JSONObject(stuPd);
+                status=j.getString("status");
+                if(status.equals("1"))
+                {
+                    Log.d("Like","Successfully");
+                    message = j.getString("message");
+                    JSONArray JsArry=j.getJSONArray("profile");
+
+                    for (int i=0;i<JsArry.length();i++)
+                    {
+
+                        JSONObject jo=JsArry.getJSONObject(i);
+
+                        StudentName = jo.getString("name");
+                        pic =  jo.getString("pic");
+                        Class = jo.getString("class");
+                        Rollno = jo.getString("rollno");
+                        Medium = jo.getString("medium");
+                        Address = jo.getString("address");
+                        BOD = jo.getString("bod");
+                        AddmissionDate = jo.getString("addmissionDate");
+                        GRNo = jo.getString("gr_no");
+                        VanNo = jo.getString("van_no");
+                        FatherName = jo.getString("f_name");
+                        Occupation = jo.getString("f_occupation");
+                        Mobile = jo.getString("f_mobile");
+                        Email = jo.getString("f_emailid");
+                        MotherName = jo.getString("m_name");
+                        MOccupation = jo.getString("m_occupation");
+                        MMobile = jo.getString("m_mobile");
+                        MEmail = jo.getString("m_emailid");
+
+                    }
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+
+            if(status.equals("1"))
+            {
+                /*if(MEmail.equals(""))
+                {
+                    txtMEmail.setVisibility(View.GONE);
+                    txtMoEmail.setVisibility(View.GONE);
+                }
+                else
+                {
+                    txtMEmail.setText(MEmail);
+                }*/
+                txtMEmail.setText(MEmail);
+                txtStudentName.setText(StudentName);
+                txtClass.setText(Class);
+                txtRollNo.setText(Rollno);
+                txtMedium.setText(Medium);
+                txtAddress.setText(Address);
+                txtBOD.setText(BOD);
+                txtGRNo.setText(GRNo);
+                txtVanNo.setText(VanNo);
+                txtAddmissionDate.setText(AddmissionDate);
+                txtFatherName.setText(FatherName);
+                txtOccupation.setText(Occupation);
+                txtMobile.setText(Mobile);
+                txtEmail.setText(Email);
+                txtMotherName.setText(MotherName);
+                txtMOccupation.setText(MOccupation);
+                txtMMobile.setText(MMobile);
+
+                DisplayImageOptions defaultOptions = new DisplayImageOptions.Builder()
+                        .cacheOnDisc(true).cacheInMemory(true)
+                        .imageScaleType(ImageScaleType.EXACTLY)
+                        .displayer(new FadeInBitmapDisplayer(300)).build();
+                final ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(ProfileActivity.this)
+                        .defaultDisplayImageOptions(defaultOptions)
+                        .memoryCache(new WeakMemoryCache())
+                        .discCacheSize(100 * 1024 * 1024).build();
+
+                ImageLoader.getInstance().init(config);
+
+                ImageLoader imageLoader = ImageLoader.getInstance();
+                int fallback = 0;
+                DisplayImageOptions options = new DisplayImageOptions.Builder().cacheInMemory(true)
+                        .cacheOnDisc(true).resetViewBeforeLoading(true)
+                        .showImageForEmptyUri(fallback)
+                        .showImageOnFail(fallback)
+                        .showImageOnLoading(fallback).build();
+
+                imageLoader.displayImage(pic,profile_image, options);
+            }
+            else
+            {
+                Toast.makeText(getApplicationContext(),"Not record",Toast.LENGTH_SHORT).show();
+            }
         }
     }
 }

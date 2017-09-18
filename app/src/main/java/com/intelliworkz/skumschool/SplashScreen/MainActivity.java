@@ -14,7 +14,8 @@ import com.intelliworkz.skumschool.Login.LoginActivity;
 public class MainActivity extends AppCompatActivity {
     LinearLayout lnSnackbar;
 
-    public static String mainUrl = "http://10.0.3.2/SKUMSchool/";
+    public static String mainUrl = "http://www.skumschool.com/webservices/";
+    public static String mainUrl1 = "http://10.0.3.2/SKUMSchool/";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

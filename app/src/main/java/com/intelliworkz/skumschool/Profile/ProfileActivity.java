@@ -250,33 +250,27 @@ public class ProfileActivity extends AppCompatActivity
                 {
                     Log.d("Like","Successfully");
                     message = j.getString("message");
-                    JSONArray JsArry=j.getJSONArray("profile");
+                    JSONObject jo=j.getJSONObject("profile");
 
-                    for (int i=0;i<JsArry.length();i++)
-                    {
+                    StudentName = jo.getString("name");
+                    pic =  jo.getString("pic");
+                    Class = jo.getString("class");
+                    Rollno = jo.getString("rollno");
+                    Medium = jo.getString("medium");
+                    Address = jo.getString("address");
+                    BOD = jo.getString("bod");
+                    AddmissionDate = jo.getString("addmissionDate");
+                    GRNo = jo.getString("gr_no");
+                    VanNo = jo.getString("van_no");
+                    FatherName = jo.getString("f_name");
+                    Occupation = jo.getString("f_occupation");
+                    Mobile = jo.getString("f_mobile");
+                    Email = jo.getString("f_emailid");
+                    MotherName = jo.getString("m_name");
+                    MOccupation = jo.getString("m_occupation");
+                    MMobile = jo.getString("m_mobile");
+                    MEmail = jo.getString("m_emailid");
 
-                        JSONObject jo=JsArry.getJSONObject(i);
-
-                        StudentName = jo.getString("name");
-                        pic =  jo.getString("pic");
-                        Class = jo.getString("class");
-                        Rollno = jo.getString("rollno");
-                        Medium = jo.getString("medium");
-                        Address = jo.getString("address");
-                        BOD = jo.getString("bod");
-                        AddmissionDate = jo.getString("addmissionDate");
-                        GRNo = jo.getString("gr_no");
-                        VanNo = jo.getString("van_no");
-                        FatherName = jo.getString("f_name");
-                        Occupation = jo.getString("f_occupation");
-                        Mobile = jo.getString("f_mobile");
-                        Email = jo.getString("f_emailid");
-                        MotherName = jo.getString("m_name");
-                        MOccupation = jo.getString("m_occupation");
-                        MMobile = jo.getString("m_mobile");
-                        MEmail = jo.getString("m_emailid");
-
-                    }
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -291,7 +285,7 @@ public class ProfileActivity extends AppCompatActivity
 
             if(status.equals("1"))
             {
-                /*if(MEmail.equals(""))
+                if(MEmail.equals(""))
                 {
                     txtMEmail.setVisibility(View.GONE);
                     txtMoEmail.setVisibility(View.GONE);
@@ -299,7 +293,7 @@ public class ProfileActivity extends AppCompatActivity
                 else
                 {
                     txtMEmail.setText(MEmail);
-                }*/
+                }
                 txtMEmail.setText(MEmail);
                 txtStudentName.setText(StudentName);
                 txtClass.setText(Class);

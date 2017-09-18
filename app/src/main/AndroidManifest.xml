@@ -61,7 +61,12 @@
         <activity
             android:name=".Emotional_Evaluation.Emotional_EvaluationActivity"
             android:label="@string/title_activity_emotional__evaluation"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".AdminHome.AdminHomeActivity" />
+        <activity
+            android:name=".AdminAddStudent.AddStudentActivity"
+            android:label="@string/title_activity_add_student"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

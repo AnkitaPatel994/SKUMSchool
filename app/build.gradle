@@ -27,15 +27,16 @@ dependencies {
 
     compile files('libs/okhttp-2.5.0.jar')
     compile files('libs/okio-1.6.0.jar')
+
+    //circleImage
+
+    //setImageView
+
+
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.android.support:design:25.3.1'
-
-    //circleImage
     compile 'de.hdodenhof:circleimageview:2.1.0'
-
-    //setImageView
     compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
-
     testCompile 'junit:junit:4.12'
 }

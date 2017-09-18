@@ -18,6 +18,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.intelliworkz.skumschool.AdminAddStudent.AddStudentActivity;
+import com.intelliworkz.skumschool.AdminHome.AdminHomeActivity;
 import com.intelliworkz.skumschool.Forgot_Password.Forgot_PasswordActivity;
 import com.intelliworkz.skumschool.Postdata;
 import com.intelliworkz.skumschool.R;
@@ -140,7 +142,7 @@ public class LoginActivity extends AppCompatActivity {
                     loginValid.execute();
                 }
 
-                /*Intent i=new Intent(getApplicationContext(),HomeActivity.class);
+               /* Intent i=new Intent(getApplicationContext(),HomeActivity.class);
                 startActivity(i);
                 finish();*/
 

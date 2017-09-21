@@ -259,7 +259,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private class GetLoginValid extends AsyncTask<String,Void,String> {
 
-        String username,password,status,message;
+        String username,password,status,message,role;
 
         public GetLoginValid(String username, String password) {
 
@@ -283,6 +283,7 @@ public class LoginActivity extends AppCompatActivity {
                 {
                     Log.d("Like","Successfully");
                     message = j.getString("message");
+                    role = j.getString("role");
                 }
                 else
                 {
@@ -302,9 +303,18 @@ public class LoginActivity extends AppCompatActivity {
 
             if(status.equals("1"))
             {
-                Intent i=new Intent(getApplicationContext(),HomeActivity.class);
-                startActivity(i);
-                finish();
+                if(role.equals("Student"))
+                {
+                    Intent i=new Intent(getApplicationContext(),HomeActivity.class);
+                    startActivity(i);
+                    finish();
+                }
+                else if(role.equals("Admin"))
+                {
+                    Intent i=new Intent(getApplicationContext(),HomeActivity.class);
+                    startActivity(i);
+                    finish();
+                }
             }
             else
             {

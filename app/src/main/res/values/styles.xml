@@ -55,6 +55,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">center</item>
         <item name="android:textSize">12dp</item>
+        <item name="android:textAllCaps">true</item>
         <item name="android:layout_centerInParent">true</item>
         <item name="android:textColor">@color/colorPrimaryDark</item>
     </style>
@@ -74,6 +75,57 @@
         <item name="android:textSize">15dp</item>
         <item name="android:textAllCaps">true</item>
     </style>
+
+    <style name="admin_attendence_screen_lay">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:layout_marginLeft">4dp</item>
+        <item name="android:layout_marginRight">4dp</item>
+        <item name="android:layout_marginBottom">2dp</item>
+        <item name="android:background">@drawable/card_green</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:paddingLeft">20dp</item>
+        <item name="android:paddingRight">20dp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="admin_attendence_name_txt">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">15dp</item>
+    </style>
+
+    <style name="admin_attendence_no_txt">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">10</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">15dp</item>
+        <item name="android:gravity">right</item>
+    </style>
+
+    <style name="adminHome_screen_image">
+        <item name="android:layout_width">40dp</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:layout_margin">10dp</item>
+    </style>
+
+    <style name="adminHome_screen_text">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">10dp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+    </style>
+
     <style name="hint">
         <item name="android:textSize">15dp</item>
     </style>

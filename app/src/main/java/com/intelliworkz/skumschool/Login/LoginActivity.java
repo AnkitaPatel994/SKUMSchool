@@ -139,11 +139,6 @@ public class LoginActivity extends AppCompatActivity {
                     GetLoginValid  loginValid = new GetLoginValid(Username,Password);
                     loginValid.execute();
                 }
-
-                /*Intent i=new Intent(getApplicationContext(),AdminHomeActivity.class);
-                startActivity(i);
-                finish();*/
-
             }
         });
 

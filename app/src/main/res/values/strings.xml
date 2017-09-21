@@ -63,17 +63,31 @@
     <string name="txt_hint_stdname">Enter Student Name</string>
     <string name="txt_hint_grno">Enter GR No</string>
     <string name="txt_hint_vanno">Enter Van No</string>
-    <string name="txt_hint_standard">Enter Standard</string>
-    <string name="txt_hint_div">Enter Division</string>
     <string name="txt_hint_rno">Enter Roll No</string>
     <string name="txt_hint_dob">Enter Birth Date</string>
+    <string name="txt_hint_addmissiondate">Enter Admission Date</string>
     <string name="txt_hint_addr">Enter Address</string>
     <string name="txt_hint_pcode">Enter Pin Code</string>
-    <string name="txt_hint_phone">Enter Phone No </string>
+    <string name="txt_hint_rphone">Enter Residential Phone No </string>
+    <string name="txt_hint_ophone">Enter Office Phone No </string>
     <string name="txt_hint_fname">Enter Father Name </string>
     <string name="txt_hint_occup">Enter Occupation </string>
     <string name="txt_hint_mono">Enter Mobile No </string>
     <string name="txt_hint_mname">Enter Mother Name </string>
+	<string name="err_msg_stdname">Enter Valid Student Name </string>
+    <string name="err_msg_rno">Enter Valid Roll No </string>
+    <string name="err_msg_address">Enter Valid Address </string>
+    <string name="err_msg_pincode">Enter Valid Pincode </string>
+    <string name="err_msg_validmono">Enter 10 digit Mobile No </string>
+    <string name="err_msg_validpno">Enter 6 digit Pincode No </string>
+    <string name="err_msg_dob">Enter Valid Birth Date </string>
+    <string name="err_msg_admissiondate">Enter Valid Addmission Date </string>
+    <string name="err_msg_grno">Enter Valid GRNo </string>
+    <string name="err_msg_vanno">Enter Valid VanNo </string>
+    <string name="err_msg_fname">Enter Valid Father Name </string>
+    <string name="err_msg_foccup">Enter Valid Father Occupation </string>
+    <string name="err_msg_mname">Enter Valid Mother Name </string>
+    <string name="err_msg_moccup">Enter Valid Mother Ocupation</string>
 
     <!--Admin Home Page-->
     <string name="txt_admin_role">Role</string>
@@ -92,6 +106,5 @@
     <string name="txt_hint_Admin_nbDescription">Enter Description</string>
     <string name="err_msg_empty">Empty Field Not Required.</string>
     <string name="title_activity_admin_event">AdminEventActivity</string>
-
 
 </resources>

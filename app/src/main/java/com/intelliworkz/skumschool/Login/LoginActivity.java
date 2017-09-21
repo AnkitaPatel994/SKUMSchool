@@ -142,9 +142,7 @@ public class LoginActivity extends AppCompatActivity {
                     loginValid.execute();
                 }
 
-                Intent i=new Intent(getApplicationContext(),AdminHomeActivity.class);
-                startActivity(i);
-                finish();
+
 
             }
         });

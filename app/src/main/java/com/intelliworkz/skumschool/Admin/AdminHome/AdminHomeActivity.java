@@ -10,6 +10,7 @@ import android.widget.LinearLayout;
 
 import com.intelliworkz.skumschool.Admin.AdminAddStudent.AddStudentActivity;
 import com.intelliworkz.skumschool.Admin.AdminAttendence.AdminAttendenceActivity;
+import com.intelliworkz.skumschool.Admin.AdminEvent.AdminEventActivity;
 import com.intelliworkz.skumschool.Admin.AdminNoticeBoard.AdminNoticeBoardActivity;
 import com.intelliworkz.skumschool.ChangePassword.ChangePasswordActivity;
 import com.intelliworkz.skumschool.Login.LoginActivity;
@@ -108,7 +109,7 @@ public class AdminHomeActivity extends AppCompatActivity {
         layAdminActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(getApplicationContext(),AdminAttendenceActivity.class);
+                Intent i=new Intent(getApplicationContext(),AdminEventActivity.class);
                 startActivity(i);
             }
         });

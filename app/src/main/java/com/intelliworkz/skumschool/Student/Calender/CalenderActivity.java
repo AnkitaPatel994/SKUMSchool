@@ -20,6 +20,7 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.intelliworkz.skumschool.SplashScreen.MainActivity;
 import com.intelliworkz.skumschool.Student.Attendence.AttendenceActivity;
 import com.intelliworkz.skumschool.ChangePassword.ChangePasswordActivity;
 import com.intelliworkz.skumschool.Student.Education.EducationActivity;
@@ -54,7 +55,6 @@ public class CalenderActivity extends AppCompatActivity
     ImageView previousButton,forwardButton;
     TextView txtMonthName,txtNotDataFound;
     private int currentMonthIndex = 0;
-    String url = "http://skumschool.com/webservices/activity/";
     ArrayList<HashMap<String,String>> activityListArray=new ArrayList<>();
 
     @Override
@@ -271,7 +271,7 @@ public class CalenderActivity extends AppCompatActivity
             try {
                 activityList.put("month",monthName);
                 Postdata postdata=new Postdata();
-                String adPd=postdata.post(url,activityList.toString());
+                String adPd=postdata.post(MainActivity.mainUrl+"activity",activityList.toString());
                 JSONObject j=new JSONObject(adPd);
                 status=j.getString("status");
                 if(status.equals("1"))

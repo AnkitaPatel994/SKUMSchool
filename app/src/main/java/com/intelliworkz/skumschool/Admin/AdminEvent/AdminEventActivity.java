@@ -3,6 +3,8 @@ package com.intelliworkz.skumschool.Admin.AdminEvent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -13,10 +15,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.intelliworkz.skumschool.Admin.AdminNoticeBoard.Pager;
 import com.intelliworkz.skumschool.R;
 
 public class AdminEventActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    TabLayout tabAdminEventLayout;
+    ViewPager vpAdminEvent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +39,22 @@ public class AdminEventActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        vpAdminEvent = (ViewPager)findViewById(R.id.vpAdminEvent);
+        setupViewPager(vpAdminEvent);
+
+        tabAdminEventLayout =(TabLayout)findViewById(R.id.tabAdminEventLayout);
+        tabAdminEventLayout.setupWithViewPager(vpAdminEvent);
+    }
+
+    private void setupViewPager(ViewPager viewPager){
+
+        Pager adapter = new Pager(getSupportFragmentManager());
+
+        adapter.addFrag(new AddEventFragment(),"Add Activity");
+        adapter.addFrag(new ViewEventFragment(),"View Activity");
+
+        viewPager.setAdapter(adapter);
     }
 
     @Override

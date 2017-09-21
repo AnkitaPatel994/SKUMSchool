@@ -74,7 +74,7 @@
     <string name="txt_hint_occup">Enter Occupation </string>
     <string name="txt_hint_mono">Enter Mobile No </string>
     <string name="txt_hint_mname">Enter Mother Name </string>
-	<string name="err_msg_stdname">Enter Valid Student Name </string>
+    <string name="err_msg_stdname">Enter Valid Student Name </string>
     <string name="err_msg_rno">Enter Valid Roll No </string>
     <string name="err_msg_address">Enter Valid Address </string>
     <string name="err_msg_pincode">Enter Valid Pincode </string>
@@ -106,5 +106,8 @@
     <string name="txt_hint_Admin_nbDescription">Enter Description</string>
     <string name="err_msg_empty">Empty Field Not Required.</string>
     <string name="title_activity_admin_event">AdminEventActivity</string>
+
+    <!--Admin Add Activity-->
+    <string name="txt_hint_Admin_evDate">Enter Date</string>
 
 </resources>

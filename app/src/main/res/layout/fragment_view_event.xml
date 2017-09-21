@@ -1,0 +1,76 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.intelliworkz.skumschool.Admin.AdminEvent.ViewEventFragment">
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/calendarHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary">
+
+            <ImageButton
+                android:id="@+id/ae_previousButton"
+                style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                android:layout_width="85dp"
+                android:layout_height="0dp"
+                android:src="@drawable/ic_arrow_left"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <ImageButton
+                android:id="@+id/ae_forwardButton"
+                style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                android:layout_width="85dp"
+                android:layout_height="0dp"
+                android:src="@drawable/ic_arrow_right"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/ae_txtMonthName"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                app:layout_constraintLeft_toRightOf="@id/ae_previousButton"
+                app:layout_constraintRight_toLeftOf="@id/ae_forwardButton"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="0dp"
+                app:layout_constraintHorizontal_bias="0.0" />
+
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/ae_ivEventList"
+            android:background="#e0e0e0"
+            android:layout_below="@+id/calendarHeader"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:id="@+id/ae_txtNotDataFound"
+            android:layout_below="@+id/calendarHeader"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#e0e0e0"
+            android:gravity="center"
+            android:textSize="20dp"
+            android:text="No record found"
+            android:visibility="gone"/>
+
+    </RelativeLayout>
+
+</FrameLayout>

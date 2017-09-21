@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.intelliworkz.skumschool.Attendence.AttendenceActivity"
+    tools:context=".Student.Attendence.AttendenceActivity"
     tools:showIn="@layout/app_bar_attendence">
 
 </android.support.constraint.ConstraintLayout>

@@ -3,7 +3,6 @@
     <string name="app_title">SKUM School</string>
     <string name="title_activity_student_detail">SKUM School</string>
     <string name="title_activity_attendence">SKUM School</string>
-    <string name="title_activity_change_password">SKUM School</string>
     <string name="title_activity_notice_board">SKUM School</string>
     <string name="title_activity_profile">SKUM School</string>
     <string name="title_activity_progress_report">SKUM School</string>
@@ -12,6 +11,9 @@
     <string name="title_activity_education">SKUM School</string>
     <string name="title_activity_environment">SKUM School</string>
     <string name="title_activity_emotional__evaluation">SKUM School</string>
+    <string name="title_activity_add_student">SKUM School</string>
+    <string name="title_activity_admin_attendence">SKUM School</string>
+    <string name="title_activity_admin_notice_board">SKUM School</string>
 
     <!--Login Activity Page-->
     <string name="txt_hint_username">Enter Your UserName</string>
@@ -56,8 +58,7 @@
     <string name="txt_emailId">Email Id</string>
     <string name="txt_GRNo">G. R. No</string>
     <string name="txt_VanNo">Van. No</string>
-    <string name="title_activity_add_student">AddStudentActivity</string>
-    
+
     <!--Add Student Page-->
     <string name="txt_hint_stdname">Enter Student Name</string>
     <string name="txt_hint_grno">Enter GR No</string>
@@ -88,6 +89,22 @@
     <string name="err_msg_mname">Enter Valid Mother Name </string>
     <string name="err_msg_moccup">Enter Valid Mother Ocupation</string>
 
+    <!--Admin Home Page-->
+    <string name="txt_admin_role">Role</string>
+    <string name="txt_admin_student">Student</string>
+    <string name="txt_admin_attendence">Attendence</string>
+    <string name="txt_admin_progressReport">Progress \n Report</string>
+    <string name="txt_admin_evaluation">Evaluation</string>
+    <string name="txt_admin_noticeBoard">Notice Board</string>
+    <string name="txt_admin_education">Education</string>
+    <string name="txt_admin_environment">Environment</string>
+    <string name="txt_admin_emoEva">Emotional \n Evaluation</string>
+    <string name="txt_admin_activity">Activity</string>
 
+    <!--Admin Add Notice Board-->
+    <string name="txt_hint_Admin_nbTitle">Enter Title</string>
+    <string name="txt_hint_Admin_nbDescription">Enter Description</string>
+    <string name="err_msg_empty">Empty Field Not Required.</string>
+    <string name="title_activity_admin_event">AdminEventActivity</string>
 
 </resources>

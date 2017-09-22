@@ -18,6 +18,17 @@
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
+        <android.support.design.widget.TabLayout
+            android:id="@+id/StudTab"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            app:tabIndicatorColor="#ffff"
+            app:tabMode="fixed"
+            app:tabTextAppearance="@style/TextAppearance.AppCompat"
+            app:tabTextColor="#fff" />
+
     </android.support.design.widget.AppBarLayout>
 
     <include layout="@layout/content_add_student" />

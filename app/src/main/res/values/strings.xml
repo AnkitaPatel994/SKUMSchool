@@ -107,4 +107,7 @@
     <string name="err_msg_empty">Empty Field Not Required.</string>
     <string name="title_activity_admin_event">AdminEventActivity</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

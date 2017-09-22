@@ -1,0 +1,325 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.intelliworkz.skumschool.Admin.AdminAddStudent.AddStudentFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:text="Student Record"
+                android:textSize="25dp" />
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginTop="10dp">
+
+                <EditText
+                    android:id="@+id/txtAddStdName"
+                    style="@style/hint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/txt_hint_stdname"
+                    android:inputType="textPersonName" />
+            </android.support.design.widget.TextInputLayout>
+
+            <Spinner
+                android:id="@+id/spnStd"
+                style="@style/hint_editText"
+                android:textColor="#111"
+                android:background="@android:drawable/btn_dropdown" />
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout_RNo"
+                style="@style/hint_editText">
+
+                <EditText
+                    android:id="@+id/txtAddRNo"
+                    style="@style/hint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/txt_hint_rno"
+                    android:inputType="textPersonName" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout_medium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp">
+            <Spinner
+                android:id="@+id/spnMedium"
+                style="@style/hint_editText"
+                android:textColor="#111"
+                android:background="@android:drawable/btn_dropdown" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout_Address"
+                style="@style/hint_editText">
+
+                <EditText
+                    android:id="@+id/txtAddAddress"
+                    style="@style/hint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/txt_hint_addr"
+                    android:inputType="textMultiLine" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout_PCode"
+                style="@style/hint_editText">
+
+                <EditText
+                    android:id="@+id/txtAddPcode"
+                    style="@style/hint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/txt_hint_pcode"
+                    android:inputType="textPersonName" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout_DOB"
+                style="@style/hint_editText">
+
+                <EditText
+                    android:id="@+id/txtAddDOB"
+                    style="@style/hint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:editable="false"
+                    android:ems="10"
+                    android:hint="@string/txt_hint_dob" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout_AddmissionDate"
+                style="@style/hint_editText">
+
+                <EditText
+                    android:id="@+id/txtAddAddmissionDate"
+                    style="@style/hint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:editable="false"
+                    android:ems="10"
+                    android:hint="@string/txt_hint_addmissiondate" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout_GRNo"
+                style="@style/hint_editText">
+
+                <EditText
+                    android:id="@+id/txtAddGRNo"
+                    style="@style/hint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/txt_hint_grno"
+                    android:inputType="textPersonName" />
+            </android.support.design.widget.TextInputLayout>
+
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout_VanNo"
+                style="@style/hint_editText">
+
+                <EditText
+                    android:id="@+id/txtAddVanNo"
+                    style="@style/hint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/txt_hint_vanno"
+                    android:inputType="textPersonName" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout_RPhone"
+                style="@style/hint_editText">
+
+                <EditText
+                    android:id="@+id/txtAddRPhone"
+                    style="@style/hint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/txt_hint_rphone"
+                    android:inputType="textPersonName" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout_OPhone"
+                style="@style/hint_editText">
+
+                <EditText
+                    android:id="@+id/txtAddOPhone"
+                    style="@style/hint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/txt_hint_ophone"
+                    android:inputType="textPersonName" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout_Fathername"
+                style="@style/hint_editText">
+
+                <EditText
+                    android:id="@+id/txtAddFathername"
+                    style="@style/hint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/txt_hint_fname"
+                    android:inputType="textPersonName" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout_FOccup"
+                style="@style/hint_editText">
+
+                <EditText
+                    android:id="@+id/txtAddFOccup"
+                    style="@style/hint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/txt_hint_occup"
+                    android:inputType="textPersonName" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout_FMoNo"
+                style="@style/hint_editText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/txtAddFMono"
+                    style="@style/hint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/txt_hint_mono"
+                    android:inputType="textPersonName" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout_Femail"
+                style="@style/hint_editText">
+
+                <EditText
+                    android:id="@+id/txtAddFemail"
+                    style="@style/hint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/txt_hint_email"
+                    android:inputType="textPersonName" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout_Mothername"
+                style="@style/hint_editText">
+
+                <EditText
+                    android:id="@+id/txtAddMothername"
+                    style="@style/hint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/txt_hint_mname"
+                    android:inputType="textPersonName" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout_MOccup"
+                style="@style/hint_editText">
+
+                <EditText
+                    android:id="@+id/txtAddMOccup"
+                    style="@style/hint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/txt_hint_occup"
+                    android:inputType="textPersonName" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout_MMoNo"
+                style="@style/hint_editText">
+
+                <EditText
+                    android:id="@+id/txtAddMMono"
+                    style="@style/hint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/txt_hint_mono"
+                    android:inputType="textPersonName" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout_MEmail"
+                style="@style/hint_editText">
+
+                <EditText
+                    android:id="@+id/txtAddMEmail"
+                    style="@style/hint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/txt_hint_email"
+                    android:inputType="textPersonName"
+                    app:hintAnimationEnabled="false" />
+            </android.support.design.widget.TextInputLayout>
+
+            <Button
+                android:id="@+id/btnAdd"
+                style="@style/ButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="80dp"
+                android:layout_marginRight="80dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/button_background"
+                android:text="@string/btn_submit"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>

@@ -38,7 +38,7 @@
             android:layout_marginBottom="10dp"
             android:layout_height="1dp"
             android:layout_alignParentBottom="true"
-            android:background="@color/gray"/>
+            android:background="@color/sw_color"/>
 
         <TextView
             android:id="@+id/txtnbDescription"

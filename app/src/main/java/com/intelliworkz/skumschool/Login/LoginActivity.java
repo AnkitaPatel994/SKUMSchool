@@ -1,5 +1,7 @@
 package com.intelliworkz.skumschool.Login;
 
+import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
@@ -256,11 +258,21 @@ public class LoginActivity extends AppCompatActivity {
     private class GetLoginValid extends AsyncTask<String,Void,String> {
 
         String username,password,status,message,role;
+        ProgressDialog dialog;
 
         public GetLoginValid(String username, String password) {
 
             this.username = username;
             this.password = password;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            dialog = new ProgressDialog(LoginActivity.this);
+            dialog.setMessage("Loading...");
+            dialog.setCancelable(true);
+            dialog.show();
         }
 
         @Override
@@ -296,7 +308,7 @@ public class LoginActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
-
+            dialog.dismiss();
             if(status.equals("1"))
             {
                 if(role.equals("Student"))

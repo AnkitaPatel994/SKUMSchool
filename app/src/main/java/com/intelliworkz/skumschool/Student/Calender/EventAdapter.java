@@ -16,7 +16,7 @@ import java.util.HashMap;
  * Created by shyam group on 9/12/2017.
  */
 
-class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> {
+public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> {
 
     Context context;
     ArrayList<HashMap<String, String>> activityListArray;

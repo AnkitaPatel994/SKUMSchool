@@ -8,4 +8,9 @@
     tools:context="com.intelliworkz.skumschool.Admin.AdminEvent.AdminEventActivity"
     tools:showIn="@layout/app_bar_admin_event">
 
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vpAdminEvent"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent" />
+
 </android.support.constraint.ConstraintLayout>

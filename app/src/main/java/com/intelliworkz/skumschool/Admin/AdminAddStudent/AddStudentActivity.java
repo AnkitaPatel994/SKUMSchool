@@ -21,6 +21,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
@@ -37,6 +38,7 @@ import com.intelliworkz.skumschool.Admin.AdminNoticeBoard.AddNoticeBoardFragment
 import com.intelliworkz.skumschool.Admin.AdminNoticeBoard.Pager;
 import com.intelliworkz.skumschool.Admin.AdminNoticeBoard.ViewNoticeBoardFragment;
 
+import com.intelliworkz.skumschool.Admin.SearchStd.SearchStdActivity;
 import com.intelliworkz.skumschool.HttpHandler;
 import com.intelliworkz.skumschool.Student.Calender.CalenderActivity;
 import com.intelliworkz.skumschool.ChangePassword.ChangePasswordActivity;
@@ -89,9 +91,6 @@ public class AddStudentActivity extends AppCompatActivity
         setupViewPager(addStud_viewPager);
         StudTab.setupWithViewPager(addStud_viewPager);
 
-
-
-
     }
 
     private void setupViewPager(ViewPager viewPager){
@@ -99,7 +98,6 @@ public class AddStudentActivity extends AppCompatActivity
         StudentPager adapter = new StudentPager(getSupportFragmentManager());
 
         adapter.addFrag(new AddStudentFragment(),"Add Student");
-        adapter.addFrag(new ViewStudentFragment(),"View Student");
 
         viewPager.setAdapter(adapter);
     }
@@ -115,6 +113,24 @@ public class AddStudentActivity extends AppCompatActivity
         }
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.search_toolbar, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        int id = item.getItemId();
+
+        if (id == R.id.search) {
+            Intent i = new Intent(getApplicationContext(),SearchStdActivity.class);
+            startActivity(i);
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
 
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {

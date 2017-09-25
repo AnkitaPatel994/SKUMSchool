@@ -107,7 +107,7 @@
     <string name="txt_hint_Admin_nbDescription">Enter Description</string>
     <string name="err_msg_empty">Empty Field Not Required.</string>
 
-	<!--Admin Add Activity-->
+    <!--Admin Add Activity-->
     <string name="txt_hint_Admin_evDate">Enter Date</string>
 
 </resources>

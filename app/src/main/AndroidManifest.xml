@@ -75,7 +75,12 @@
         <activity
             android:name=".Admin.AdminEvent.AdminEventActivity"
             android:label="@string/title_activity_admin_event"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity android:name=".Admin.SearchStd.SearchStdActivity">
+            <meta-data android:name="android.app.default_searchable"
+                android:value=".SearchableActivity"/>
+        </activity>
     </application>
 
 </manifest>

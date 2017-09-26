@@ -109,5 +109,8 @@
 
     <!--Admin Add Activity-->
     <string name="txt_hint_Admin_evDate">Enter Date</string>
+    <string name="title_activity_search_std">SearchStdActivity</string>
+    <string name="title_activity_search_stud">SearchStudActivity</string>
+    <string name="title_activity_search_student">SearchStudentActivity</string>
 
 </resources>

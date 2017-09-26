@@ -76,11 +76,10 @@
             android:name=".Admin.AdminEvent.AdminEventActivity"
             android:label="@string/title_activity_admin_event"
             android:theme="@style/AppTheme.NoActionBar" />
-
-        <activity android:name=".Admin.SearchStd.SearchStdActivity">
-            <meta-data android:name="android.app.default_searchable"
-                android:value=".SearchableActivity"/>
-        </activity>
+        <activity
+            android:name=".Admin.SearchStudent.SearchStudentActivity"
+            android:label="@string/title_activity_search_student"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

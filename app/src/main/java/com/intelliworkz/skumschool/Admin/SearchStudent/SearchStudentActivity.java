@@ -1,20 +1,14 @@
-package com.intelliworkz.skumschool.Admin.AdminAddStudent;
+package com.intelliworkz.skumschool.Admin.SearchStudent;
 
-import android.app.DatePickerDialog;
 import android.content.ActivityNotFoundException;
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.support.design.widget.TabLayout;
-import android.support.design.widget.TextInputLayout;
-import android.support.v4.view.ViewPager;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Log;
+import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -23,60 +17,44 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.DatePicker;
-import android.widget.EditText;
-import android.widget.Spinner;
+import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.Toast;
 
-
-import com.intelliworkz.skumschool.Admin.AdminNoticeBoard.AddNoticeBoardFragment;
-import com.intelliworkz.skumschool.Admin.AdminNoticeBoard.Pager;
-import com.intelliworkz.skumschool.Admin.AdminNoticeBoard.ViewNoticeBoardFragment;
-
-
-//import com.intelliworkz.skumschool.Admin.SearchStudent.SearchStudActivity;
-import com.intelliworkz.skumschool.Admin.SearchStudent.SearchStudentActivity;
 import com.intelliworkz.skumschool.HttpHandler;
+import com.intelliworkz.skumschool.Login.LoginActivity;
+import com.intelliworkz.skumschool.R;
 import com.intelliworkz.skumschool.Student.Calender.CalenderActivity;
-import com.intelliworkz.skumschool.ChangePassword.ChangePasswordActivity;
 import com.intelliworkz.skumschool.Student.Education.EducationActivity;
 import com.intelliworkz.skumschool.Student.Emotional_Evaluation.Emotional_EvaluationActivity;
 import com.intelliworkz.skumschool.Student.Environment.EnvironmentActivity;
 import com.intelliworkz.skumschool.Student.Evaluation.EvaluationActivity;
 import com.intelliworkz.skumschool.Student.Home.HomeActivity;
-
-import com.intelliworkz.skumschool.Login.LoginActivity;
 import com.intelliworkz.skumschool.Student.NoticeBoard.NoticeBoardActivity;
 import com.intelliworkz.skumschool.Student.Profile.ProfileActivity;
 import com.intelliworkz.skumschool.Student.ProgressReport.ProgressReportActivity;
-import com.intelliworkz.skumschool.R;
-import com.intelliworkz.skumschool.SplashScreen.MainActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Locale;
+import java.util.List;
 
-public class AddStudentActivity extends AppCompatActivity
+public class SearchStudentActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-    TabLayout StudTab;
-    ViewPager addStud_viewPager;
+    SearchView searchView;
+    ListView lst;
+    String mainUrl = "http://www.skumschool.com/webservices/";
+    ArrayList<String> stdArrList=new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_student);
+        setContentView(R.layout.activity_search_student);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -87,23 +65,54 @@ public class AddStudentActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        StudTab=(TabLayout)findViewById(R.id.StudTab);
-        addStud_viewPager=(ViewPager)findViewById(R.id.addStud_viewPager);
+        searchView=(SearchView)findViewById(R.id.search_bar);
+        lst=(ListView)findViewById(R.id.lst);
 
-        setupViewPager(addStud_viewPager);
-        StudTab.setupWithViewPager(addStud_viewPager);
+        GetStandardList getStandard=new GetStandardList();
+        getStandard.execute();
+
+        lst.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String pos= String.valueOf(lst.getItemAtPosition(position));
+                Toast.makeText(getApplicationContext(),"position"+pos,Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                if(newText!=null && !newText.isEmpty())
+                {
+                    List<String> lstFound = new ArrayList<String>();
+                    for(String item:stdArrList){
+                        if(item.contains(newText))
+                            lstFound.add(item);
+                    }
+                    ArrayAdapter<String> ad=new ArrayAdapter<String>(SearchStudentActivity.this, R.layout.support_simple_spinner_dropdown_item,lstFound);
+                    lst.setAdapter(ad);
+                }
+                else
+                {
+                    ArrayAdapter<String> ad=new ArrayAdapter<String>(SearchStudentActivity.this, R.layout.support_simple_spinner_dropdown_item,stdArrList);
+                    lst.setAdapter(ad);
+                }
+                return true;
+            }
+
+        });
 
     }
-
-    private void setupViewPager(ViewPager viewPager){
-
-        StudentPager adapter = new StudentPager(getSupportFragmentManager());
-
-        adapter.addFrag(new AddStudentFragment(),"Add Student");
-
-        viewPager.setAdapter(adapter);
-    }
-
 
     @Override
     public void onBackPressed() {
@@ -117,23 +126,11 @@ public class AddStudentActivity extends AppCompatActivity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.search_toolbar, menu);
+        // Inflate the menu; this adds items to the action bar if it is present.
+       // getMenuInflater().inflate(R.menu.search_student, menu);
         return true;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        int id = item.getItemId();
-
-        if (id == R.id.search) {
-            Intent i = new Intent(getApplicationContext(),SearchStudentActivity.class);
-            startActivity(i);
-            //Toast.makeText(getApplicationContext(),"hi",Toast.LENGTH_SHORT).show();
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -223,12 +220,10 @@ public class AddStudentActivity extends AppCompatActivity
             startActivity(i);
             finish();
         }
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-
     private boolean MyStartActivity(Intent i) {
 
         try
@@ -242,4 +237,51 @@ public class AddStudentActivity extends AppCompatActivity
         }
     }
 
+    private class GetStandardList extends AsyncTask<String,Void,String> {
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+        }
+
+        @Override
+        protected String doInBackground(String... params) {
+            String response;
+            HttpHandler h=new HttpHandler();
+            response= h.serverConnection(mainUrl+"classdiv");
+            if(response!=null)
+            {
+                try {
+                    JSONObject jsonObject=new JSONObject(response);
+                    JSONArray stdArr=jsonObject.getJSONArray("class");
+                    for (int i=0;i<stdArr.length();i++)
+                    {
+                        JSONObject j=stdArr.getJSONObject(i);
+
+                        String id=j.getString("id");
+                        String std=j.getString("std");
+                        String div=j.getString("div");
+                        String stdDiv=std+"-"+div;
+
+                        //tabTitlesId.add(catId);
+
+                        stdArrList.add(stdDiv);
+                    }
+
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+
+            ArrayAdapter<String> ad = new ArrayAdapter<String>(SearchStudentActivity.this, android.R.layout.simple_spinner_item, stdArrList);
+            lst.setAdapter(ad);
+        }
+    }
 }

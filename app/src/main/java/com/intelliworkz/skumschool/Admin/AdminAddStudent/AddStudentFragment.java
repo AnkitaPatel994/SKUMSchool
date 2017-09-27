@@ -1,42 +1,42 @@
 package com.intelliworkz.skumschool.Admin.AdminAddStudent;
 
-import android.app.DatePickerDialog;
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.os.AsyncTask;
-import android.os.Bundle;
-import android.support.design.widget.TextInputLayout;
-import android.support.v4.app.Fragment;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.DatePicker;
-import android.widget.EditText;
-import android.widget.Spinner;
-import android.widget.TextView;
-import android.widget.Toast;
+        import android.app.DatePickerDialog;
+        import android.content.Context;
+        import android.content.Intent;
+        import android.net.Uri;
+        import android.os.AsyncTask;
+        import android.os.Bundle;
+        import android.support.design.widget.TextInputLayout;
+        import android.support.v4.app.Fragment;
+        import android.text.Editable;
+        import android.text.TextWatcher;
+        import android.util.Log;
+        import android.view.LayoutInflater;
+        import android.view.View;
+        import android.view.ViewGroup;
+        import android.view.WindowManager;
+        import android.widget.AdapterView;
+        import android.widget.ArrayAdapter;
+        import android.widget.Button;
+        import android.widget.DatePicker;
+        import android.widget.EditText;
+        import android.widget.Spinner;
+        import android.widget.TextView;
+        import android.widget.Toast;
 
-import com.intelliworkz.skumschool.HttpHandler;
-import com.intelliworkz.skumschool.Postdata;
-import com.intelliworkz.skumschool.R;
-import com.intelliworkz.skumschool.SplashScreen.MainActivity;
+        import com.intelliworkz.skumschool.HttpHandler;
+        import com.intelliworkz.skumschool.Postdata;
+        import com.intelliworkz.skumschool.R;
+        import com.intelliworkz.skumschool.SplashScreen.MainActivity;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+        import org.json.JSONArray;
+        import org.json.JSONException;
+        import org.json.JSONObject;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Locale;
+        import java.text.SimpleDateFormat;
+        import java.util.ArrayList;
+        import java.util.Calendar;
+        import java.util.Locale;
 
 public class AddStudentFragment extends Fragment {
 
@@ -204,14 +204,6 @@ public class AddStudentFragment extends Fragment {
 
                 int pos= Integer.parseInt(String.valueOf(spnStd.getItemIdAtPosition(position)));
                 classStud= String.valueOf(spnStd.getItemAtPosition(position));
-                if(pos==0)
-                {
-
-                }
-                else
-                {
-                    Toast.makeText(getActivity(),"pos"+classStud,Toast.LENGTH_SHORT).show();
-                }
             }
 
             @Override
@@ -324,8 +316,8 @@ public class AddStudentFragment extends Fragment {
                 }
                 else
                 {
-                    GetAddStud getAddStud=new GetAddStud(name,classStud,rollno,medium,address,pincode,bod,addmissionDate,gr_no,van_no,re_mobile,of_mobile,f_name,f_occupation,f_mobile,f_emailid,m_name,m_occupation,m_mobile,m_emailid);
-                    getAddStud.execute();
+                    InsertStud insertStud=new InsertStud(name,classStud,rollno,medium,address,pincode,bod,addmissionDate,gr_no,van_no,re_mobile,of_mobile,f_name,f_occupation,f_mobile,f_emailid,m_name,m_occupation,m_mobile,m_emailid);
+                    insertStud.execute();
                 }
 
             }
@@ -572,7 +564,7 @@ public class AddStudentFragment extends Fragment {
     }
     private void requestFocus(View v) {
         if (v.requestFocus()) {
-           getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+            getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
         }
     }
 
@@ -652,13 +644,12 @@ public class AddStudentFragment extends Fragment {
             super.onPreExecute();
 
         }
-
         @Override
         protected String doInBackground(String... params) {
             stdArrList.add("Select Standard");
             String response;
             HttpHandler h=new HttpHandler();
-            response= h.serverConnection(mainurl+"classdiv");
+            response= h.serverConnection(mainurl+"Allclassdiv");
             if(response!=null)
             {
                 try {
@@ -671,7 +662,7 @@ public class AddStudentFragment extends Fragment {
                         String id=j.getString("id");
                         String std=j.getString("std");
                         String div=j.getString("div");
-                        String stdDiv=std+"-"+div;
+                        String stdDiv=std+div;
 
                         //tabTitlesId.add(catId);
 
@@ -695,10 +686,10 @@ public class AddStudentFragment extends Fragment {
         }
     }
 
-    private class GetAddStud extends AsyncTask<String,Void,String>{
+    private class InsertStud extends AsyncTask<String,Void,String>{
         String name,classStud,rollno,medium,address,pincode,bod,addmissionDate,gr_no,van_no,re_mobile,of_mobile,f_name,f_occupation,
                 f_mobile,f_emailid,m_name,m_occupation,m_mobile,m_emailid,status,message;
-        public GetAddStud(String name,String classStud,String rollno,String medium,String address, String pincode, String bod, String addmissionDate, String gr_no, String van_no, String re_mobile, String of_mobile, String f_name, String f_occupation, String f_mobile, String f_emailid, String m_name, String m_occupation, String m_mobile, String m_emailid) {
+        public InsertStud(String name,String classStud,String rollno,String medium,String address, String pincode, String bod, String addmissionDate, String gr_no, String van_no, String re_mobile, String of_mobile, String f_name, String f_occupation, String f_mobile, String f_emailid, String m_name, String m_occupation, String m_mobile, String m_emailid) {
             this.name=name;
             this.classStud=classStud;
             this.rollno=rollno;

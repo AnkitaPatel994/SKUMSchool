@@ -1,5 +1,6 @@
 package com.intelliworkz.skumschool.Admin.SearchStudent;
 
+import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -20,6 +21,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.intelliworkz.skumschool.Admin.AdminAttendence.AdminAttendenceActivity;
 import com.intelliworkz.skumschool.Postdata;
 import com.intelliworkz.skumschool.R;
 import com.intelliworkz.skumschool.SplashScreen.MainActivity;
@@ -116,6 +118,15 @@ public class ViewStudentActivity extends AppCompatActivity
 
     private class GetStudentList extends AsyncTask<String,Void,String> {
         String status,message;
+        ProgressDialog dialog;
+        @Override
+        protected void onPreExecute() {
+            dialog = new ProgressDialog(ViewStudentActivity.this);
+            dialog.setMessage("Loading...");
+            dialog.setCancelable(true);
+            dialog.show();
+
+        }
         @Override
         protected String doInBackground(String... params) {
             JSONObject studList=new JSONObject();
@@ -135,10 +146,12 @@ public class ViewStudentActivity extends AppCompatActivity
                         HashMap<String,String > stud = new HashMap<>();
                         JSONObject jobj=jarr.getJSONObject(i);
 
+                        String id= String.valueOf(jobj.get("id"));
                         String name = jobj.getString("name");
                         String rollno = jobj.getString("rollno");
                         String classStud = jobj.getString("class");
 
+                        stud.put("id",id);
                         stud.put("name",name);
                         stud.put("rollno",rollno);
                         stud.put("class",classStud);
@@ -155,6 +168,7 @@ public class ViewStudentActivity extends AppCompatActivity
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
+            dialog.dismiss();
             if(status.equals("1"))
             {
                 RecyclerView.Adapter rvNewsAdapter=new ViewStudAdapter(getApplicationContext(),stuArrList);

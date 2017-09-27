@@ -15,6 +15,11 @@
     <string name="title_activity_admin_attendence">SKUM School</string>
     <string name="title_activity_admin_notice_board">SKUM School</string>
     <string name="title_activity_admin_event">SKUM School</string>
+    <string name="title_activity_attendence_standard">SKUM School</string>
+    <string name="title_activity_search_std">Search Student</string>
+    <string name="title_activity_search_stud">Search Student</string>
+    <string name="title_activity_search_student">Search Student</string>
+    <string name="title_activity_view_student">View Student</string>
 
     <!--Login Activity Page-->
     <string name="txt_hint_username">Enter Your UserName</string>
@@ -31,7 +36,7 @@
     <!--Forgot Password Activity Page-->
     <string name="txt_hint_email">Enter Your Email Id</string>
     <string name="err_msg_email">Enter valid Email Id.</string>
-    <string name="btn_submit">Submit</string>
+    <string name="btn_submit">Save</string>
 
     <!--Change Password Activity Page-->
     <string name="txt_hint_oldPass">Enter Your Old Password</string>
@@ -109,9 +114,7 @@
 
     <!--Admin Add Activity-->
     <string name="txt_hint_Admin_evDate">Enter Date</string>
-    <string name="title_activity_search_std">SearchStdActivity</string>
-    <string name="title_activity_search_stud">SearchStudActivity</string>
-    <string name="title_activity_search_student">SearchStudentActivity</string>
-    <string name="title_activity_view_student">ViewStudentActivity</string>
+
+
 
 </resources>

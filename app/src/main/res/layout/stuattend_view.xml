@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:id="@+id/layAttendViewstd"
+        style="@style/admin_attendence_screen_lay">
+
+        <TextView
+            android:id="@+id/stuAttendViewName"
+            style="@style/admin_attendence_name_txt" />
+
+        <TextView
+            android:id="@+id/stuAttendViewRollno"
+            style="@style/admin_attendence_no_txt"/>
+
+    </LinearLayout>
+</LinearLayout>

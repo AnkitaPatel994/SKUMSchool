@@ -1,4 +1,4 @@
-package com.intelliworkz.skumschool.Admin.SearchStudent;
+package com.intelliworkz.skumschool.Admin.AdminAttendence;
 
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
@@ -21,11 +21,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SearchView;
-import android.widget.Toast;
 
 import com.intelliworkz.skumschool.HttpHandler;
 import com.intelliworkz.skumschool.Login.LoginActivity;
-import com.intelliworkz.skumschool.Postdata;
 import com.intelliworkz.skumschool.R;
 import com.intelliworkz.skumschool.SplashScreen.MainActivity;
 import com.intelliworkz.skumschool.Student.Calender.CalenderActivity;
@@ -45,19 +43,20 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SearchStudentActivity extends AppCompatActivity
+public class AttendenceStandardActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-    SearchView searchView;
-    ListView lst;
-    String mainUrl = "http://www.skumschool.com/webservices/";
-    ArrayList<String> stdArrList=new ArrayList<>();
-
+    SearchView AttendsearchView;
+    ListView lstAttendStd;
+    String mainurl= MainActivity.mainUrl;
+    String add[]={"1","2","1","2","1","2","1","2","1","2","1","2","1","2","1","2","1","2","1","2","1","2","1","2","1","2","1","2"};
+    ArrayList<String> stdAttendArrList=new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search_student);
+        setContentView(R.layout.activity_attendence_standard);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -68,24 +67,26 @@ public class SearchStudentActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        searchView=(SearchView)findViewById(R.id.search_bar);
-        lst=(ListView)findViewById(R.id.lst);
+        AttendsearchView=(SearchView)findViewById(R.id.Attendsearchview);
+        lstAttendStd=(ListView) findViewById(R.id.lstAttendStd);
 
-        GetStandardList getStandard=new GetStandardList();
-        getStandard.execute();
-
-        lst.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        GetAttendStandardList getAttendStandardList=new GetAttendStandardList();
+        getAttendStandardList.execute();
+        lstAttendStd.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String pos= String.valueOf(lst.getItemAtPosition(position));
-                Intent i=new Intent(SearchStudentActivity.this,ViewStudentActivity.class);
+                String pos= String.valueOf(lstAttendStd.getItemAtPosition(position));
+                Intent i=new Intent(AttendenceStandardActivity.this,AdminAttendenceActivity.class);
                 i.putExtra("pos",pos);
                 startActivity(i);
                 finish();
             }
         });
 
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+       /* ArrayAdapter<String> ad=new ArrayAdapter<String>(this,R.layout.support_simple_spinner_dropdown_item,add);
+        lstAttendStd.setAdapter(ad);*/
+
+        AttendsearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 return false;
@@ -96,23 +97,22 @@ public class SearchStudentActivity extends AppCompatActivity
                 if(newText!=null && !newText.isEmpty())
                 {
                     List<String> lstFound = new ArrayList<String>();
-                    for(String item:stdArrList){
+                    for(String item:stdAttendArrList){
                         if(item.contains(newText))
                             lstFound.add(item);
                     }
-                    ArrayAdapter<String> ad=new ArrayAdapter<String>(SearchStudentActivity.this, R.layout.support_simple_spinner_dropdown_item,lstFound);
-                    lst.setAdapter(ad);
+                    ArrayAdapter<String> ad=new ArrayAdapter<String>(AttendenceStandardActivity.this, R.layout.support_simple_spinner_dropdown_item,lstFound);
+                    lstAttendStd.setAdapter(ad);
                 }
                 else
                 {
-                    ArrayAdapter<String> ad=new ArrayAdapter<String>(SearchStudentActivity.this, R.layout.support_simple_spinner_dropdown_item,stdArrList);
-                    lst.setAdapter(ad);
+                    ArrayAdapter<String> ad=new ArrayAdapter<String>(AttendenceStandardActivity.this, R.layout.support_simple_spinner_dropdown_item,stdAttendArrList);
+                    lstAttendStd.setAdapter(ad);
                 }
                 return true;
             }
 
         });
-
     }
 
     @Override
@@ -128,7 +128,7 @@ public class SearchStudentActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-       // getMenuInflater().inflate(R.menu.search_student, menu);
+        //getMenuInflater().inflate(R.menu.attendence_standard, menu);
         return true;
     }
 
@@ -221,6 +221,7 @@ public class SearchStudentActivity extends AppCompatActivity
             startActivity(i);
             finish();
         }
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
@@ -238,17 +239,12 @@ public class SearchStudentActivity extends AppCompatActivity
         }
     }
 
-    private class GetStandardList extends AsyncTask<String,Void,String> {
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-
-        }
+    private class GetAttendStandardList extends AsyncTask<String,Void,String> {
         @Override
         protected String doInBackground(String... params) {
             String response;
             HttpHandler h=new HttpHandler();
-            response= h.serverConnection(mainUrl+"classdiv");
+            response= h.serverConnection(mainurl+"classdiv");
             if(response!=null)
             {
                 try {
@@ -260,9 +256,7 @@ public class SearchStudentActivity extends AppCompatActivity
 
                         String stdDiv=j.getString("class");
 
-                        stdArrList.add(stdDiv);
-
-
+                        stdAttendArrList.add(stdDiv);
                     }
 
 
@@ -276,10 +270,8 @@ public class SearchStudentActivity extends AppCompatActivity
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
-
-            ArrayAdapter<String> ad = new ArrayAdapter<String>(SearchStudentActivity.this, android.R.layout.simple_spinner_item, stdArrList);
-            lst.setAdapter(ad);
+            ArrayAdapter<String> ad = new ArrayAdapter<String>(AttendenceStandardActivity.this, android.R.layout.simple_spinner_item, stdAttendArrList);
+            lstAttendStd.setAdapter(ad);
         }
     }
-
 }

@@ -45,7 +45,8 @@ class ViewStudAdapter extends RecyclerView.Adapter<ViewStudAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        final String name=stuArrList.get(position).get("name");
+        String name=stuArrList.get(position).get("name");
+        final String id=stuArrList.get(position).get("id");
         String rollno=stuArrList.get(position).get("rollno");
         String classStud=stuArrList.get(position).get("class");
         holder.stuViewName.setText(name);
@@ -53,10 +54,11 @@ class ViewStudAdapter extends RecyclerView.Adapter<ViewStudAdapter.ViewHolder> {
         holder.layViewstd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(context, ProfileActivity.class);
+                Intent i=new Intent(context, StudentDetailActivity.class);
                 i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                i.putExtra("id",id);
                 context.startActivity(i);
-               // Toast.makeText(context,"name"+name,Toast.LENGTH_SHORT).show();
+              // Toast.makeText(context,"id"+id,Toast.LENGTH_SHORT).show();
             }
         });
    }

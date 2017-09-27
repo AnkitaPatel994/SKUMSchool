@@ -25,7 +25,9 @@ import android.widget.Toast;
 
 import com.intelliworkz.skumschool.HttpHandler;
 import com.intelliworkz.skumschool.Login.LoginActivity;
+import com.intelliworkz.skumschool.Postdata;
 import com.intelliworkz.skumschool.R;
+import com.intelliworkz.skumschool.SplashScreen.MainActivity;
 import com.intelliworkz.skumschool.Student.Calender.CalenderActivity;
 import com.intelliworkz.skumschool.Student.Education.EducationActivity;
 import com.intelliworkz.skumschool.Student.Emotional_Evaluation.Emotional_EvaluationActivity;
@@ -49,6 +51,7 @@ public class SearchStudentActivity extends AppCompatActivity
     ListView lst;
     String mainUrl = "http://www.skumschool.com/webservices/";
     ArrayList<String> stdArrList=new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,16 +74,27 @@ public class SearchStudentActivity extends AppCompatActivity
         GetStandardList getStandard=new GetStandardList();
         getStandard.execute();
 
+        lst.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String pos= String.valueOf(lst.getItemAtPosition(position));
+                //Toast.makeText(getApplicationContext(),"position"+pos,Toast.LENGTH_SHORT).show();
+                Intent i=new Intent(SearchStudentActivity.this,ViewStudentActivity.class);
+                i.putExtra("pos",pos);
+                startActivity(i);
+                finish();
+              /*  String pos=stdArrListItem.get()
+                Toast.makeText(getApplicationContext(),"position"+stdDivItem,Toast.LENGTH_SHORT).show();
+*/
+            }
+        });
         lst.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String pos= String.valueOf(lst.getItemAtPosition(position));
-                Toast.makeText(getApplicationContext(),"position"+pos,Toast.LENGTH_SHORT).show();
-            }
 
+            }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-
             }
         });
 
@@ -243,7 +257,6 @@ public class SearchStudentActivity extends AppCompatActivity
             super.onPreExecute();
 
         }
-
         @Override
         protected String doInBackground(String... params) {
             String response;
@@ -261,11 +274,14 @@ public class SearchStudentActivity extends AppCompatActivity
                         String id=j.getString("id");
                         String std=j.getString("std");
                         String div=j.getString("div");
-                        String stdDiv=std+"-"+div;
+                        String stdDiv=std+""+div;
+
 
                         //tabTitlesId.add(catId);
 
                         stdArrList.add(stdDiv);
+
+
                     }
 
 
@@ -284,4 +300,5 @@ public class SearchStudentActivity extends AppCompatActivity
             lst.setAdapter(ad);
         }
     }
+
 }

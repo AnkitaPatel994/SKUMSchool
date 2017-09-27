@@ -21,6 +21,7 @@ import android.widget.TextView;
 
 import com.intelliworkz.skumschool.Admin.AdminAddStudent.AddStudentActivity;
 import com.intelliworkz.skumschool.Admin.AdminAddStudent.AddStudentFragment;
+import com.intelliworkz.skumschool.Admin.AdminAttendence.AdminAttendenceActivity;
 import com.intelliworkz.skumschool.Admin.AdminHome.AdminHomeActivity;
 import com.intelliworkz.skumschool.Forgot_Password.Forgot_PasswordActivity;
 import com.intelliworkz.skumschool.Postdata;
@@ -127,7 +128,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                String Username = txtUsername.getText().toString();
+                /*String Username = txtUsername.getText().toString();
                 String Password = txtPassword.getText().toString();
 
                 if(Username.equals("") && Password.equals(""))
@@ -142,7 +143,9 @@ public class LoginActivity extends AppCompatActivity {
                 {
                     GetLoginValid  loginValid = new GetLoginValid(Username,Password);
                     loginValid.execute();
-                }
+                }*/
+                Intent i=new Intent(getApplicationContext(), AddStudentActivity.class);
+                startActivity(i);
 
             }
         });

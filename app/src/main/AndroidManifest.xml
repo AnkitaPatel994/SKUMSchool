@@ -80,6 +80,14 @@
             android:name=".Admin.SearchStudent.SearchStudentActivity"
             android:label="@string/title_activity_search_student"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Admin.SearchStudent.ViewStudentActivity"
+            android:label="@string/title_activity_view_student"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Admin.SearchStudent.StudentDetailActivity"
+            android:label="@string/title_activity_student_detail"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

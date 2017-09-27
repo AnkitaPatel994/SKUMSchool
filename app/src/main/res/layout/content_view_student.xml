@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.intelliworkz.skumschool.Admin.SearchStudent.ViewStudentActivity"
+    tools:showIn="@layout/app_bar_view_student">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rlStudList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="17dp"
+        android:paddingLeft="17dp"
+        android:paddingRight="17dp"
+        android:paddingTop="17dp" />
+</LinearLayout>

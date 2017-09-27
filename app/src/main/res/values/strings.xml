@@ -112,5 +112,6 @@
     <string name="title_activity_search_std">SearchStdActivity</string>
     <string name="title_activity_search_stud">SearchStudActivity</string>
     <string name="title_activity_search_student">SearchStudentActivity</string>
+    <string name="title_activity_view_student">ViewStudentActivity</string>
 
 </resources>

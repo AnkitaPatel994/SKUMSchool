@@ -13,17 +13,19 @@ import com.intelliworkz.skumschool.Admin.AdminAttendence.AdminAttendenceActivity
 import com.intelliworkz.skumschool.Admin.AdminAttendence.AttendenceStandardActivity;
 import com.intelliworkz.skumschool.Admin.AdminEvent.AdminEventActivity;
 import com.intelliworkz.skumschool.Admin.AdminNoticeBoard.AdminNoticeBoardActivity;
+import com.intelliworkz.skumschool.Admin.AdminUser.AddUserActivity;
 import com.intelliworkz.skumschool.ChangePassword.ChangePasswordActivity;
 import com.intelliworkz.skumschool.Login.LoginActivity;
 import com.intelliworkz.skumschool.R;
 
 public class AdminHomeActivity extends AppCompatActivity {
-    LinearLayout layAdminRole,layAdmidStd,layAdminAttendence,layAdminProgressReport,layAdminNoticeBoard,layAdminEvaluation,layAdminEducation,layAdminEnvironment,layAdminEmoEva,layAdminActivity;
+    LinearLayout layAdminUser,layAdminRole,layAdmidStd,layAdminAttendence,layAdminProgressReport,layAdminNoticeBoard,layAdminEvaluation,layAdminEducation,layAdminEnvironment,layAdminEmoEva,layAdminActivity;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_home);
 
+        layAdminUser=(LinearLayout)findViewById(R.id.layAdminUser);
         layAdminRole=(LinearLayout)findViewById(R.id.layAdminRole);
         layAdmidStd=(LinearLayout)findViewById(R.id.layAdmidStd);
         layAdminAttendence=(LinearLayout)findViewById(R.id.layAdminAttendence);
@@ -34,6 +36,14 @@ public class AdminHomeActivity extends AppCompatActivity {
         layAdminEnvironment=(LinearLayout)findViewById(R.id.layAdminEnvironment);
         layAdminEmoEva=(LinearLayout)findViewById(R.id.layAdminEmoEva);
         layAdminActivity=(LinearLayout)findViewById(R.id.layAdminActivity);
+
+        layAdminUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(getApplicationContext(),AddUserActivity.class);
+                startActivity(i);
+            }
+        });
 
         layAdminRole.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,8 +72,8 @@ public class AdminHomeActivity extends AppCompatActivity {
         layAdminProgressReport.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(getApplicationContext(),AdminAttendenceActivity.class);
-                startActivity(i);
+                /*Intent i=new Intent(getApplicationContext(),AdminAttendenceActivity.class);
+                startActivity(i);*/
             }
         });
 
@@ -78,32 +88,32 @@ public class AdminHomeActivity extends AppCompatActivity {
         layAdminEvaluation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(getApplicationContext(),AdminAttendenceActivity.class);
-                startActivity(i);
+                /*Intent i=new Intent(getApplicationContext(),AdminAttendenceActivity.class);
+                startActivity(i);*/
             }
         });
 
         layAdminEducation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(getApplicationContext(),AdminAttendenceActivity.class);
-                startActivity(i);
+                /*Intent i=new Intent(getApplicationContext(),AdminAttendenceActivity.class);
+                startActivity(i);*/
             }
         });
 
         layAdminEnvironment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(getApplicationContext(),AdminAttendenceActivity.class);
-                startActivity(i);
+                /*Intent i=new Intent(getApplicationContext(),AdminAttendenceActivity.class);
+                startActivity(i);*/
             }
         });
 
         layAdminEmoEva.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(getApplicationContext(),AdminAttendenceActivity.class);
-                startActivity(i);
+                /*Intent i=new Intent(getApplicationContext(),AdminAttendenceActivity.class);
+                startActivity(i);*/
             }
         });
 

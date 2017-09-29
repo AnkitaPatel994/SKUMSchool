@@ -18,6 +18,29 @@
         android:orientation="horizontal">
 
         <LinearLayout
+            android:id="@+id/layAdminUser"
+            style="@style/main_screen_layout"
+            android:gravity="center">
+
+            <ImageView
+                style="@style/adminHome_screen_image"
+                android:background="@drawable/profile" />
+
+            <TextView
+                style="@style/adminHome_screen_text"
+                android:text="@string/txt_admin_User" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@android:color/transparent" />
+
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/layAdminRole"
             style="@style/main_screen_layout"
             android:gravity="center">
@@ -63,6 +86,15 @@
 
         </LinearLayout>
 
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="540dp"
+        android:layout_marginLeft="2dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
         <LinearLayout
             android:id="@+id/layAdminAttendence"
             style="@style/main_screen_layout"
@@ -85,15 +117,6 @@
                 android:background="@android:color/transparent" />
 
         </LinearLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="540dp"
-        android:layout_marginLeft="2dp"
-        android:layout_weight="1"
-        android:orientation="horizontal">
 
         <LinearLayout
             android:id="@+id/layAdminProgressReport"
@@ -141,6 +164,15 @@
 
         </LinearLayout>
 
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="540dp"
+        android:layout_marginLeft="2dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
         <LinearLayout
             android:id="@+id/layAdminEvaluation"
             style="@style/main_screen_layout"
@@ -163,15 +195,6 @@
                 android:background="@android:color/transparent"/>
 
         </LinearLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="540dp"
-        android:layout_marginLeft="2dp"
-        android:layout_weight="1"
-        android:orientation="horizontal">
 
         <LinearLayout
             android:id="@+id/layAdminEducation"
@@ -219,6 +242,15 @@
 
         </LinearLayout>
 
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="540dp"
+        android:layout_marginLeft="2dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
         <LinearLayout
             android:id="@+id/layAdminEmoEva"
             style="@style/main_screen_layout"
@@ -241,15 +273,6 @@
                 android:background="@android:color/transparent"/>
 
         </LinearLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="540dp"
-        android:layout_marginLeft="2dp"
-        android:layout_weight="1"
-        android:orientation="horizontal">
 
         <LinearLayout
             android:id="@+id/layAdminActivity"

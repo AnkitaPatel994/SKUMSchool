@@ -22,6 +22,7 @@
     <string name="title_activity_view_student">View Student</string>
 
     <!--Login Activity Page-->
+    <string name="txt_hint_adminname">Enter Your Name</string>
     <string name="txt_hint_username">Enter Your UserName</string>
     <string name="txt_hint_password">Enter Your Password</string>
     <string name="txt_english">English</string>
@@ -96,6 +97,7 @@
     <string name="err_msg_moccup">Enter Valid Mother Ocupation</string>
 
     <!--Admin Home Page-->
+    <string name="txt_admin_User">User</string>
     <string name="txt_admin_role">Role</string>
     <string name="txt_admin_student">Student</string>
     <string name="txt_admin_attendence">Attendence</string>
@@ -114,7 +116,7 @@
 
     <!--Admin Add Activity-->
     <string name="txt_hint_Admin_evDate">Enter Date</string>
-
+    <string name="title_activity_add_user">AddUserActivity</string>
 
 
 </resources>

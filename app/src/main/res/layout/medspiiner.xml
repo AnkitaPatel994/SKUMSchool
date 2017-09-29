@@ -3,7 +3,6 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
     <TextView
         android:id="@+id/txtMed"
         android:layout_width="match_parent"
@@ -12,4 +11,5 @@
         android:textSize="16dp"
         android:layout_marginLeft="5dp"
         android:textColor="#111"/>
+    
 </LinearLayout>

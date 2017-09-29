@@ -50,7 +50,6 @@ public class AddStudentFragment extends Fragment {
 
     Spinner spnStd,spnMedium;
     ArrayList<String> stdArrList=new ArrayList<>();
-    ArrayList<String> stdArrList1=new ArrayList<>();
     String mainurl= MainActivity.mainUrl;
     String mediumArr[]={"Select Medium","ENG","GUJ"};
 
@@ -247,8 +246,6 @@ public class AddStudentFragment extends Fragment {
                 String re_mobile=txtAddRPhone.getText().toString();
                 String of_mobile=txtAddOPhone.getText().toString();
                 String m_emailid=txtAddMEmail.getText().toString();
-
-
 
                 if(name.equals(""))
                 {

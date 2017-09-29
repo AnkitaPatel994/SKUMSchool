@@ -151,7 +151,9 @@ class ViewAttendStudAdapter extends RecyclerView.Adapter<ViewAttendStudAdapter.V
     }
 
     private class DeleteAttendance extends AsyncTask<String,Void,String>{
+
         String status,message,s_stddiv,s_rollno;
+
         public DeleteAttendance(String classStud, String rollno) {
             s_stddiv=classStud;
             s_rollno=rollno;

@@ -1,8 +1,5 @@
 package com.intelliworkz.skumschool.Admin.AdminNoticeBoard;
 
-import android.app.Activity;
-import android.content.Context;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -16,6 +13,7 @@ import android.widget.Toast;
 import com.intelliworkz.skumschool.HttpHandler;
 import com.intelliworkz.skumschool.R;
 import com.intelliworkz.skumschool.SplashScreen.MainActivity;
+import com.intelliworkz.skumschool.Student.NoticeBoard.NoticeBoardListAdapter;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -95,10 +93,12 @@ public class ViewNoticeBoardFragment extends Fragment {
                         HashMap<String,String > nbListhm = new HashMap<>();
                         JSONObject j=category.getJSONObject(i);
 
+                        String id=j.getString("id");
                         String title=j.getString("title");
                         String description=j.getString("description");
                         String date=j.getString("date");
 
+                        nbListhm.put("id",id);
                         nbListhm.put("title",title);
                         nbListhm.put("description",description);
                         nbListhm.put("date",date);
@@ -126,7 +126,7 @@ public class ViewNoticeBoardFragment extends Fragment {
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
 
-            rvNoticeBoardAdapter=new NoticeBoardListAdapter(getActivity(),noticeBoardList);
+            rvNoticeBoardAdapter=new NoticeBoardSwipeListAdapter(getActivity(),noticeBoardList);
             rvNoticeBoard.setAdapter(rvNoticeBoardAdapter);
 
         }

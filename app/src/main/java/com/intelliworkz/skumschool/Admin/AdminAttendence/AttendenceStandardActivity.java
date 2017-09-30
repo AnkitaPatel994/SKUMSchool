@@ -7,6 +7,8 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -41,15 +43,19 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class AttendenceStandardActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
     SearchView AttendsearchView;
-    ListView lstAttendStd;
-    String mainurl= MainActivity.mainUrl;
-    String add[]={"1","2","1","2","1","2","1","2","1","2","1","2","1","2","1","2","1","2","1","2","1","2","1","2","1","2","1","2"};
+    RecyclerView rvAttendence;
+    RecyclerView.LayoutManager rvAttendenceManager;
+    RecyclerView.Adapter rvAttendenceAdapter;
     ArrayList<String> stdAttendArrList=new ArrayList<>();
+    ArrayList<HashMap<String,String>> hmstdAttendArrList=new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,23 +74,16 @@ public class AttendenceStandardActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         AttendsearchView=(SearchView)findViewById(R.id.Attendsearchview);
-        lstAttendStd=(ListView) findViewById(R.id.lstAttendStd);
+
+        rvAttendence = (RecyclerView)findViewById(R.id.rvAttendence);
+        rvAttendence.setHasFixedSize(true);
+
+        rvAttendenceManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false);
+        rvAttendence.setLayoutManager(rvAttendenceManager);
 
         GetAttendStandardList getAttendStandardList=new GetAttendStandardList();
         getAttendStandardList.execute();
-        lstAttendStd.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String pos= String.valueOf(lstAttendStd.getItemAtPosition(position));
-                Intent i=new Intent(AttendenceStandardActivity.this,AdminAttendenceActivity.class);
-                i.putExtra("pos",pos);
-                startActivity(i);
-                finish();
-            }
-        });
 
-       /* ArrayAdapter<String> ad=new ArrayAdapter<String>(this,R.layout.support_simple_spinner_dropdown_item,add);
-        lstAttendStd.setAdapter(ad);*/
 
         AttendsearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -94,7 +93,7 @@ public class AttendenceStandardActivity extends AppCompatActivity
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                if(newText!=null && !newText.isEmpty())
+                /*if(newText!=null && !newText.isEmpty())
                 {
                     List<String> lstFound = new ArrayList<String>();
                     for(String item:stdAttendArrList){
@@ -102,13 +101,14 @@ public class AttendenceStandardActivity extends AppCompatActivity
                             lstFound.add(item);
                     }
                     ArrayAdapter<String> ad=new ArrayAdapter<String>(AttendenceStandardActivity.this, R.layout.support_simple_spinner_dropdown_item,lstFound);
-                    lstAttendStd.setAdapter(ad);
+                    rvAttendence.setLayoutManager(new LinearLayoutManager(AttendenceStandardActivity.this));
+                    rvAttendence.setAdapter(ad);
                 }
                 else
                 {
                     ArrayAdapter<String> ad=new ArrayAdapter<String>(AttendenceStandardActivity.this, R.layout.support_simple_spinner_dropdown_item,stdAttendArrList);
-                    lstAttendStd.setAdapter(ad);
-                }
+                    rvAttendence.setAdapter(ad);
+                }*/
                 return true;
             }
 
@@ -244,7 +244,7 @@ public class AttendenceStandardActivity extends AppCompatActivity
         protected String doInBackground(String... params) {
             String response;
             HttpHandler h=new HttpHandler();
-            response= h.serverConnection(mainurl+"classdiv");
+            response= h.serverConnection(MainActivity.mainUrl+"classdiv");
             if(response!=null)
             {
                 try {
@@ -252,11 +252,15 @@ public class AttendenceStandardActivity extends AppCompatActivity
                     JSONArray stdArr=jsonObject.getJSONArray("class");
                     for (int i=0;i<stdArr.length();i++)
                     {
+                        HashMap<String,String > hashMap = new HashMap<>();
                         JSONObject j=stdArr.getJSONObject(i);
 
                         String stdDiv=j.getString("class");
 
+                        hashMap.put("stdDiv",stdDiv);
+
                         stdAttendArrList.add(stdDiv);
+                        hmstdAttendArrList.add(hashMap);
                     }
 
 
@@ -270,8 +274,8 @@ public class AttendenceStandardActivity extends AppCompatActivity
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
-            ArrayAdapter<String> ad = new ArrayAdapter<String>(AttendenceStandardActivity.this, android.R.layout.simple_spinner_item, stdAttendArrList);
-            lstAttendStd.setAdapter(ad);
+            rvAttendenceAdapter=new AttendenceListAdapter(AttendenceStandardActivity.this,hmstdAttendArrList);
+            rvAttendence.setAdapter(rvAttendenceAdapter);
         }
     }
 }

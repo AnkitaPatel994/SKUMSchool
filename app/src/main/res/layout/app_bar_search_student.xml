@@ -23,7 +23,7 @@
                 android:queryHint="Search Standard"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="left"/>
+                android:gravity="right"/>
 
         </android.support.v7.widget.Toolbar>
 

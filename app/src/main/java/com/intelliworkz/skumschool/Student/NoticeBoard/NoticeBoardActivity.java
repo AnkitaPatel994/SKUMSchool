@@ -18,13 +18,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.intelliworkz.skumschool.Admin.AdminNoticeBoard.NoticeBoardListAdapter;
-import com.intelliworkz.skumschool.Admin.AdminNoticeBoard.ViewNoticeBoardFragment;
 import com.intelliworkz.skumschool.HttpHandler;
 import com.intelliworkz.skumschool.SplashScreen.MainActivity;
 import com.intelliworkz.skumschool.Student.Attendence.AttendenceActivity;
 import com.intelliworkz.skumschool.Student.Calender.CalenderActivity;
-import com.intelliworkz.skumschool.ChangePassword.ChangePasswordActivity;
 import com.intelliworkz.skumschool.Student.Education.EducationActivity;
 import com.intelliworkz.skumschool.Student.Emotional_Evaluation.Emotional_EvaluationActivity;
 import com.intelliworkz.skumschool.Student.Environment.EnvironmentActivity;

@@ -95,6 +95,10 @@
         <activity
             android:name=".Admin.AdminUser.AddUserActivity"
             android:label="@string/title_activity_add_user"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Admin.AdminRole.AdminRoleActivity"
+            android:label="@string/title_activity_admin_role"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

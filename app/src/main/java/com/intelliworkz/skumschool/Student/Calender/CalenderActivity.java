@@ -98,6 +98,8 @@ public class CalenderActivity extends AppCompatActivity
         String monthName = dateFormat.format(date);
         txtMonthName.setText(monthName);
 
+        
+
         GetActivityList activityList = new GetActivityList(monthName);
         activityList.execute();
 

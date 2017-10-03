@@ -9,4 +9,9 @@
     tools:context="com.intelliworkz.skumschool.Admin.AdminRole.AdminRoleActivity"
     tools:showIn="@layout/app_bar_admin_role">
 
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vpRole"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent" />
+
 </LinearLayout>

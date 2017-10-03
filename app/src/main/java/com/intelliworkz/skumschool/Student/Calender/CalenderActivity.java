@@ -96,9 +96,15 @@ public class CalenderActivity extends AppCompatActivity
         Date date = new Date();
 
         String monthName = dateFormat.format(date);
+
+        final String currentmonthName = dateFormat.format(date);
+
         txtMonthName.setText(monthName);
 
-        
+        if(monthName.equals(currentmonthName))
+        {
+            previousButton.setVisibility(View.GONE);
+        }
 
         GetActivityList activityList = new GetActivityList(monthName);
         activityList.execute();
@@ -115,6 +121,11 @@ public class CalenderActivity extends AppCompatActivity
 
                 txtMonthName.setText(monthName);
 
+                if(monthName.equals(currentmonthName))
+                {
+                    previousButton.setVisibility(View.GONE);
+                }
+
                 GetActivityList activityList = new GetActivityList(monthName);
                 activityList.execute();
             }
@@ -127,6 +138,8 @@ public class CalenderActivity extends AppCompatActivity
                 currentMonthIndex++;
                 Calendar cal =  Calendar.getInstance();
                 cal.add(Calendar.MONTH ,currentMonthIndex);
+
+                previousButton.setVisibility(View.VISIBLE);
 
                 String monthName  = new SimpleDateFormat("MMMM").format(cal.getTime());
 

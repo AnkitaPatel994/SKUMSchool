@@ -95,7 +95,11 @@
         <activity
             android:name=".Admin.AdminUser.AddUserActivity"
             android:label="@string/title_activity_add_user"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Admin.SearchStudent.EditStudentActivity"
+            android:label="@string/title_activity_edit_student"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

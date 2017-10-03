@@ -20,6 +20,8 @@
     <string name="title_activity_search_stud">Search Student</string>
     <string name="title_activity_search_student">Search Student</string>
     <string name="title_activity_view_student">View Student</string>
+    <string name="title_activity_add_user">AddUserActivity</string>
+    <string name="title_activity_edit_student">Edit Student</string>
 
     <!--Login Activity Page-->
     <string name="txt_hint_adminname">Enter Your Name</string>
@@ -116,7 +118,9 @@
 
     <!--Admin Add Activity-->
     <string name="txt_hint_Admin_evDate">Enter Date</string>
-    <string name="title_activity_add_user">AddUserActivity</string>
+
+    <!--Edit Student Activity-->
+    <string name="btn_ed">Edit</string>
 
 
 </resources>

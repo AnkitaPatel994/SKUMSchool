@@ -261,10 +261,7 @@ public class SearchStudentActivity extends AppCompatActivity
                         String stdDiv=j.getString("class");
 
                         stdArrList.add(stdDiv);
-
-
                     }
-
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -276,10 +273,8 @@ public class SearchStudentActivity extends AppCompatActivity
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
-
             ArrayAdapter<String> ad = new ArrayAdapter<String>(SearchStudentActivity.this, android.R.layout.simple_spinner_item, stdArrList);
             lst.setAdapter(ad);
         }
     }
-
 }

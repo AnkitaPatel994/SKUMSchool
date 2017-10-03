@@ -13,6 +13,7 @@ import com.intelliworkz.skumschool.Admin.AdminAttendence.AdminAttendenceActivity
 import com.intelliworkz.skumschool.Admin.AdminAttendence.AttendenceStandardActivity;
 import com.intelliworkz.skumschool.Admin.AdminEvent.AdminEventActivity;
 import com.intelliworkz.skumschool.Admin.AdminNoticeBoard.AdminNoticeBoardActivity;
+import com.intelliworkz.skumschool.Admin.AdminRole.AdminRoleActivity;
 import com.intelliworkz.skumschool.Admin.AdminUser.AddUserActivity;
 import com.intelliworkz.skumschool.ChangePassword.ChangePasswordActivity;
 import com.intelliworkz.skumschool.Login.LoginActivity;
@@ -23,6 +24,7 @@ public class AdminHomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTitle(R.string.title_activity_adminHome);
         setContentView(R.layout.activity_admin_home);
 
         layAdminUser=(LinearLayout)findViewById(R.id.layAdminUser);
@@ -48,7 +50,7 @@ public class AdminHomeActivity extends AppCompatActivity {
         layAdminRole.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(getApplicationContext(),AddStudentActivity.class);
+                Intent i=new Intent(getApplicationContext(),AdminRoleActivity.class);
                 startActivity(i);
             }
         });

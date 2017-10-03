@@ -1,42 +1,29 @@
-package com.intelliworkz.skumschool.Admin.AdminAttendence;
+package com.intelliworkz.skumschool.Admin.SearchStudent;
 
-import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.drawable.ColorDrawable;
-import android.os.AsyncTask;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.chauthai.swipereveallayout.SwipeRevealLayout;
-import com.chauthai.swipereveallayout.ViewBinderHelper;
-import com.intelliworkz.skumschool.Postdata;
+import com.intelliworkz.skumschool.Admin.AdminAttendence.AdminAttendenceActivity;
 import com.intelliworkz.skumschool.R;
-import com.intelliworkz.skumschool.SplashScreen.MainActivity;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 /**
  * Created by shyam group on 9/12/2017.
  */
 
-public class AttendenceListAdapter extends RecyclerView.Adapter<AttendenceListAdapter.ViewHolder> {
+public class StudentStdListAdapter extends RecyclerView.Adapter<StudentStdListAdapter.ViewHolder> {
 
     Context context;
     View v;
     ArrayList<String> stdAttendArrList;
 
-    public AttendenceListAdapter(Context context, ArrayList<String> stdAttendArrList) {
+    public StudentStdListAdapter(Context context, ArrayList<String> stdAttendArrList) {
         this.context = context;
         this.stdAttendArrList = stdAttendArrList;
     }
@@ -60,7 +47,7 @@ public class AttendenceListAdapter extends RecyclerView.Adapter<AttendenceListAd
         v.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(context,AdminAttendenceActivity.class);
+                Intent i=new Intent(context,ViewStudentActivity.class);
                 i.putExtra("pos",AttClass);
                 context.startActivity(i);
             }

@@ -28,12 +28,6 @@ dependencies {
     compile files('libs/okhttp-2.5.0.jar')
     compile files('libs/okio-1.6.0.jar')
 
-    //circleImage
-
-    //RecyclerView swipet
-
-    //SearchView
-
     compile 'de.hdodenhof:circleimageview:2.1.0'
     compile 'com.chauthai.swipereveallayout:swipe-reveal-layout:1.4.0'
     compile 'com.android.support:appcompat-v7:25.3.1'

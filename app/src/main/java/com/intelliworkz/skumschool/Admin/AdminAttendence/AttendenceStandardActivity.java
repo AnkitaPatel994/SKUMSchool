@@ -9,6 +9,8 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -21,6 +23,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SearchView;
 
@@ -49,12 +53,12 @@ import java.util.List;
 public class AttendenceStandardActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    SearchView AttendsearchView;
+    EditText AttendsearchView;
+    ImageView attClose;
     RecyclerView rvAttendence;
     RecyclerView.LayoutManager rvAttendenceManager;
-    RecyclerView.Adapter rvAttendenceAdapter;
+    AttendenceListAdapter rvAttendenceAdapter;
     ArrayList<String> stdAttendArrList=new ArrayList<>();
-    ArrayList<HashMap<String,String>> hmstdAttendArrList=new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,7 +77,8 @@ public class AttendenceStandardActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        AttendsearchView=(SearchView)findViewById(R.id.Attendsearchview);
+        AttendsearchView=(EditText) findViewById(R.id.Attendsearchview);
+        attClose=(ImageView) findViewById(R.id.attClose);
 
         rvAttendence = (RecyclerView)findViewById(R.id.rvAttendence);
         rvAttendence.setHasFixedSize(true);
@@ -84,35 +89,46 @@ public class AttendenceStandardActivity extends AppCompatActivity
         GetAttendStandardList getAttendStandardList=new GetAttendStandardList();
         getAttendStandardList.execute();
 
-
-        AttendsearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+        attClose.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
+            public void onClick(View v) {
+                AttendsearchView.setText("");
             }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                /*if(newText!=null && !newText.isEmpty())
-                {
-                    List<String> lstFound = new ArrayList<String>();
-                    for(String item:stdAttendArrList){
-                        if(item.contains(newText))
-                            lstFound.add(item);
-                    }
-                    ArrayAdapter<String> ad=new ArrayAdapter<String>(AttendenceStandardActivity.this, R.layout.support_simple_spinner_dropdown_item,lstFound);
-                    rvAttendence.setLayoutManager(new LinearLayoutManager(AttendenceStandardActivity.this));
-                    rvAttendence.setAdapter(ad);
-                }
-                else
-                {
-                    ArrayAdapter<String> ad=new ArrayAdapter<String>(AttendenceStandardActivity.this, R.layout.support_simple_spinner_dropdown_item,stdAttendArrList);
-                    rvAttendence.setAdapter(ad);
-                }*/
-                return true;
-            }
-
         });
+
+        AttendsearchView.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                filter(s.toString());
+            }
+        });
+    }
+
+    private void filter(String text) {
+        //new array list that will hold the filtered data
+        ArrayList<String> filterdNames = new ArrayList<>();
+
+        //looping through existing elements
+        for (String s : stdAttendArrList) {
+            //if the existing elements contains the search input
+            if (s.toLowerCase().contains(text.toLowerCase())) {
+                //adding the element to filtered list
+                filterdNames.add(s);
+            }
+        }
+
+        //calling a method of the adapter class and passing the filtered list
+        rvAttendenceAdapter.filterList(filterdNames);
     }
 
     @Override
@@ -252,15 +268,11 @@ public class AttendenceStandardActivity extends AppCompatActivity
                     JSONArray stdArr=jsonObject.getJSONArray("class");
                     for (int i=0;i<stdArr.length();i++)
                     {
-                        HashMap<String,String > hashMap = new HashMap<>();
                         JSONObject j=stdArr.getJSONObject(i);
 
                         String stdDiv=j.getString("class");
 
-                        hashMap.put("stdDiv",stdDiv);
-
                         stdAttendArrList.add(stdDiv);
-                        hmstdAttendArrList.add(hashMap);
                     }
 
 
@@ -274,7 +286,8 @@ public class AttendenceStandardActivity extends AppCompatActivity
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
-            rvAttendenceAdapter=new AttendenceListAdapter(AttendenceStandardActivity.this,hmstdAttendArrList);
+            rvAttendenceAdapter=new AttendenceListAdapter(AttendenceStandardActivity.this,stdAttendArrList);
+
             rvAttendence.setAdapter(rvAttendenceAdapter);
         }
     }

@@ -6,14 +6,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.intelliworkz.skumschool.Admin.SearchStudent.SearchStudentActivity"
+    tools:context="com.intelliworkz.skumschool.Admin.AdminStudent.SearchStudentActivity"
     tools:showIn="@layout/app_bar_search_student">
 
-    <ListView
-        android:id="@+id/lst"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvStudentStd"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:paddingTop="4dp"
+        android:paddingRight="4dp"
+        android:paddingLeft="4dp"
+        android:paddingBottom="2dp"
+        android:background="#e0e0e0" />
 
 </RelativeLayout>

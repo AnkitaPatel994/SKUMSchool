@@ -1,9 +1,8 @@
-package com.intelliworkz.skumschool.Admin.AdminAddStudent;
+package com.intelliworkz.skumschool.Admin.AdminStudent;
 
         import android.app.DatePickerDialog;
         import android.content.Context;
         import android.content.Intent;
-        import android.net.Uri;
         import android.os.AsyncTask;
         import android.os.Bundle;
         import android.support.design.widget.TextInputLayout;
@@ -21,7 +20,6 @@ package com.intelliworkz.skumschool.Admin.AdminAddStudent;
         import android.widget.DatePicker;
         import android.widget.EditText;
         import android.widget.Spinner;
-        import android.widget.TextView;
         import android.widget.Toast;
 
         import com.intelliworkz.skumschool.HttpHandler;

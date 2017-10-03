@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:padding="17dp"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.intelliworkz.skumschool.Admin.SearchStudent.StudentDetailActivity"
+    tools:context="com.intelliworkz.skumschool.Admin.AdminStudent.StudentDetailActivity"
     tools:showIn="@layout/app_bar_student_detail">
 
     <ScrollView
@@ -29,10 +29,10 @@
                     android:layout_marginTop="50dp"
                     android:background="@android:drawable/editbox_background"
                     android:orientation="vertical"
-                    android:paddingTop="60dp"
+                    android:paddingBottom="10dp"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
-                    android:paddingBottom="10dp">
+                    android:paddingTop="60dp">
 
                     <TextView
                         android:id="@+id/txtViewStudentName"
@@ -63,7 +63,7 @@
                                 android:id="@+id/txtViewClass"
                                 style="@style/profile_screen_imp_text"
                                 android:textColor="@color/colorPrimary"
-                                android:textSize="20dp"/>
+                                android:textSize="20dp" />
 
                             <TextView
                                 style="@style/profile_screen_text"
@@ -87,11 +87,11 @@
                                 android:id="@+id/txtViewRollNo"
                                 style="@style/profile_screen_imp_text"
                                 android:textColor="@color/colorPrimary"
-                                android:textSize="20dp"/>
+                                android:textSize="20dp" />
 
                             <TextView
                                 style="@style/profile_screen_text"
-                                android:text="@string/txt_rollno"/>
+                                android:text="@string/txt_rollno" />
 
                         </LinearLayout>
 
@@ -111,7 +111,7 @@
                                 android:id="@+id/txtViewMedium"
                                 style="@style/profile_screen_imp_text"
                                 android:textColor="@color/colorPrimary"
-                                android:textSize="20dp"/>
+                                android:textSize="20dp" />
 
                             <TextView
                                 style="@style/profile_screen_text"
@@ -132,23 +132,22 @@
                         android:id="@+id/txtViewAddress"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="15dp"
                         android:layout_marginLeft="15dp"
                         android:layout_marginRight="15dp"
-                        android:layout_marginBottom="15dp"
                         android:gravity="center"
-                        android:textSize="12dp"
-                        android:textColor="#595959"/>
+                        android:textColor="#595959"
+                        android:textSize="12dp" />
 
                 </LinearLayout>
 
-                <de.hdodenhof.circleimageview.CircleImageView
-                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
                     android:id="@+id/profile_image"
                     android:layout_width="110dp"
                     android:layout_height="110dp"
                     android:layout_gravity="center_horizontal"
-                    app:civ_border_color="@color/colorPrimary"
                     android:src="@drawable/account"
+                    app:civ_border_color="@color/colorPrimary"
                     app:civ_border_width="2dp" />
 
             </FrameLayout>
@@ -172,12 +171,12 @@
                     <TextView
                         android:id="@+id/txtViewBOD"
                         style="@style/profile_screen_imp_text"
-                        android:textColor="@color/colorPrimary"/>
+                        android:textColor="@color/colorPrimary" />
 
                     <TextView
                         style="@style/profile_screen_text"
-                        android:textSize="9dp"
-                        android:text="@string/txt_bod"/>
+                        android:text="@string/txt_bod"
+                        android:textSize="9dp" />
 
                 </LinearLayout>
 
@@ -192,12 +191,12 @@
                     <TextView
                         android:id="@+id/txtViewAddmissionDate"
                         style="@style/profile_screen_imp_text"
-                        android:textColor="@color/colorPrimary"/>
+                        android:textColor="@color/colorPrimary" />
 
                     <TextView
                         style="@style/profile_screen_text"
-                        android:textSize="9dp"
-                        android:text="@string/txt_addmissionDate"/>
+                        android:text="@string/txt_addmissionDate"
+                        android:textSize="9dp" />
 
                 </LinearLayout>
 
@@ -223,12 +222,12 @@
                     <TextView
                         android:id="@+id/txtViewGRNo"
                         style="@style/profile_screen_imp_text"
-                        android:textColor="@color/colorPrimary"/>
+                        android:textColor="@color/colorPrimary" />
 
                     <TextView
                         style="@style/profile_screen_text"
-                        android:textSize="9dp"
-                        android:text="@string/txt_GRNo"/>
+                        android:text="@string/txt_GRNo"
+                        android:textSize="9dp" />
 
                 </LinearLayout>
 
@@ -243,12 +242,12 @@
                     <TextView
                         android:id="@+id/txtViewVanNo"
                         style="@style/profile_screen_imp_text"
-                        android:textColor="@color/colorPrimary"/>
+                        android:textColor="@color/colorPrimary" />
 
                     <TextView
                         style="@style/profile_screen_text"
-                        android:textSize="9dp"
-                        android:text="@string/txt_VanNo"/>
+                        android:text="@string/txt_VanNo"
+                        android:textSize="9dp" />
 
                 </LinearLayout>
 
@@ -264,12 +263,12 @@
 
                 <TextView
                     style="@style/profile_screen_text"
-                    android:text="@string/txt_fathername"/>
+                    android:text="@string/txt_fathername" />
 
                 <TextView
                     android:id="@+id/txtViewFatherName"
                     style="@style/profile_screen_imp_text"
-                    android:textColor="@color/colorPrimary"/>
+                    android:textColor="@color/colorPrimary" />
 
                 <View
                     android:layout_width="match_parent"
@@ -293,13 +292,13 @@
                         <TextView
                             style="@style/profile_screen_text"
                             android:text="@string/txt_occupation"
-                            android:textSize="9dp"/>
+                            android:textSize="9dp" />
 
                         <TextView
                             android:id="@+id/txtViewOccupation"
                             style="@style/profile_screen_imp_text"
                             android:textColor="#595959"
-                            android:textSize="13dp"/>
+                            android:textSize="13dp" />
 
                     </LinearLayout>
 
@@ -312,14 +311,14 @@
 
                         <TextView
                             style="@style/profile_screen_text"
-                            android:textSize="9dp"
-                            android:text="@string/txt_mobile"/>
+                            android:text="@string/txt_mobile"
+                            android:textSize="9dp" />
 
                         <TextView
                             android:id="@+id/txtViewMobile"
                             style="@style/profile_screen_imp_text"
                             android:textColor="#595959"
-                            android:textSize="13dp"/>
+                            android:textSize="13dp" />
 
                     </LinearLayout>
 
@@ -340,15 +339,15 @@
 
                         <TextView
                             style="@style/profile_screen_text"
-                            android:textSize="9dp"
-                            android:text="@string/txt_emailId"/>
+                            android:text="@string/txt_emailId"
+                            android:textSize="9dp" />
 
                         <TextView
                             android:id="@+id/txtViewEmail"
                             style="@style/profile_screen_imp_text"
-                            android:textColor="#595959"
                             android:textAllCaps="false"
-                            android:textSize="13dp"/>
+                            android:textColor="#595959"
+                            android:textSize="13dp" />
 
                     </LinearLayout>
 
@@ -365,12 +364,12 @@
 
                 <TextView
                     style="@style/profile_screen_text"
-                    android:text="@string/txt_mothername"/>
+                    android:text="@string/txt_mothername" />
 
                 <TextView
                     android:id="@+id/txtViewMotherName"
                     style="@style/profile_screen_imp_text"
-                    android:textColor="@color/colorPrimary"/>
+                    android:textColor="@color/colorPrimary" />
 
                 <View
                     android:layout_width="match_parent"
@@ -394,13 +393,13 @@
                         <TextView
                             style="@style/profile_screen_text"
                             android:text="@string/txt_occupation"
-                            android:textSize="9dp"/>
+                            android:textSize="9dp" />
 
                         <TextView
                             android:id="@+id/txtViewMOccupation"
                             style="@style/profile_screen_imp_text"
                             android:textColor="#595959"
-                            android:textSize="13dp"/>
+                            android:textSize="13dp" />
 
                     </LinearLayout>
 
@@ -413,14 +412,14 @@
 
                         <TextView
                             style="@style/profile_screen_text"
-                            android:textSize="9dp"
-                            android:text="@string/txt_mobile"/>
+                            android:text="@string/txt_mobile"
+                            android:textSize="9dp" />
 
                         <TextView
                             android:id="@+id/txtViewMMobile"
                             style="@style/profile_screen_imp_text"
                             android:textColor="#595959"
-                            android:textSize="13dp"/>
+                            android:textSize="13dp" />
 
                     </LinearLayout>
 
@@ -442,15 +441,15 @@
                         <TextView
                             android:id="@+id/txtViewMoEmail"
                             style="@style/profile_screen_text"
-                            android:textSize="9dp"
-                            android:text="@string/txt_emailId"/>
+                            android:text="@string/txt_emailId"
+                            android:textSize="9dp" />
 
                         <TextView
                             android:id="@+id/txtViewMEmail"
                             style="@style/profile_screen_imp_text"
-                            android:textColor="#595959"
                             android:textAllCaps="false"
-                            android:textSize="13dp"/>
+                            android:textColor="#595959"
+                            android:textSize="13dp" />
 
                     </LinearLayout>
 

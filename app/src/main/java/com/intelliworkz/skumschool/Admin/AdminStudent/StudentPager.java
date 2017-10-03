@@ -1,4 +1,4 @@
-package com.intelliworkz.skumschool.Admin.AdminAddStudent;
+package com.intelliworkz.skumschool.Admin.AdminStudent;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

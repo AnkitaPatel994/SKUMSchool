@@ -61,7 +61,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Admin.AdminHome.AdminHomeActivity" />
         <activity
-            android:name=".Admin.AdminAddStudent.AddStudentActivity"
+            android:name=".Admin.AdminStudent.AddStudentActivity"
             android:label="@string/title_activity_add_student"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
@@ -77,15 +77,15 @@
             android:label="@string/title_activity_admin_event"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Admin.SearchStudent.SearchStudentActivity"
+            android:name=".Admin.AdminStudent.SearchStudentActivity"
             android:label="@string/title_activity_search_student"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Admin.SearchStudent.ViewStudentActivity"
+            android:name=".Admin.AdminStudent.ViewStudentActivity"
             android:label="@string/title_activity_view_student"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Admin.SearchStudent.StudentDetailActivity"
+            android:name=".Admin.AdminStudent.StudentDetailActivity"
             android:label="@string/title_activity_student_detail"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
@@ -95,7 +95,17 @@
         <activity
             android:name=".Admin.AdminUser.AddUserActivity"
             android:label="@string/title_activity_add_user"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+			android:name=".Admin.AdminRole.AdminRoleActivity"
+            android:label="@string/title_activity_admin_role"
+            android:theme="@style/AppTheme.NoActionBar"/>
+			
+		<activity
+            android:name=".Admin.AdminStudent.EditStudentActivity"
+            android:label="@string/title_activity_edit_student"
+            android:theme="@style/AppTheme.NoActionBar" />
+
     </application>
 
 </manifest>

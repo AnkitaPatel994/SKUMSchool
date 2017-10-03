@@ -33,7 +33,7 @@ public class ChangePasswordActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_password);
-        setTitle(R.string.app_title);
+        setTitle(R.string.title_activity_change_password);
 
         if(getSupportActionBar()!= null)
         {

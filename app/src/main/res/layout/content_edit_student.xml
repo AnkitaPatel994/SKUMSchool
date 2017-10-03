@@ -1,12 +1,13 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.intelliworkz.skumschool.Admin.AdminStudent.AddStudentFragment">
-
-    <!-- TODO: Update blank fragment layout -->
+    tools:context="com.intelliworkz.skumschool.Admin.AdminStudent.EditStudentActivity"
+    tools:showIn="@layout/app_bar_edit_student">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -18,7 +19,7 @@
             android:orientation="vertical">
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/input_layout_name"
+                android:id="@+id/input_layout_edname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
@@ -27,7 +28,7 @@
                 android:layout_marginTop="10dp">
 
                 <EditText
-                    android:id="@+id/txtAddStdName"
+                    android:id="@+id/edtxtAddStdName"
                     style="@style/hint"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -37,17 +38,17 @@
             </android.support.design.widget.TextInputLayout>
 
             <Spinner
-                android:id="@+id/spnStd"
+                android:id="@+id/edspnStd"
                 style="@style/hint_editText"
                 android:textColor="#111"
                 android:background="@android:drawable/btn_dropdown" />
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/input_layout_RNo"
+                android:id="@+id/input_layout_edRNo"
                 style="@style/hint_editText">
 
                 <EditText
-                    android:id="@+id/txtAddRNo"
+                    android:id="@+id/edtxtAddRNo"
                     style="@style/hint"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -57,24 +58,24 @@
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/input_layout_medium"
+                android:id="@+id/input_layout_edmedium"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:layout_marginTop="10dp">
-            <Spinner
-                android:id="@+id/spnMedium"
-                style="@style/hint_editText"
-                android:textColor="#111"
-                android:background="@android:drawable/btn_dropdown" />
+                <Spinner
+                    android:id="@+id/edspnMedium"
+                    style="@style/hint_editText"
+                    android:textColor="#111"
+                    android:background="@android:drawable/btn_dropdown" />
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/input_layout_Address"
+                android:id="@+id/input_layout_edAddress"
                 style="@style/hint_editText">
 
                 <EditText
-                    android:id="@+id/txtAddAddress"
+                    android:id="@+id/edtxtAddAddress"
                     style="@style/hint"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -84,11 +85,11 @@
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/input_layout_PCode"
+                android:id="@+id/input_layout_edPCode"
                 style="@style/hint_editText">
 
                 <EditText
-                    android:id="@+id/txtAddPcode"
+                    android:id="@+id/edtxtAddPcode"
                     style="@style/hint"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -98,11 +99,11 @@
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/input_layout_DOB"
+                android:id="@+id/input_layout_edDOB"
                 style="@style/hint_editText">
 
                 <EditText
-                    android:id="@+id/txtAddDOB"
+                    android:id="@+id/edtxtAddDOB"
                     style="@style/hint"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -113,11 +114,11 @@
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/input_layout_AddmissionDate"
+                android:id="@+id/input_layout_edAddmissionDate"
                 style="@style/hint_editText">
 
                 <EditText
-                    android:id="@+id/txtAddAddmissionDate"
+                    android:id="@+id/edtxtAddAddmissionDate"
                     style="@style/hint"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -128,11 +129,11 @@
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/input_layout_GRNo"
+                android:id="@+id/input_layout_edGRNo"
                 style="@style/hint_editText">
 
                 <EditText
-                    android:id="@+id/txtAddGRNo"
+                    android:id="@+id/edtxtAddGRNo"
                     style="@style/hint"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -143,11 +144,11 @@
 
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/input_layout_VanNo"
+                android:id="@+id/input_layout_edVanNo"
                 style="@style/hint_editText">
 
                 <EditText
-                    android:id="@+id/txtAddVanNo"
+                    android:id="@+id/edtxtAddVanNo"
                     style="@style/hint"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -157,11 +158,11 @@
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/input_layout_RPhone"
+                android:id="@+id/input_layout_edRPhone"
                 style="@style/hint_editText">
 
                 <EditText
-                    android:id="@+id/txtAddRPhone"
+                    android:id="@+id/edtxtAddRPhone"
                     style="@style/hint"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -171,11 +172,11 @@
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/input_layout_OPhone"
+                android:id="@+id/input_layout_edOPhone"
                 style="@style/hint_editText">
 
                 <EditText
-                    android:id="@+id/txtAddOPhone"
+                    android:id="@+id/edtxtAddOPhone"
                     style="@style/hint"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -185,11 +186,11 @@
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/input_layout_Fathername"
+                android:id="@+id/input_layout_edFathername"
                 style="@style/hint_editText">
 
                 <EditText
-                    android:id="@+id/txtAddFathername"
+                    android:id="@+id/edtxtAddFathername"
                     style="@style/hint"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -199,11 +200,11 @@
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/input_layout_FOccup"
+                android:id="@+id/input_layout_edFOccup"
                 style="@style/hint_editText">
 
                 <EditText
-                    android:id="@+id/txtAddFOccup"
+                    android:id="@+id/edtxtAddFOccup"
                     style="@style/hint"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -213,13 +214,13 @@
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/input_layout_FMoNo"
+                android:id="@+id/input_layout_edFMoNo"
                 style="@style/hint_editText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <EditText
-                    android:id="@+id/txtAddFMono"
+                    android:id="@+id/edtxtAddFMono"
                     style="@style/hint"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -229,11 +230,11 @@
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/input_layout_Femail"
+                android:id="@+id/input_layout_edFemail"
                 style="@style/hint_editText">
 
                 <EditText
-                    android:id="@+id/txtAddFemail"
+                    android:id="@+id/edtxtAddFemail"
                     style="@style/hint"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -243,11 +244,11 @@
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/input_layout_Mothername"
+                android:id="@+id/input_layout_edMothername"
                 style="@style/hint_editText">
 
                 <EditText
-                    android:id="@+id/txtAddMothername"
+                    android:id="@+id/edtxtAddMothername"
                     style="@style/hint"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -257,11 +258,11 @@
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/input_layout_MOccup"
+                android:id="@+id/input_layout_edMOccup"
                 style="@style/hint_editText">
 
                 <EditText
-                    android:id="@+id/txtAddMOccup"
+                    android:id="@+id/edtxtAddMOccup"
                     style="@style/hint"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -271,11 +272,11 @@
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/input_layout_MMoNo"
+                android:id="@+id/input_layout_edMMoNo"
                 style="@style/hint_editText">
 
                 <EditText
-                    android:id="@+id/txtAddMMono"
+                    android:id="@+id/edtxtAddMMono"
                     style="@style/hint"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -289,7 +290,7 @@
                 style="@style/hint_editText">
 
                 <EditText
-                    android:id="@+id/txtAddMEmail"
+                    android:id="@+id/edtxtAddMEmail"
                     style="@style/hint"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -300,7 +301,7 @@
             </android.support.design.widget.TextInputLayout>
 
             <Button
-                android:id="@+id/btnAdd"
+                android:id="@+id/btned"
                 style="@style/ButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -309,7 +310,7 @@
                 android:layout_marginRight="80dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/button_background"
-                android:text="@string/btn_submit"
+                android:text="@string/btn_ed"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
         </LinearLayout>
     </ScrollView>

@@ -1,19 +1,11 @@
-package com.intelliworkz.skumschool.Admin.AdminAddStudent;
+package com.intelliworkz.skumschool.Admin.AdminStudent;
 
-import android.app.DatePickerDialog;
 import android.content.ActivityNotFoundException;
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
-import android.support.design.widget.TextInputLayout;
 import android.support.v4.view.ViewPager;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -23,27 +15,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.WindowManager;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.DatePicker;
-import android.widget.EditText;
-import android.widget.Spinner;
-import android.widget.Toast;
-
-
-import com.intelliworkz.skumschool.Admin.AdminNoticeBoard.AddNoticeBoardFragment;
-import com.intelliworkz.skumschool.Admin.AdminNoticeBoard.Pager;
-import com.intelliworkz.skumschool.Admin.AdminNoticeBoard.ViewNoticeBoardFragment;
 
 
 //import com.intelliworkz.skumschool.Admin.SearchStudent.SearchStudActivity;
-import com.intelliworkz.skumschool.Admin.SearchStudent.SearchStudentActivity;
-import com.intelliworkz.skumschool.HttpHandler;
 import com.intelliworkz.skumschool.Student.Calender.CalenderActivity;
-import com.intelliworkz.skumschool.ChangePassword.ChangePasswordActivity;
 import com.intelliworkz.skumschool.Student.Education.EducationActivity;
 import com.intelliworkz.skumschool.Student.Emotional_Evaluation.Emotional_EvaluationActivity;
 import com.intelliworkz.skumschool.Student.Environment.EnvironmentActivity;
@@ -55,16 +30,6 @@ import com.intelliworkz.skumschool.Student.NoticeBoard.NoticeBoardActivity;
 import com.intelliworkz.skumschool.Student.Profile.ProfileActivity;
 import com.intelliworkz.skumschool.Student.ProgressReport.ProgressReportActivity;
 import com.intelliworkz.skumschool.R;
-import com.intelliworkz.skumschool.SplashScreen.MainActivity;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Locale;
 
 public class AddStudentActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {

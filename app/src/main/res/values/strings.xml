@@ -1,25 +1,31 @@
 <resources>
     <string name="app_name">SKUMSchool</string>
     <string name="app_title">SKUM School</string>
-    <string name="title_activity_student_detail">SKUM School</string>
-    <string name="title_activity_attendence">SKUM School</string>
-    <string name="title_activity_notice_board">SKUM School</string>
-    <string name="title_activity_profile">SKUM School</string>
-    <string name="title_activity_progress_report">SKUM School</string>
-    <string name="title_activity_calender">SKUM School</string>
-    <string name="title_activity_evaluation">SKUM School</string>
-    <string name="title_activity_education">SKUM School</string>
-    <string name="title_activity_environment">SKUM School</string>
-    <string name="title_activity_emotional__evaluation">SKUM School</string>
-    <string name="title_activity_add_student">SKUM School</string>
-    <string name="title_activity_admin_attendence">SKUM School</string>
-    <string name="title_activity_admin_notice_board">SKUM School</string>
-    <string name="title_activity_admin_event">SKUM School</string>
-    <string name="title_activity_attendence_standard">SKUM School</string>
-    <string name="title_activity_search_std">Search Student</string>
+    <string name="title_activity_adminHome">SKUM School Admin</string>
+    <string name="title_activity_forgot_password">Forgot Password</string>
+    <string name="title_activity_change_password">Change Password</string>
+    <string name="title_activity_student_detail">Profile</string>
+    <string name="title_activity_attendence">Attendence</string>
+    <string name="title_activity_notice_board">Notice Board</string>
+    <string name="title_activity_profile">Profile</string>
+    <string name="title_activity_progress_report">Progress Report</string>
+    <string name="title_activity_calender">Activity</string>
+    <string name="title_activity_evaluation">Evaluation</string>
+    <string name="title_activity_education">Education</string>
+    <string name="title_activity_environment">Environment</string>
+    <string name="title_activity_emotional__evaluation">Emotional Evaluation</string>
+    <string name="title_activity_add_student">Student</string>
+    <string name="title_activity_admin_attendence">View Student</string>
+    <string name="title_activity_admin_notice_board">Notice Board</string>
+    <string name="title_activity_admin_event">Activity</string>
+    <string name="title_activity_attendence_standard">Search Standard</string>
+    <string name="title_activity_search_std">Search Standard</string>
     <string name="title_activity_search_stud">Search Student</string>
     <string name="title_activity_search_student">Search Student</string>
     <string name="title_activity_view_student">View Student</string>
+    <string name="title_activity_add_user">Add User</string>
+	<string name="title_activity_edit_student">Edit Student</string>
+	<string name="title_activity_admin_role">Role Admin</string>
 
     <!--Login Activity Page-->
     <string name="txt_hint_adminname">Enter Your Name</string>
@@ -116,7 +122,8 @@
 
     <!--Admin Add Activity-->
     <string name="txt_hint_Admin_evDate">Enter Date</string>
-    <string name="title_activity_add_user">AddUserActivity</string>
 
+    <!--Edit Student Activity-->
+    <string name="btn_ed">Edit</string>
 
 </resources>

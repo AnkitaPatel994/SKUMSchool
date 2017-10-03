@@ -77,15 +77,15 @@
             android:label="@string/title_activity_admin_event"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Admin.SearchStudent.SearchStudentActivity"
+            android:name=".Admin.AdminAddStudent.SearchStudentActivity"
             android:label="@string/title_activity_search_student"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Admin.SearchStudent.ViewStudentActivity"
+            android:name=".Admin.AdminAddStudent.ViewStudentActivity"
             android:label="@string/title_activity_view_student"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Admin.SearchStudent.StudentDetailActivity"
+            android:name=".Admin.AdminAddStudent.StudentDetailActivity"
             android:label="@string/title_activity_student_detail"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
@@ -97,7 +97,7 @@
             android:label="@string/title_activity_add_user"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Admin.SearchStudent.EditStudentActivity"
+            android:name=".Admin.AdminAddStudent.EditStudentActivity"
             android:label="@string/title_activity_edit_student"
             android:theme="@style/AppTheme.NoActionBar" />
     </application>

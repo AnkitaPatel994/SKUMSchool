@@ -1,4 +1,4 @@
-package com.intelliworkz.skumschool.Admin.SearchStudent;
+package com.intelliworkz.skumschool.Admin.AdminAddStudent;
 
 import android.app.DatePickerDialog;
 import android.content.ActivityNotFoundException;
@@ -6,10 +6,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;

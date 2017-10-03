@@ -20,6 +20,7 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.intelliworkz.skumschool.ChangePassword.ChangePasswordActivity;
 import com.intelliworkz.skumschool.Login.LoginActivity;
 import com.intelliworkz.skumschool.Postdata;
 import com.intelliworkz.skumschool.R;
@@ -42,6 +43,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class StudentDetailActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     TextView txtViewStudentName,txtViewMoEmail,txtViewClass,txtViewRollNo,txtViewMedium,txtViewAddress,txtViewBOD,txtViewAddmissionDate,txtViewFatherName,txtViewOccupation,txtViewMobile,txtViewEmail,txtViewGRNo,txtViewVanNo,txtViewMotherName,txtViewMOccupation,txtViewMMobile,txtViewMEmail;
+    String sid,status,message,StudentName,pic,Class,Rollno,Medium,Address,Pincode,BOD,AddmissionDate,GRNo,VanNo,RMono,OMono,FatherName,Occupation,Mobile,Email,MotherName,MOccupation,MMobile,MEmail;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -95,6 +97,41 @@ public class StudentDetailActivity extends AppCompatActivity
         } else {
             super.onBackPressed();
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.edit_stud,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Intent i = new Intent(getApplicationContext(),EditStudentActivity.class);
+        i.putExtra("sid",sid);
+        i.putExtra("Medium",Medium);
+        i.putExtra("Class",Class);
+        startActivity(i);
+      /*  i.putExtra("StudentName",StudentName);
+        i.putExtra("Medium",Medium);
+        i.putExtra("Class",Class);
+        i.putExtra("Rollno",Rollno);
+        i.putExtra("Address",Address);
+        i.putExtra("Pincode",Pincode);
+        i.putExtra("BOD",BOD);
+        i.putExtra("AddmissionDate",AddmissionDate);
+        i.putExtra("GRNo",GRNo);
+        i.putExtra("VanNo",VanNo);
+        i.putExtra("FatherName",FatherName);
+        i.putExtra("Occupation",Occupation);
+        i.putExtra("Email",Email);
+        i.putExtra("MotherName",MotherName);
+        i.putExtra("MOccupation",MOccupation);
+        i.putExtra("MMobile",MMobile);
+        i.putExtra("MEmail",MEmail);
+        startActivity(i);*//*
+        Toast.makeText(getApplicationContext(),sid,Toast.LENGTH_SHORT).show();*/
+        return true;
     }
 
     @Override
@@ -207,8 +244,8 @@ public class StudentDetailActivity extends AppCompatActivity
 
     private class GetStudentDetail extends AsyncTask<String,Void,String> {
 
-        String id,status,message,StudentName,pic,Class,Rollno,Medium,Address,BOD,GRNo,VanNo,AddmissionDate,FatherName,Occupation,Mobile,Email,MotherName,MOccupation,MMobile,MEmail;
-
+        //String id,status,message,StudentName,pic,Class,Rollno,Medium,Address,BOD,GRNo,VanNo,AddmissionDate,FatherName,Occupation,Mobile,Email,MotherName,MOccupation,MMobile,MEmail;
+        String id;
         public GetStudentDetail(String id) {
             this.id = id;
         }
@@ -228,16 +265,19 @@ public class StudentDetailActivity extends AppCompatActivity
                     message = j.getString("message");
                     JSONObject jo=j.getJSONObject("profile");
 
+                    sid=jo.getString("id");
                     StudentName = jo.getString("name");
                     //pic =  jo.getString("pic");
                     Class = jo.getString("class");
                     Rollno = jo.getString("rollno");
                     Medium = jo.getString("medium");
                     Address = jo.getString("address");
+                    Pincode=jo.getString("pincode");
                     BOD = jo.getString("bod");
                     AddmissionDate = jo.getString("addmissionDate");
                     GRNo = jo.getString("gr_no");
                     VanNo = jo.getString("van_no");
+
                     FatherName = jo.getString("f_name");
                     Occupation = jo.getString("f_occupation");
                     Mobile = jo.getString("f_mobile");
@@ -270,7 +310,7 @@ public class StudentDetailActivity extends AppCompatActivity
                 txtViewClass.setText(Class);
                 txtViewRollNo.setText(Rollno);
                 txtViewMedium.setText(Medium);
-                txtViewAddress.setText(Address);
+                txtViewAddress.setText(Address+Pincode);
                 txtViewBOD.setText(BOD);
                 txtViewGRNo.setText(GRNo);
                 txtViewVanNo.setText(VanNo);

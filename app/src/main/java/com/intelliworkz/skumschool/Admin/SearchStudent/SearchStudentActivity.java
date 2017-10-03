@@ -290,8 +290,6 @@ public class SearchStudentActivity extends AppCompatActivity
 
             rvStudentStd.setAdapter(rvStudentStdAdapter);
 
-
         }
     }
-
 }

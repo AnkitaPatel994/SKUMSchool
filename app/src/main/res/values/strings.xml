@@ -24,8 +24,8 @@
     <string name="title_activity_search_student">Search Student</string>
     <string name="title_activity_view_student">View Student</string>
     <string name="title_activity_add_user">Add User</string>
-	<string name="title_activity_edit_student">Edit Student</string>
-	<string name="title_activity_admin_role">Role Admin</string>
+    <string name="title_activity_edit_student">Edit Student</string>
+    <string name="title_activity_admin_role">Role Admin</string>
 
     <!--Login Activity Page-->
     <string name="txt_hint_adminname">Enter Your Name</string>

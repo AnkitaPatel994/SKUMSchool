@@ -95,6 +95,12 @@ public class ViewEventFragment extends Fragment {
         String monthName = dateFormat.format(date);
         ae_txtMonthName.setText(monthName);
 
+        final String currentmonthName = dateFormat.format(date);
+        if(monthName.equals(currentmonthName))
+        {
+            ae_previousButton.setVisibility(View.GONE);
+        }
+
         GetAdminActivityList adminActivityList = new GetAdminActivityList(monthName);
         adminActivityList.execute();
 
@@ -110,6 +116,11 @@ public class ViewEventFragment extends Fragment {
 
                 ae_txtMonthName.setText(monthName);
 
+                if(monthName.equals(currentmonthName))
+                {
+                    ae_previousButton.setVisibility(View.GONE);
+                }
+
                 GetAdminActivityList adminActivityList = new GetAdminActivityList(monthName);
                 adminActivityList.execute();
             }
@@ -122,6 +133,8 @@ public class ViewEventFragment extends Fragment {
                 currentMonthIndex++;
                 Calendar cal =  Calendar.getInstance();
                 cal.add(Calendar.MONTH ,currentMonthIndex);
+
+                ae_previousButton.setVisibility(View.VISIBLE);
 
                 String monthName  = new SimpleDateFormat("MMMM").format(cal.getTime());
 

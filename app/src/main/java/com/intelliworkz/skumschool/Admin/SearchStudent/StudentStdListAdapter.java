@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.intelliworkz.skumschool.Admin.AdminAttendence.AdminAttendenceActivity;
+import com.intelliworkz.skumschool.Admin.AdminStudent.ViewStudentActivity;
 import com.intelliworkz.skumschool.R;
 
 import java.util.ArrayList;

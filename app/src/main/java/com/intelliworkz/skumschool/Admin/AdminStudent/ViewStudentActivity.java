@@ -1,4 +1,4 @@
-package com.intelliworkz.skumschool.Admin.AdminAddStudent;
+package com.intelliworkz.skumschool.Admin.AdminStudent;
 
 import android.app.ProgressDialog;
 import android.os.AsyncTask;

@@ -1,21 +1,12 @@
-package com.intelliworkz.skumschool.Admin.AdminAddStudent;
+package com.intelliworkz.skumschool.Admin.AdminStudent;
 
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
-import android.graphics.PorterDuff;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
-
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.text.Editable;
-import android.text.TextWatcher;
-
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.util.Log;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -24,51 +15,33 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.SearchView;
 
-import com.intelliworkz.skumschool.Admin.AdminAttendence.AttendenceListAdapter;
-import com.intelliworkz.skumschool.Admin.AdminAttendence.AttendenceStandardActivity;
-import com.intelliworkz.skumschool.HttpHandler;
-import com.intelliworkz.skumschool.Login.LoginActivity;
-import com.intelliworkz.skumschool.R;
+
+//import com.intelliworkz.skumschool.Admin.SearchStudent.SearchStudActivity;
 import com.intelliworkz.skumschool.Student.Calender.CalenderActivity;
 import com.intelliworkz.skumschool.Student.Education.EducationActivity;
 import com.intelliworkz.skumschool.Student.Emotional_Evaluation.Emotional_EvaluationActivity;
 import com.intelliworkz.skumschool.Student.Environment.EnvironmentActivity;
 import com.intelliworkz.skumschool.Student.Evaluation.EvaluationActivity;
 import com.intelliworkz.skumschool.Student.Home.HomeActivity;
+
+import com.intelliworkz.skumschool.Login.LoginActivity;
 import com.intelliworkz.skumschool.Student.NoticeBoard.NoticeBoardActivity;
 import com.intelliworkz.skumschool.Student.Profile.ProfileActivity;
 import com.intelliworkz.skumschool.Student.ProgressReport.ProgressReportActivity;
+import com.intelliworkz.skumschool.R;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.ArrayList;
-import java.util.List;
-
-public class SearchStudentActivity extends AppCompatActivity
+public class AddStudentActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
-    EditText searchView;
-    ImageView close;
-    RecyclerView rvStudentStd;
-    RecyclerView.LayoutManager rvStudentStdManager;
-    StudentStdListAdapter rvStudentStdAdapter;
-    ArrayList<String> studentStdArrList=new ArrayList<>();
-
+    TabLayout StudTab;
+    ViewPager addStud_viewPager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search_student);
+        setContentView(R.layout.activity_add_student);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -79,59 +52,23 @@ public class SearchStudentActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        searchView=(EditText) findViewById(R.id.search_bar);
-        close=(ImageView) findViewById(R.id.close);
+        StudTab=(TabLayout)findViewById(R.id.StudTab);
+        addStud_viewPager=(ViewPager)findViewById(R.id.addStud_viewPager);
 
-        rvStudentStd = (RecyclerView)findViewById(R.id.rvStudentStd);
-        rvStudentStd.setHasFixedSize(true);
+        setupViewPager(addStud_viewPager);
+        StudTab.setupWithViewPager(addStud_viewPager);
 
-        rvStudentStdManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false);
-        rvStudentStd.setLayoutManager(rvStudentStdManager);
-
-        GetStandardList getStandard=new GetStandardList();
-        getStandard.execute();
-
-        close.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                searchView.setText("");
-            }
-        });
-
-        searchView.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                filter(s.toString());
-            }
-        });
     }
 
-    private void filter(String text) {
-        //new array list that will hold the filtered data
-        ArrayList<String> filterdNames = new ArrayList<>();
+    private void setupViewPager(ViewPager viewPager){
 
-        //looping through existing elements
-        for (String s : studentStdArrList) {
-            //if the existing elements contains the search input
-            if (s.toLowerCase().contains(text.toLowerCase())) {
-                //adding the element to filtered list
-                filterdNames.add(s);
-            }
-        }
+        StudentPager adapter = new StudentPager(getSupportFragmentManager());
 
-        //calling a method of the adapter class and passing the filtered list
-        rvStudentStdAdapter.filterList(filterdNames);
+        adapter.addFrag(new AddStudentFragment(),"Add Student");
+
+        viewPager.setAdapter(adapter);
     }
+
 
     @Override
     public void onBackPressed() {
@@ -141,6 +78,26 @@ public class SearchStudentActivity extends AppCompatActivity
         } else {
             super.onBackPressed();
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.search_toolbar, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        int id = item.getItemId();
+
+        if (id == R.id.search) {
+            Intent i = new Intent(getApplicationContext(),SearchStudentActivity.class);
+            startActivity(i);
+            //Toast.makeText(getApplicationContext(),"hi",Toast.LENGTH_SHORT).show();
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -231,10 +188,12 @@ public class SearchStudentActivity extends AppCompatActivity
             startActivity(i);
             finish();
         }
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
     private boolean MyStartActivity(Intent i) {
 
         try
@@ -248,47 +207,4 @@ public class SearchStudentActivity extends AppCompatActivity
         }
     }
 
-    private class GetStandardList extends AsyncTask<String,Void,String> {
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-
-        }
-        @Override
-        protected String doInBackground(String... params) {
-            String response;
-            HttpHandler h=new HttpHandler();
-            response= h.serverConnection(MainActivity.mainUrl+"classdiv");
-            if(response!=null)
-            {
-                try {
-                    JSONObject jsonObject=new JSONObject(response);
-                    JSONArray stdArr=jsonObject.getJSONArray("class");
-                    for (int i=0;i<stdArr.length();i++)
-                    {
-                        JSONObject j=stdArr.getJSONObject(i);
-
-                        String stdDiv=j.getString("class");
-
-                        studentStdArrList.add(stdDiv);
-
-                    }
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(String s) {
-            super.onPostExecute(s);
-
-            rvStudentStdAdapter=new StudentStdListAdapter(SearchStudentActivity.this,studentStdArrList);
-
-            rvStudentStd.setAdapter(rvStudentStdAdapter);
-
-        }
-    }
 }

@@ -8,8 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 
-import com.intelliworkz.skumschool.Admin.AdminAddStudent.AddStudentActivity;
-import com.intelliworkz.skumschool.Admin.AdminAttendence.AdminAttendenceActivity;
+import com.intelliworkz.skumschool.Admin.AdminStudent.AddStudentActivity;
 import com.intelliworkz.skumschool.Admin.AdminAttendence.AttendenceStandardActivity;
 import com.intelliworkz.skumschool.Admin.AdminEvent.AdminEventActivity;
 import com.intelliworkz.skumschool.Admin.AdminNoticeBoard.AdminNoticeBoardActivity;

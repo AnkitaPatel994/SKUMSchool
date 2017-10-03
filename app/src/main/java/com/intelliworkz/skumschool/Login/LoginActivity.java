@@ -1,6 +1,5 @@
 package com.intelliworkz.skumschool.Login;
 
-import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -19,9 +18,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.intelliworkz.skumschool.Admin.AdminAddStudent.AddStudentActivity;
-import com.intelliworkz.skumschool.Admin.AdminAddStudent.AddStudentFragment;
-import com.intelliworkz.skumschool.Admin.AdminAttendence.AdminAttendenceActivity;
 import com.intelliworkz.skumschool.Admin.AdminHome.AdminHomeActivity;
 import com.intelliworkz.skumschool.Forgot_Password.Forgot_PasswordActivity;
 import com.intelliworkz.skumschool.Postdata;

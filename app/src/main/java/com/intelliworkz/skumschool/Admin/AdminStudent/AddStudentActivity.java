@@ -18,6 +18,8 @@ import android.view.MenuItem;
 
 
 //import com.intelliworkz.skumschool.Admin.SearchStudent.SearchStudActivity;
+import com.intelliworkz.skumschool.Admin.AdminAttendence.AdminAttendenceActivity;
+import com.intelliworkz.skumschool.Admin.AdminRole.AdminRoleActivity;
 import com.intelliworkz.skumschool.Student.Calender.CalenderActivity;
 import com.intelliworkz.skumschool.Student.Education.EducationActivity;
 import com.intelliworkz.skumschool.Student.Emotional_Evaluation.Emotional_EvaluationActivity;
@@ -111,6 +113,19 @@ public class AddStudentActivity extends AppCompatActivity
             startActivity(i);
             finish();
         }
+        else if (id == R.id.nav_role)
+        {
+            Intent i = new Intent(this, AdminRoleActivity.class);
+            startActivity(i);
+            finish();
+        }
+        else if (id == R.id.nav_attendence)
+        {
+            Intent i = new Intent(this, AdminAttendenceActivity.class);
+            startActivity(i);
+            finish();
+        }
+
         else if (id == R.id.nav_profile)
         {
             Intent i = new Intent(this, ProfileActivity.class);
@@ -194,7 +209,7 @@ public class AddStudentActivity extends AppCompatActivity
         return true;
     }
 
-    private boolean MyStartActivity(Intent i) {
+       private boolean MyStartActivity(Intent i) {
 
         try
         {

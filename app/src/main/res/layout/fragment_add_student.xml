@@ -35,13 +35,24 @@
                     android:hint="@string/txt_hint_stdname"
                     android:inputType="textPersonName" />
             </android.support.design.widget.TextInputLayout>
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout_class"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp">
 
-            <Spinner
-                android:id="@+id/spnStd"
-                style="@style/hint_editText"
-                android:textColor="#111"
-                android:background="@android:drawable/btn_dropdown" />
+                <Spinner
+                    android:id="@+id/spnStd"
+                    style="@style/hint_editText"
+                    android:textColor="#111"
+                    android:background="@android:drawable/btn_dropdown"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:spinnerMode="dialog"
+                    android:popupTheme="@android:style/ThemeOverlay.Material.Light"/>
 
+        </android.support.design.widget.TextInputLayout>
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/input_layout_RNo"
                 style="@style/hint_editText">
@@ -62,11 +73,17 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:layout_marginTop="10dp">
-            <Spinner
-                android:id="@+id/spnMedium"
-                style="@style/hint_editText"
-                android:textColor="#111"
-                android:background="@android:drawable/btn_dropdown" />
+
+                <Spinner
+                    android:id="@+id/spnMedium"
+                    style="@style/hint_editText"
+                    android:textColor="#111"
+                    android:background="@android:drawable/btn_dropdown"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:spinnerMode="dialog"
+                    android:popupTheme="@android:style/ThemeOverlay.Material.Light"/>
+
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout

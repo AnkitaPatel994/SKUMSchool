@@ -6,6 +6,9 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.design.widget.TextInputLayout;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -16,6 +19,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -24,6 +28,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.intelliworkz.skumschool.Admin.AdminAttendence.AdminAttendenceActivity;
+import com.intelliworkz.skumschool.Admin.AdminRole.AdminRoleActivity;
 import com.intelliworkz.skumschool.HttpHandler;
 import com.intelliworkz.skumschool.Login.LoginActivity;
 import com.intelliworkz.skumschool.Postdata;
@@ -57,10 +63,16 @@ public class EditStudentActivity extends AppCompatActivity
     Spinner edspnStd,edspnMedium;
     String sid,StudentName,Classstd,Rollno,Medium,Address,Pincode,BOD,GRNo,VanNo,Rmno,Omno,AddmissionDate,FatherName,Occupation,Mobile,Email,MotherName,MOccupation,MMobile,MEmail;
     ArrayList<String> stdArrList=new ArrayList<>();
-    String mainurl= MainActivity.mainUrl;
+
     ArrayList<String> mediumArr=new ArrayList<>();
     ArrayList<String> mediumArr1=new ArrayList<>();
     String classStud,medium;
+
+    TextInputLayout edinput_layout_name,edinput_layout_class,edinput_layout_RNo,edinput_layout_medium,edinput_layout_Address,
+            edinput_layout_PCode,edinput_layout_DOB,edinput_layout_AddmissionDate,edinput_layout_GRNo,
+            edinput_layout_VanNo,edinput_layout_RPhone,edinput_layout_OPhone,edinput_layout_Fathername,
+            edinput_layout_FOccup,edinput_layout_FMoNo, edinput_layout_Femail,edinput_layout_Mothername,
+            edinput_layout_MOccup,edinput_layout_MMoNo,edinput_layout_MEmail;
 
     //Date Picker
     Calendar myCalendar = Calendar.getInstance();
@@ -106,25 +118,43 @@ public class EditStudentActivity extends AppCompatActivity
         edtxtAddMMono=(EditText)findViewById(R.id.edtxtAddMMono);
         edtxtAddMEmail=(EditText)findViewById(R.id.edtxtAddMEmail);
 
+        edinput_layout_name=(TextInputLayout)findViewById(R.id.edinput_layout_name);
+        edinput_layout_class=(TextInputLayout)findViewById(R.id.edinput_layout_class);
+        edinput_layout_RNo=(TextInputLayout)findViewById(R.id.edinput_layout_RNo);
+        edinput_layout_medium=(TextInputLayout)findViewById(R.id.edinput_layout_medium);
+        edinput_layout_Address=(TextInputLayout)findViewById(R.id.edinput_layout_Address);
+        edinput_layout_PCode=(TextInputLayout)findViewById(R.id.edinput_layout_PCode);
+        edinput_layout_DOB=(TextInputLayout)findViewById(R.id.edinput_layout_DOB);
+        edinput_layout_AddmissionDate=(TextInputLayout)findViewById(R.id.edinput_layout_AddmissionDate);
+        edinput_layout_GRNo=(TextInputLayout)findViewById(R.id.edinput_layout_GRNo);
+        edinput_layout_VanNo=(TextInputLayout)findViewById(R.id.edinput_layout_VanNo);
+        edinput_layout_RPhone=(TextInputLayout)findViewById(R.id.edinput_layout_RPhone);
+        edinput_layout_OPhone=(TextInputLayout)findViewById(R.id.edinput_layout_OPhone);
+        edinput_layout_Fathername=(TextInputLayout)findViewById(R.id.edinput_layout_FOccup);
+        edinput_layout_FOccup=(TextInputLayout)findViewById(R.id.edinput_layout_FOccup);
+        edinput_layout_FMoNo=(TextInputLayout)findViewById(R.id.edinput_layout_FMoNo);
+        edinput_layout_Femail=(TextInputLayout)findViewById(R.id.edinput_layout_Femail);
+        edinput_layout_Mothername=(TextInputLayout)findViewById(R.id.edinput_layout_Mothername);
+        edinput_layout_MOccup=(TextInputLayout)findViewById(R.id.edinput_layout_MOccup);
+        edinput_layout_MMoNo=(TextInputLayout)findViewById(R.id.edinput_layout_MMoNo);
+        edinput_layout_MEmail=(TextInputLayout)findViewById(R.id.edinput_layout_MEmail);
 
-        String name=edtxtAddStdName.getText().toString();
-        String rollno=edtxtAddRNo.getText().toString();
-        String address=edtxtAddAddress.getText().toString();
-        String pincode=edtxtAddPcode.getText().toString();
-        String bod=edtxtAddDOB.getText().toString();
-        String addmissionDate=edtxtAddAddmissionDate.getText().toString();
-        String gr_no=edtxtAddGRNo.getText().toString();
-        String van_no=edtxtAddVanNo.getText().toString();
-        String re_mobile=edtxtAddRNo.getText().toString();
-        String of_mobile=edtxtAddOPhone.getText().toString();
-        String f_name=edtxtAddFathername.getText().toString();
-        String f_occupation=edtxtAddFOccup.getText().toString();
-        String f_mobile=edtxtAddFMono.getText().toString();
-        String f_emailid=edtxtAddFemail.getText().toString();
-        String m_name=edtxtAddMothername.getText().toString();
-        String m_mobile=edtxtAddMMono.getText().toString();
-        String m_occupation=edtxtAddMOccup.getText().toString();
-        String m_emailid=edtxtAddMEmail.getText().toString();
+        edtxtAddStdName.addTextChangedListener(new MyTextWatcher(edtxtAddStdName));
+        edtxtAddRNo.addTextChangedListener(new MyTextWatcher(edtxtAddRNo));
+        edtxtAddAddress.addTextChangedListener(new MyTextWatcher(edtxtAddAddress));
+        edtxtAddPcode.addTextChangedListener(new MyTextWatcher(edtxtAddPcode));
+        edtxtAddDOB.addTextChangedListener(new MyTextWatcher(edtxtAddDOB));
+        edtxtAddAddmissionDate.addTextChangedListener(new MyTextWatcher(edtxtAddAddmissionDate));
+        edtxtAddGRNo.addTextChangedListener(new MyTextWatcher(edtxtAddGRNo));
+        edtxtAddVanNo.addTextChangedListener(new MyTextWatcher(edtxtAddVanNo));
+        edtxtAddFathername.addTextChangedListener(new MyTextWatcher(edtxtAddFathername));
+        edtxtAddFOccup.addTextChangedListener(new MyTextWatcher(edtxtAddFOccup));
+        edtxtAddFMono.addTextChangedListener(new MyTextWatcher(edtxtAddFMono));
+        edtxtAddFemail.addTextChangedListener(new MyTextWatcher(edtxtAddFemail));
+        edtxtAddMothername.addTextChangedListener(new MyTextWatcher(edtxtAddMothername));
+        edtxtAddMMono.addTextChangedListener(new MyTextWatcher(edtxtAddMMono));
+        edtxtAddMOccup.addTextChangedListener(new MyTextWatcher(edtxtAddMOccup));
+
 
 
         sid=getIntent().getExtras().getString("sid");
@@ -139,8 +169,12 @@ public class EditStudentActivity extends AppCompatActivity
         mediumArr.add("ENG");
         mediumArr.add("GUJ");
 
-        ArrayAdapter<String> ad = new ArrayAdapter<String>(EditStudentActivity.this, android.R.layout.simple_spinner_item, mediumArr);
-        edspnMedium.setAdapter(ad);
+        ArrayAdapter<String> adapter =
+                new ArrayAdapter<String>(EditStudentActivity.this,
+                        android.R.layout.simple_spinner_item, mediumArr);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        edspnMedium.setAdapter(adapter);
+
         Medium=getIntent().getExtras().getString("Medium");
 
         for(int i=0;i<mediumArr.size();i++)
@@ -227,12 +261,329 @@ public class EditStudentActivity extends AppCompatActivity
                 String m_occupation=edtxtAddMOccup.getText().toString();
                 String m_emailid=edtxtAddMEmail.getText().toString();
 
-                EditStudent editStudent=new EditStudent(name,classStud,rollno,medium,address,pincode,bod,addmissionDate,gr_no,van_no,re_mobile,of_mobile, f_name,f_occupation,f_mobile,f_emailid,m_name,m_occupation,m_mobile,m_emailid);
-                editStudent.execute();
+                if(name.equals(""))
+                {
+                    validateStdName();
+                }
+                else if(rollno.equals(""))
+                {
+                    validateRollNo();
+                }
+                else if(medium.equals("Select Medium"))
+                {
+                    validateMedium();
+                }
+                else if(address.equals(""))
+                {
+                    validateAddress();
+                }
+                else if(pincode.equals(""))
+                {
+                    validatePincode();
+                }
+                else if(bod.equals(""))
+                {
+                    validateDOB();
+                }
+                else if(addmissionDate.equals(""))
+                {
+                    validateAddmissionDate();
+                }
+                else if(gr_no.equals(""))
+                {
+                    validateGrNo();
+                }
+                else if(van_no.equals(""))
+                {
+                    validateVanNo();
+                }
+                else if(f_name.equals(""))
+                {
+                    validateFatherName();
+                }
+                else if(f_occupation.equals(""))
+                {
+                    validateFoccup();
+                }
+                else if(f_mobile.equals(""))
+                {
+                    validateFmono();
+                }
+                else if(f_emailid.equals(""))
+                {
+                    validateFemail();
+                }
+                else if(m_name.equals(""))
+                {
+                    validateMname();
+                }
+                else if(m_occupation.equals(""))
+                {
+                    validateMoccup();
+                }
+                else if(m_mobile.equals(""))
+                {
+                    validateMmno();
+                }
+                else
+                {
+                    EditStudent editStudent=new EditStudent(name,classStud,rollno,medium,address,pincode,bod,addmissionDate,gr_no,van_no,re_mobile,of_mobile, f_name,f_occupation,f_mobile,f_emailid,m_name,m_occupation,m_mobile,m_emailid);
+                    editStudent.execute();
+                }
+
 
 
             }
         });
+    }
+
+    private boolean validateStdName() {
+        if (edtxtAddStdName.getText().toString().trim().isEmpty())
+        {
+            edinput_layout_name.setError(getString(R.string.err_msg_stdname));
+            requestFocus(edtxtAddStdName);
+            return false;
+        }
+        else
+        {
+            edinput_layout_name.setErrorEnabled(false);
+        }
+        return true;
+    }
+    private boolean validateClasdStud() {
+        if (classStud.equals("Select Standard"))
+        {
+            /*input_layout_medium.setError(getString(R.string.err_msg_rno));
+            requestFocus(spnMedium);*/
+            Toast.makeText(getApplicationContext(),"Please select Standard",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        else
+        {
+            edinput_layout_class.setErrorEnabled(false);
+        }
+        return true;
+    }
+    private boolean validateRollNo() {
+        if (edtxtAddRNo.getText().toString().trim().isEmpty())
+        {
+            edinput_layout_RNo.setError(getString(R.string.err_msg_rno));
+            requestFocus(edtxtAddRNo);
+            return false;
+        }
+        else
+        {
+            edinput_layout_RNo.setErrorEnabled(false);
+        }
+        return true;
+    }
+
+    private boolean validateMedium() {
+
+        if (medium.equals("Select Medium"))
+        {
+            /*input_layout_medium.setError(getString(R.string.err_msg_rno));
+            requestFocus(spnMedium);*/
+            Toast.makeText(getApplicationContext(),"Please select Medium",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        else
+        {
+            edinput_layout_medium.setErrorEnabled(false);
+        }
+        return true;
+    }
+
+    private boolean validateAddress () {
+        if (edtxtAddAddress.getText().toString().trim().isEmpty())
+        {
+            edinput_layout_Address.setError(getString(R.string.err_msg_address));
+            requestFocus(edtxtAddAddress);
+            return false;
+        }
+        else
+        {
+            edinput_layout_Address.setErrorEnabled(false);
+        }
+        return true;
+    }
+
+    private boolean validatePincode () {
+        String MobilePattern = "[0-9]{6}";
+        if(!edtxtAddPcode.getText().toString().matches(MobilePattern))
+        {
+            edinput_layout_PCode.setError(getString(R.string.err_msg_validpno));
+            requestFocus(edtxtAddPcode);
+            return false;
+        }
+        else
+        {
+            edinput_layout_PCode.setErrorEnabled(false);
+        }
+        return true;
+    }
+
+    private boolean validateDOB () {
+        if (edtxtAddDOB.getText().toString().trim().isEmpty())
+        {
+            edinput_layout_DOB.setError(getString(R.string.err_msg_dob));
+            requestFocus(edtxtAddDOB);
+            return false;
+        }
+        else
+        {
+            edinput_layout_DOB.setErrorEnabled(false);
+        }
+        return true;
+    }
+
+    private boolean validateAddmissionDate () {
+        if (edtxtAddAddmissionDate.getText().toString().trim().isEmpty())
+        {
+            edinput_layout_AddmissionDate.setError(getString(R.string.err_msg_admissiondate));
+            requestFocus(edtxtAddAddmissionDate);
+            return false;
+        }
+        else
+        {
+            edinput_layout_AddmissionDate.setErrorEnabled(false);
+        }
+        return true;
+    }
+
+    private boolean validateGrNo () {
+        if (edtxtAddGRNo.getText().toString().trim().isEmpty())
+        {
+            edinput_layout_GRNo.setError(getString(R.string.err_msg_grno));
+            requestFocus(edtxtAddGRNo);
+            return false;
+        }
+        else
+        {
+            edinput_layout_GRNo.setErrorEnabled(false);
+        }
+        return true;
+    }
+
+    private boolean validateVanNo() {
+        if (edtxtAddVanNo.getText().toString().trim().isEmpty())
+        {
+            edinput_layout_VanNo.setError(getString(R.string.err_msg_vanno));
+            requestFocus(edtxtAddVanNo);
+            return false;
+        }
+        else
+        {
+            edinput_layout_VanNo.setErrorEnabled(false);
+        }
+        return true;
+    }
+
+    private boolean validateFatherName() {
+        if (edtxtAddFathername.getText().toString().trim().isEmpty())
+        {
+            edinput_layout_Fathername.setError(getString(R.string.err_msg_fname));
+            requestFocus(edtxtAddFathername);
+            return false;
+        }
+        else
+        {
+            edinput_layout_Fathername.setErrorEnabled(false);
+        }
+        return true;
+    }
+
+    private boolean validateFoccup() {
+        if (edtxtAddFOccup.getText().toString().trim().isEmpty())
+        {
+            edinput_layout_FOccup.setError(getString(R.string.err_msg_foccup));
+            requestFocus(edtxtAddFOccup);
+            return false;
+        }
+        else
+        {
+            edinput_layout_FOccup.setErrorEnabled(false);
+        }
+        return true;
+    }
+
+    private boolean validateFmono() {
+        String MobilePattern = "[0-9]{10}";
+        if(!edtxtAddFMono.getText().toString().matches(MobilePattern))
+        {
+            edinput_layout_FMoNo.setError(getString(R.string.err_msg_validmono));
+            requestFocus(edtxtAddFMono);
+            return false;
+        }
+        else
+        {
+            edinput_layout_FMoNo.setErrorEnabled(false);
+        }
+        return true;
+    }
+
+    private boolean validateFemail() {
+        String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+        if (!edtxtAddFemail.getText().toString().matches(emailPattern))
+        {
+            edinput_layout_Femail.setError(getString(R.string.err_msg_email));
+            requestFocus(edtxtAddFemail);
+            return false;
+        }
+        else
+        {
+            edinput_layout_Femail.setErrorEnabled(false);
+        }
+        return true;
+    }
+
+    private boolean validateMname() {
+        if (edtxtAddMothername.getText().toString().trim().isEmpty())
+        {
+            edinput_layout_Mothername.setError(getString(R.string.err_msg_mname));
+            requestFocus(edtxtAddMothername);
+            return false;
+        }
+        else
+        {
+            edinput_layout_Mothername.setErrorEnabled(false);
+        }
+        return true;
+    }
+
+    private boolean validateMoccup() {
+        if (edtxtAddMOccup.getText().toString().trim().isEmpty())
+        {
+            edinput_layout_MOccup.setError(getString(R.string.err_msg_moccup));
+            requestFocus(edtxtAddMOccup);
+            return false;
+        }
+        else
+        {
+            edinput_layout_MOccup.setErrorEnabled(false);
+        }
+        return true;
+    }
+
+    private boolean validateMmno() {
+
+        String MobilePattern = "[0-9]{10}";
+        if(!edtxtAddMMono.getText().toString().matches(MobilePattern))
+        {
+            edinput_layout_MMoNo.setError(getString(R.string.err_msg_validmono));
+            requestFocus(edtxtAddMMono);
+            return false;
+        }
+        else
+        {
+            edinput_layout_MMoNo.setErrorEnabled(false);
+        }
+        return true;
+    }
+    private void requestFocus(View v) {
+        if (v.requestFocus()) {
+            getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+        }
     }
 
     private void updateAddDate() {
@@ -261,6 +612,19 @@ public class EditStudentActivity extends AppCompatActivity
             startActivity(i);
             finish();
         }
+        else if (id == R.id.nav_role)
+        {
+            Intent i = new Intent(this, AdminRoleActivity.class);
+            startActivity(i);
+            finish();
+        }
+        else if (id == R.id.nav_attendence)
+        {
+            Intent i = new Intent(this, AdminAttendenceActivity.class);
+            startActivity(i);
+            finish();
+        }
+
         else if (id == R.id.nav_profile)
         {
             Intent i = new Intent(this, ProfileActivity.class);
@@ -524,10 +888,9 @@ public class EditStudentActivity extends AppCompatActivity
     private class GetStd extends AsyncTask<String,Void,String> {
         @Override
         protected String doInBackground(String... params) {
-            stdArrList.add("Select Standard");
             String response;
             HttpHandler h=new HttpHandler();
-            response= h.serverConnection(mainurl+"classdiv");
+            response= h.serverConnection(MainActivity.mainUrl+"classdiv");
             if(response!=null)
             {
                 try {
@@ -553,8 +916,11 @@ public class EditStudentActivity extends AppCompatActivity
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
-            ArrayAdapter<String> ad = new ArrayAdapter<String>(EditStudentActivity.this, android.R.layout.simple_spinner_item, stdArrList);
-            edspnStd.setAdapter(ad);
+            ArrayAdapter<String> adapter =
+                    new ArrayAdapter<String>(EditStudentActivity.this,
+                            android.R.layout.simple_spinner_item, stdArrList);
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            edspnStd.setAdapter(adapter);
             Classstd=getIntent().getExtras().getString("Class");
 
             for(int i=0;i<stdArrList.size();i++)
@@ -563,6 +929,74 @@ public class EditStudentActivity extends AppCompatActivity
                 {
                     edspnStd.setSelection(i);
                 }
+            }
+        }
+    }
+
+    private class MyTextWatcher implements TextWatcher {
+        private View view;
+        public MyTextWatcher(View view) {
+            this.view = view;
+        }
+
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+            switch (view.getId()) {
+                case R.id.edtxtAddStdName:
+                    validateStdName();
+                    break;
+                case R.id.edtxtAddRNo:
+                    validateRollNo();
+                    break;
+                case R.id.edtxtAddAddress:
+                    validateAddress();
+                    break;
+                case R.id.edtxtAddPcode:
+                    validatePincode();
+                    break;
+                case R.id.edtxtAddDOB:
+                    validateDOB();
+                    break;
+                case R.id.edtxtAddAddmissionDate:
+                    validateAddmissionDate();
+                    break;
+                case R.id.edtxtAddGRNo:
+                    validateGrNo();
+                    break;
+                case R.id.edtxtAddVanNo:
+                    validateVanNo();
+                    break;
+                case R.id.edtxtAddFathername:
+                    validateFatherName();
+                    break;
+                case R.id.edtxtAddFOccup:
+                    validateFoccup();
+                    break;
+                case R.id.edtxtAddFMono:
+                    validateFmono();
+                    break;
+                case R.id.edtxtAddFemail:
+                    validateFemail();
+                    break;
+                case R.id.edtxtAddMothername:
+                    validateMname();
+                    break;
+                case R.id.edtxtAddMOccup:
+                    validateMoccup();
+                    break;
+                case R.id.edtxtAddMMono:
+                    validateMmno();
+                    break;
             }
         }
     }

@@ -18,6 +18,8 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.intelliworkz.skumschool.Admin.AdminAttendence.AdminAttendenceActivity;
+import com.intelliworkz.skumschool.Admin.AdminRole.AdminRoleActivity;
 import com.intelliworkz.skumschool.Student.Attendence.AttendenceActivity;
 import com.intelliworkz.skumschool.Student.Calender.CalenderActivity;
 import com.intelliworkz.skumschool.ChangePassword.ChangePasswordActivity;
@@ -120,9 +122,22 @@ public class ProfileActivity extends AppCompatActivity
             startActivity(i);
             finish();
         }
+        else if (id == R.id.nav_role)
+        {
+            Intent i = new Intent(this, AdminRoleActivity.class);
+            startActivity(i);
+            finish();
+        }
         else if (id == R.id.nav_attendence)
         {
-            Intent i = new Intent(this, AttendenceActivity.class);
+            Intent i = new Intent(this, AdminAttendenceActivity.class);
+            startActivity(i);
+            finish();
+        }
+
+        else if (id == R.id.nav_profile)
+        {
+            Intent i = new Intent(this, ProfileActivity.class);
             startActivity(i);
             finish();
         }

@@ -43,6 +43,7 @@ public class AddUserActivity extends AppCompatActivity
     Button btnAdminUser;
     ArrayList<String> roleArrList=new ArrayList<>();
     int rolePos;
+    String roleList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,8 +85,7 @@ public class AddUserActivity extends AppCompatActivity
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
                 rolePos= Integer.parseInt(String.valueOf(SPAdminRole.getItemIdAtPosition(position)));
-                String roleList= String.valueOf(SPAdminRole.getItemAtPosition(position));
-
+                roleList= String.valueOf(SPAdminRole.getItemAtPosition(position));
             }
 
             @Override
@@ -102,7 +102,7 @@ public class AddUserActivity extends AppCompatActivity
                 String Username = txtAdminUsername.getText().toString();
                 String Password = txtAdminUserPassword.getText().toString();
 
-                if(SPAdminRole.equals("Select Role"))
+                if(roleList.equals("Select Role"))
                 {
                     validateRole();
                 }
@@ -131,9 +131,9 @@ public class AddUserActivity extends AppCompatActivity
 
     private boolean validateRole() {
 
-        if (SPAdminRole.equals("Select Role"))
+        if (roleList.equals("Select Role"))
         {
-            Toast.makeText(AddUserActivity.this,"Please select Role",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(),"Please select Role",Toast.LENGTH_SHORT).show();
             return false;
         }
         else

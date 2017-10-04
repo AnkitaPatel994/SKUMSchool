@@ -33,11 +33,6 @@ import java.util.HashMap;
 
 public class ViewEventFragment extends Fragment {
 
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-    private String mParam1;
-    private String mParam2;
-
     View view;
     RecyclerView ae_ivEventList;
     RecyclerView.LayoutManager ae_ivEventListManager;
@@ -55,8 +50,8 @@ public class ViewEventFragment extends Fragment {
     public static ViewEventFragment newInstance(String param1, String param2) {
         ViewEventFragment fragment = new ViewEventFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+        args.putString("param1", param1);
+        args.putString("param2", param2);
         fragment.setArguments(args);
         return fragment;
     }
@@ -64,10 +59,7 @@ public class ViewEventFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+
     }
 
     @Override
@@ -99,6 +91,7 @@ public class ViewEventFragment extends Fragment {
         if(monthName.equals(currentmonthName))
         {
             ae_previousButton.setVisibility(View.GONE);
+            ae_txtMonthName.setPadding(200,0,0,0);
         }
 
         GetAdminActivityList adminActivityList = new GetAdminActivityList(monthName);
@@ -119,6 +112,7 @@ public class ViewEventFragment extends Fragment {
                 if(monthName.equals(currentmonthName))
                 {
                     ae_previousButton.setVisibility(View.GONE);
+                    ae_txtMonthName.setPadding(200,0,0,0);
                 }
 
                 GetAdminActivityList adminActivityList = new GetAdminActivityList(monthName);
@@ -135,6 +129,7 @@ public class ViewEventFragment extends Fragment {
                 cal.add(Calendar.MONTH ,currentMonthIndex);
 
                 ae_previousButton.setVisibility(View.VISIBLE);
+                ae_txtMonthName.setPadding(0,0,0,0);
 
                 String monthName  = new SimpleDateFormat("MMMM").format(cal.getTime());
 

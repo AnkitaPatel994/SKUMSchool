@@ -120,29 +120,6 @@ public class EnvironmentActivity extends AppCompatActivity
             startActivity(i);
             finish();
         }
-        else if (id == R.id.nav_share)
-        {
-            Intent i=new Intent(Intent.ACTION_SEND);
-            i.setType("text/plain");
-            String body="https://play.google.com/store/apps/details?id=com.intelliworkz.skumschool";
-            i.putExtra(Intent.EXTRA_SUBJECT,body);
-            i.putExtra(Intent.EXTRA_TEXT,body);
-            startActivity(Intent.createChooser(i,"Share using"));
-            finish();
-        }
-        else if (id == R.id.nav_rate)
-        {
-            Intent i=new Intent(Intent.ACTION_VIEW);
-            i.setData(Uri.parse("https://play.google.com/store/apps/details?id=com.intelliworkz.skumschool"));
-            if(!MyStartActivity(i))
-            {
-                i.setData(Uri.parse("https://play.google.com/store/apps/details?id=com.intelliworkz.skumschool"));
-                if(!MyStartActivity(i))
-                {
-                    Log.d("Like","Could not open browser");
-                }
-            }
-        }
         else if (id == R.id.nav_logout)
         {
             Intent i = new Intent(this, LoginActivity.class);

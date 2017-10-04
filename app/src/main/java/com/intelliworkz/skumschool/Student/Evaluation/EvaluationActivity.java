@@ -17,6 +17,7 @@ import android.view.MenuItem;
 import com.intelliworkz.skumschool.Student.Attendence.AttendenceActivity;
 import com.intelliworkz.skumschool.Student.Calender.CalenderActivity;
 import com.intelliworkz.skumschool.ChangePassword.ChangePasswordActivity;
+import com.intelliworkz.skumschool.Student.Education.EducationActivity;
 import com.intelliworkz.skumschool.Student.Emotional_Evaluation.Emotional_EvaluationActivity;
 import com.intelliworkz.skumschool.Student.Environment.EnvironmentActivity;
 import com.intelliworkz.skumschool.Student.Home.HomeActivity;
@@ -95,9 +96,9 @@ public class EvaluationActivity extends AppCompatActivity
             startActivity(i);
             finish();
         }
-        else if (id == R.id.nav_evaluation)
+        else if (id == R.id.nav_education)
         {
-            Intent i = new Intent(this, EvaluationActivity.class);
+            Intent i = new Intent(this, EducationActivity.class);
             startActivity(i);
             finish();
         }
@@ -118,29 +119,6 @@ public class EvaluationActivity extends AppCompatActivity
             Intent i = new Intent(this, CalenderActivity.class);
             startActivity(i);
             finish();
-        }
-        else if (id == R.id.nav_share)
-        {
-            Intent i=new Intent(Intent.ACTION_SEND);
-            i.setType("text/plain");
-            String body="https://play.google.com/store/apps/details?id=com.intelliworkz.skumschool";
-            i.putExtra(Intent.EXTRA_SUBJECT,body);
-            i.putExtra(Intent.EXTRA_TEXT,body);
-            startActivity(Intent.createChooser(i,"Share using"));
-            finish();
-        }
-        else if (id == R.id.nav_rate)
-        {
-            Intent i=new Intent(Intent.ACTION_VIEW);
-            i.setData(Uri.parse("https://play.google.com/store/apps/details?id=com.intelliworkz.skumschool"));
-            if(!MyStartActivity(i))
-            {
-                i.setData(Uri.parse("https://play.google.com/store/apps/details?id=com.intelliworkz.skumschool"));
-                if(!MyStartActivity(i))
-                {
-                    Log.d("Like","Could not open browser");
-                }
-            }
         }
         else if (id == R.id.nav_logout)
         {

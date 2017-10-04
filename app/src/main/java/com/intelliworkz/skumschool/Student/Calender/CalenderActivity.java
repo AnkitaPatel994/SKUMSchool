@@ -104,6 +104,7 @@ public class CalenderActivity extends AppCompatActivity
         if(monthName.equals(currentmonthName))
         {
             previousButton.setVisibility(View.GONE);
+            txtMonthName.setPadding(200,0,0,0);
         }
 
         GetActivityList activityList = new GetActivityList(monthName);
@@ -124,6 +125,7 @@ public class CalenderActivity extends AppCompatActivity
                 if(monthName.equals(currentmonthName))
                 {
                     previousButton.setVisibility(View.GONE);
+                    txtMonthName.setPadding(200,0,0,0);
                 }
 
                 GetActivityList activityList = new GetActivityList(monthName);
@@ -140,6 +142,7 @@ public class CalenderActivity extends AppCompatActivity
                 cal.add(Calendar.MONTH ,currentMonthIndex);
 
                 previousButton.setVisibility(View.VISIBLE);
+                txtMonthName.setPadding(0,0,0,0);
 
                 String monthName  = new SimpleDateFormat("MMMM").format(cal.getTime());
 
@@ -220,29 +223,6 @@ public class CalenderActivity extends AppCompatActivity
             Intent i = new Intent(this, Emotional_EvaluationActivity.class);
             startActivity(i);
             finish();
-        }
-        else if (id == R.id.nav_share)
-        {
-            Intent i=new Intent(Intent.ACTION_SEND);
-            i.setType("text/plain");
-            String body="https://play.google.com/store/apps/details?id=com.intelliworkz.skumschool";
-            i.putExtra(Intent.EXTRA_SUBJECT,body);
-            i.putExtra(Intent.EXTRA_TEXT,body);
-            startActivity(Intent.createChooser(i,"Share using"));
-            finish();
-        }
-        else if (id == R.id.nav_rate)
-        {
-            Intent i=new Intent(Intent.ACTION_VIEW);
-            i.setData(Uri.parse("https://play.google.com/store/apps/details?id=com.intelliworkz.skumschool"));
-            if(!MyStartActivity(i))
-            {
-                i.setData(Uri.parse("https://play.google.com/store/apps/details?id=com.intelliworkz.skumschool"));
-                if(!MyStartActivity(i))
-                {
-                    Log.d("Like","Could not open browser");
-                }
-            }
         }
         else if (id == R.id.nav_logout)
         {

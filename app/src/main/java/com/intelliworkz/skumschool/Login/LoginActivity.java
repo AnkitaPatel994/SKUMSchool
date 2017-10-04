@@ -124,7 +124,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                /*String Username = txtUsername.getText().toString();
+                String Username = txtUsername.getText().toString();
                 String Password = txtPassword.getText().toString();
 
                 if(Username.equals("") && Password.equals(""))
@@ -139,9 +139,9 @@ public class LoginActivity extends AppCompatActivity {
                 {
                     GetLoginValid  loginValid = new GetLoginValid(Username,Password);
                     loginValid.execute();
-                }*/
-                Intent i=new Intent(getApplicationContext(), AdminHomeActivity.class);
-                startActivity(i);
+                }
+                /*Intent i=new Intent(getApplicationContext(), AdminHomeActivity.class);
+                startActivity(i);*/
             }
         });
 

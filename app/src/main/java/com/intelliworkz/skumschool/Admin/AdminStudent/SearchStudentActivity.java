@@ -23,8 +23,6 @@ import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.ImageView;
 
-import com.intelliworkz.skumschool.Admin.AdminAttendence.AdminAttendenceActivity;
-import com.intelliworkz.skumschool.Admin.AdminRole.AdminRoleActivity;
 import com.intelliworkz.skumschool.HttpHandler;
 import com.intelliworkz.skumschool.Login.LoginActivity;
 import com.intelliworkz.skumschool.R;
@@ -43,9 +41,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
-
-public class SearchStudentActivity extends AppCompatActivity
+import java.util.ArrayList;public class SearchStudentActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     EditText searchView;

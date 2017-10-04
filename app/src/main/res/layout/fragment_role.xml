@@ -1,0 +1,28 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.intelliworkz.skumschool.Admin.AdminRole.RoleFragment">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvRoleNameList"
+        android:background="#e0e0e0"
+        android:layout_below="@+id/calendarHeader"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"/>
+
+    <TextView
+        android:id="@+id/txtNotDataFoundRole"
+        android:layout_below="@+id/calendarHeader"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#e0e0e0"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:text="No record found"
+        android:visibility="gone"/>
+
+</FrameLayout>

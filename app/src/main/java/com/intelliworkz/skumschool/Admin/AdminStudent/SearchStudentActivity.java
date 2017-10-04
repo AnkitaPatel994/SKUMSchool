@@ -23,7 +23,8 @@ import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.ImageView;
 
-import com.intelliworkz.skumschool.Admin.SearchStudent.StudentStdListAdapter;
+import com.intelliworkz.skumschool.Admin.AdminAttendence.AdminAttendenceActivity;
+import com.intelliworkz.skumschool.Admin.AdminRole.AdminRoleActivity;
 import com.intelliworkz.skumschool.HttpHandler;
 import com.intelliworkz.skumschool.Login.LoginActivity;
 import com.intelliworkz.skumschool.R;
@@ -145,6 +146,19 @@ public class SearchStudentActivity extends AppCompatActivity
             startActivity(i);
             finish();
         }
+        else if (id == R.id.nav_role)
+        {
+            Intent i = new Intent(this, AdminRoleActivity.class);
+            startActivity(i);
+            finish();
+        }
+        else if (id == R.id.nav_attendence)
+        {
+            Intent i = new Intent(this, AdminAttendenceActivity.class);
+            startActivity(i);
+            finish();
+        }
+
         else if (id == R.id.nav_profile)
         {
             Intent i = new Intent(this, ProfileActivity.class);

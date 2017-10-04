@@ -28,6 +28,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SearchView;
 
+import com.intelliworkz.skumschool.Admin.AdminRole.AdminRoleActivity;
 import com.intelliworkz.skumschool.HttpHandler;
 import com.intelliworkz.skumschool.Login.LoginActivity;
 import com.intelliworkz.skumschool.R;
@@ -160,6 +161,19 @@ public class AttendenceStandardActivity extends AppCompatActivity
             startActivity(i);
             finish();
         }
+        else if (id == R.id.nav_role)
+        {
+            Intent i = new Intent(this, AdminRoleActivity.class);
+            startActivity(i);
+            finish();
+        }
+        else if (id == R.id.nav_attendence)
+        {
+            Intent i = new Intent(this, AdminAttendenceActivity.class);
+            startActivity(i);
+            finish();
+        }
+
         else if (id == R.id.nav_profile)
         {
             Intent i = new Intent(this, ProfileActivity.class);

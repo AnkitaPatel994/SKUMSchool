@@ -1,4 +1,4 @@
-package com.intelliworkz.skumschool.Admin.SearchStudent;
+package com.intelliworkz.skumschool.Admin.AdminStudent;
 
 import android.content.Context;
 import android.content.Intent;
@@ -8,8 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.intelliworkz.skumschool.Admin.AdminAttendence.AdminAttendenceActivity;
-import com.intelliworkz.skumschool.Admin.AdminStudent.ViewStudentActivity;
 import com.intelliworkz.skumschool.R;
 
 import java.util.ArrayList;

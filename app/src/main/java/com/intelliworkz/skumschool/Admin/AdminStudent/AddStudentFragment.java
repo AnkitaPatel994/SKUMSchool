@@ -1,6 +1,7 @@
 package com.intelliworkz.skumschool.Admin.AdminStudent;
 
         import android.app.DatePickerDialog;
+        import android.app.ProgressDialog;
         import android.content.Context;
         import android.content.Intent;
         import android.os.AsyncTask;
@@ -23,6 +24,7 @@ package com.intelliworkz.skumschool.Admin.AdminStudent;
         import android.widget.Toast;
 
         import com.intelliworkz.skumschool.HttpHandler;
+        import com.intelliworkz.skumschool.Login.LoginActivity;
         import com.intelliworkz.skumschool.Postdata;
         import com.intelliworkz.skumschool.R;
         import com.intelliworkz.skumschool.SplashScreen.MainActivity;
@@ -58,7 +60,7 @@ public class AddStudentFragment extends Fragment {
     Button btnAdd;
     EditText txtAddStdName,txtAddDOB,txtAddRNo,txtAddAddress,txtAddPcode,txtAddAddmissionDate,txtAddGRNo,txtAddVanNo,
             txtAddRPhone,txtAddOPhone,txtAddFathername,txtAddFOccup,txtAddFMono,txtAddFemail,txtAddMothername,txtAddMOccup,txtAddMMono,txtAddMEmail;
-    TextInputLayout input_layout_name,input_layout_RNo,input_layout_medium,input_layout_Address,input_layout_PCode,input_layout_DOB,input_layout_AddmissionDate,input_layout_GRNo,
+    TextInputLayout input_layout_name,input_layout_class,input_layout_RNo,input_layout_medium,input_layout_Address,input_layout_PCode,input_layout_DOB,input_layout_AddmissionDate,input_layout_GRNo,
             input_layout_VanNo,input_layout_RPhone,input_layout_OPhone,input_layout_Fathername,input_layout_FOccup,input_layout_FMoNo,
             input_layout_Femail,input_layout_Mothername,input_layout_MOccup,input_layout_MMoNo,input_layout_MEmail;
     //Date Picker
@@ -120,6 +122,7 @@ public class AddStudentFragment extends Fragment {
         txtAddMEmail=(EditText)v.findViewById(R.id.txtAddMEmail);
 
         input_layout_name=(TextInputLayout)v.findViewById(R.id.input_layout_name);
+        input_layout_class=(TextInputLayout)v.findViewById(R.id.input_layout_class);
         input_layout_RNo=(TextInputLayout)v.findViewById(R.id.input_layout_RNo);
         input_layout_medium=(TextInputLayout)v.findViewById(R.id.input_layout_medium);
         input_layout_Address=(TextInputLayout)v.findViewById(R.id.input_layout_Address);
@@ -157,6 +160,12 @@ public class AddStudentFragment extends Fragment {
 
         ArrayAdapter<String> adM=new ArrayAdapter<String>(getActivity().getApplicationContext(), R.layout.medspiiner,R.id.txtMed,mediumArr);
         spnMedium.setAdapter(adM);
+
+        ArrayAdapter<String> adapter =
+                new ArrayAdapter<String>(getActivity(),
+                        android.R.layout.simple_spinner_item, mediumArr);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spnMedium.setAdapter(adapter);
 
         //Date Picker Code Start
         date=new DatePickerDialog.OnDateSetListener() {
@@ -249,6 +258,10 @@ public class AddStudentFragment extends Fragment {
                 {
                     validateStdName();
                 }
+                else if(classStud.equals("Select Standard"))
+                {
+                    validateClassStud();
+                }
                 else if(rollno.equals(""))
                 {
                     validateRollNo();
@@ -320,6 +333,8 @@ public class AddStudentFragment extends Fragment {
         return v;
     }
 
+
+
     private void updateDate() {
         txtAddDOB.setText(sdf.format(myCalendar.getTime()));
 
@@ -341,6 +356,18 @@ public class AddStudentFragment extends Fragment {
         }
         return true;
     }
+    private boolean validateClassStud() {
+        if (classStud.equals("Select Standard"))
+        {
+            Toast.makeText(getActivity(),"Please select Standard",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        else
+        {
+            input_layout_class.setErrorEnabled(false);
+        }
+        return true;
+    }
     private boolean validateRollNo() {
         if (txtAddRNo.getText().toString().trim().isEmpty())
         {
@@ -359,8 +386,6 @@ public class AddStudentFragment extends Fragment {
 
         if (medium.equals("Select Medium"))
         {
-            /*input_layout_medium.setError(getString(R.string.err_msg_rno));
-            requestFocus(spnMedium);*/
             Toast.makeText(getActivity(),"Please select Medium",Toast.LENGTH_SHORT).show();
             return false;
         }
@@ -634,10 +659,14 @@ public class AddStudentFragment extends Fragment {
     }
 
     private class GetStandard extends AsyncTask<String,Void,String> {
+        ProgressDialog dialog;
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-
+            /*dialog = new ProgressDialog(getActivity());
+            dialog.setMessage("Loading...");
+            dialog.setCancelable(true);
+            dialog.show();*/
         }
         @Override
         protected String doInBackground(String... params) {
@@ -675,9 +704,15 @@ public class AddStudentFragment extends Fragment {
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
+           // dialog.dismiss();
+            /*ArrayAdapter<String> ad = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, stdArrList);
+            spnStd.setAdapter(ad);*/
 
-            ArrayAdapter<String> ad = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, stdArrList);
-            spnStd.setAdapter(ad);
+            ArrayAdapter<String> adapter =
+                    new ArrayAdapter<String>(getActivity(),
+                            android.R.layout.simple_spinner_item, stdArrList);
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            spnStd.setAdapter(adapter);
         }
     }
 

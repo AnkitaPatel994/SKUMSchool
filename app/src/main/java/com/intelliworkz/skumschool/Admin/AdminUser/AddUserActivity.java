@@ -7,6 +7,7 @@ import android.support.design.widget.TextInputLayout;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.Menu;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -23,11 +24,22 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.intelliworkz.skumschool.Admin.AdminAttendence.AttendenceStandardActivity;
+import com.intelliworkz.skumschool.Admin.AdminEvent.AdminEventActivity;
 import com.intelliworkz.skumschool.Admin.AdminHome.AdminHomeActivity;
+import com.intelliworkz.skumschool.Admin.AdminNoticeBoard.AdminNoticeBoardActivity;
+import com.intelliworkz.skumschool.Admin.AdminRole.AdminRoleActivity;
+import com.intelliworkz.skumschool.Admin.AdminStudent.AddStudentActivity;
 import com.intelliworkz.skumschool.HttpHandler;
+import com.intelliworkz.skumschool.Login.LoginActivity;
 import com.intelliworkz.skumschool.Postdata;
 import com.intelliworkz.skumschool.R;
 import com.intelliworkz.skumschool.SplashScreen.MainActivity;
+import com.intelliworkz.skumschool.Student.Education.EducationActivity;
+import com.intelliworkz.skumschool.Student.Emotional_Evaluation.Emotional_EvaluationActivity;
+import com.intelliworkz.skumschool.Student.Environment.EnvironmentActivity;
+import com.intelliworkz.skumschool.Student.Evaluation.EvaluationActivity;
+import com.intelliworkz.skumschool.Student.ProgressReport.ProgressReportActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -61,6 +73,10 @@ public class AddUserActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        Menu menu = navigationView.getMenu();
+        MenuItem menuItem = menu.getItem(1);
+        menuItem.setChecked(true);
 
         TILAdminName = (TextInputLayout) findViewById(R.id.TILAdminName);
         TILAdminUserName = (TextInputLayout) findViewById(R.id.TILAdminUserName);
@@ -243,65 +259,77 @@ public class AddUserActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_admin_home)
+        if (id == R.id.nav_Admin_home)
         {
-            Intent i=new Intent(getApplicationContext(),AdminHomeActivity.class);
+            Intent i = new Intent(this, AdminHomeActivity.class);
             startActivity(i);
             finish();
         }
-        else if (id == R.id.nav_admin_user)
+        else if (id == R.id.nav_Admin_role)
         {
-            Intent i=new Intent(getApplicationContext(),AddUserActivity.class);
+            Intent i = new Intent(this, AdminRoleActivity.class);
             startActivity(i);
             finish();
         }
-        else if (id == R.id.nav_admin_role)
+        else if (id == R.id.nav_Admin_student)
         {
-
+            Intent i = new Intent(this, AddStudentActivity.class);
+            startActivity(i);
+            finish();
         }
-        else if (id == R.id.nav_admin_student)
+        else if (id == R.id.nav_Admin_attendence)
         {
-
+            Intent i=new Intent(getApplicationContext(), AttendenceStandardActivity.class);
+            startActivity(i);
+            finish();
         }
-        else if (id == R.id.nav_admin_attendence)
+        else if (id == R.id.nav_Admin_progessreport)
         {
-
+            Intent i = new Intent(this,ProgressReportActivity.class);
+            startActivity(i);
+            finish();
         }
-        else if (id == R.id.nav_admin_progessreport)
+        else if (id == R.id.nav_Admin_noticeboard)
         {
-
+            Intent i = new Intent(this, AdminNoticeBoardActivity.class);
+            startActivity(i);
+            finish();
         }
-        else if (id == R.id.nav_admin_noticeboard)
+        else if (id == R.id.nav_Admin_evaluation)
         {
-
+            Intent i = new Intent(this, EvaluationActivity.class);
+            startActivity(i);
+            finish();
         }
-        else if (id == R.id.nav_admin_evaluation)
+        else if (id == R.id.nav_Admin_education)
         {
-
+            Intent i = new Intent(this, EducationActivity.class);
+            startActivity(i);
+            finish();
         }
-        else if (id == R.id.nav_admin_education)
+        else if (id == R.id.nav_Admin_environment)
         {
-
+            Intent i = new Intent(this, EnvironmentActivity.class);
+            startActivity(i);
+            finish();
         }
-        else if (id == R.id.nav_admin_environment)
+        else if (id == R.id.nav_Admin_emotional)
         {
-
+            Intent i = new Intent(this, Emotional_EvaluationActivity.class);
+            startActivity(i);
+            finish();
         }
-        else if (id == R.id.nav_admin_emotional)
+        else if (id == R.id.nav_Admin_activity)
         {
-
+            Intent i = new Intent(this, AdminEventActivity.class);
+            startActivity(i);
+            finish();
         }
-        else if (id == R.id.nav_admin_activity)
+        else if (id == R.id.nav_Admin_logout)
         {
-
-        }
-        else if (id == R.id.nav_admin_messages)
-        {
-
-        }
-        else if (id == R.id.nav_admin_logout)
-        {
-
+            Intent i = new Intent(this, LoginActivity.class);
+            startActivity(i);
+            finish();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

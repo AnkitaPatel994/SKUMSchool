@@ -19,6 +19,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.intelliworkz.skumschool.Admin.AdminAttendence.AdminAttendenceActivity;
+import com.intelliworkz.skumschool.Admin.AdminAttendence.AttendenceStandardActivity;
+import com.intelliworkz.skumschool.Admin.AdminEvent.AdminEventActivity;
+import com.intelliworkz.skumschool.Admin.AdminHome.AdminHomeActivity;
+import com.intelliworkz.skumschool.Admin.AdminNoticeBoard.AdminNoticeBoardActivity;
+import com.intelliworkz.skumschool.Admin.AdminStudent.AddStudentActivity;
+import com.intelliworkz.skumschool.Admin.AdminUser.AddUserActivity;
 import com.intelliworkz.skumschool.HttpHandler;
 import com.intelliworkz.skumschool.Login.LoginActivity;
 import com.intelliworkz.skumschool.R;
@@ -64,6 +70,11 @@ public class AdminRoleActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        Menu menu = navigationView.getMenu();
+        MenuItem menuItem = menu.getItem(2);
+        menuItem.setChecked(true);
+
+
         vpRole = (ViewPager)findViewById(R.id.vpRole);
 
         tlRole =(TabLayout)findViewById(R.id.tlRole);
@@ -97,7 +108,78 @@ public class AdminRoleActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-
+        if (id == R.id.nav_Admin_home)
+        {
+            Intent i = new Intent(this, AdminHomeActivity.class);
+            startActivity(i);
+            finish();
+        }
+        else if (id == R.id.nav_Admin_user)
+        {
+            Intent i = new Intent(this, AddUserActivity.class);
+            startActivity(i);
+            finish();
+        }
+        else if (id == R.id.nav_Admin_student)
+        {
+            Intent i = new Intent(this, AddStudentActivity.class);
+            startActivity(i);
+            finish();
+        }
+        else if (id == R.id.nav_Admin_attendence)
+        {
+            Intent i=new Intent(getApplicationContext(), AttendenceStandardActivity.class);
+            startActivity(i);
+            finish();
+        }
+        else if (id == R.id.nav_Admin_progessreport)
+        {
+            Intent i = new Intent(this,ProgressReportActivity.class);
+            startActivity(i);
+            finish();
+        }
+        else if (id == R.id.nav_Admin_noticeboard)
+        {
+            Intent i = new Intent(this, AdminNoticeBoardActivity.class);
+            startActivity(i);
+            finish();
+        }
+        else if (id == R.id.nav_Admin_evaluation)
+        {
+            Intent i = new Intent(this, EvaluationActivity.class);
+            startActivity(i);
+            finish();
+        }
+        else if (id == R.id.nav_Admin_education)
+        {
+            Intent i = new Intent(this, EducationActivity.class);
+            startActivity(i);
+            finish();
+        }
+        else if (id == R.id.nav_Admin_environment)
+        {
+            Intent i = new Intent(this, EnvironmentActivity.class);
+            startActivity(i);
+            finish();
+        }
+        else if (id == R.id.nav_Admin_emotional)
+        {
+            Intent i = new Intent(this, Emotional_EvaluationActivity.class);
+            startActivity(i);
+            finish();
+        }
+        else if (id == R.id.nav_Admin_activity)
+        {
+            Intent i = new Intent(this, AdminEventActivity.class);
+            startActivity(i);
+            finish();
+        }
+        else if (id == R.id.nav_Admin_logout)
+        {
+            Intent i = new Intent(this, LoginActivity.class);
+            startActivity(i);
+            finish();
+        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

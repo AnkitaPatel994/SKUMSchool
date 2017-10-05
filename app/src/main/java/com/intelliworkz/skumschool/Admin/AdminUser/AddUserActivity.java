@@ -23,6 +23,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.intelliworkz.skumschool.Admin.AdminHome.AdminHomeActivity;
 import com.intelliworkz.skumschool.HttpHandler;
 import com.intelliworkz.skumschool.Postdata;
 import com.intelliworkz.skumschool.R;
@@ -242,19 +243,66 @@ public class AddUserActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        /*if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        if (id == R.id.nav_admin_home)
+        {
+            Intent i=new Intent(getApplicationContext(),AdminHomeActivity.class);
+            startActivity(i);
+            finish();
+        }
+        else if (id == R.id.nav_admin_user)
+        {
+            Intent i=new Intent(getApplicationContext(),AddUserActivity.class);
+            startActivity(i);
+            finish();
+        }
+        else if (id == R.id.nav_admin_role)
+        {
 
-        } else if (id == R.id.nav_slideshow) {
+        }
+        else if (id == R.id.nav_admin_student)
+        {
 
-        } else if (id == R.id.nav_manage) {
+        }
+        else if (id == R.id.nav_admin_attendence)
+        {
 
-        } else if (id == R.id.nav_share) {
+        }
+        else if (id == R.id.nav_admin_progessreport)
+        {
 
-        } else if (id == R.id.nav_send) {
+        }
+        else if (id == R.id.nav_admin_noticeboard)
+        {
 
-        }*/
+        }
+        else if (id == R.id.nav_admin_evaluation)
+        {
+
+        }
+        else if (id == R.id.nav_admin_education)
+        {
+
+        }
+        else if (id == R.id.nav_admin_environment)
+        {
+
+        }
+        else if (id == R.id.nav_admin_emotional)
+        {
+
+        }
+        else if (id == R.id.nav_admin_activity)
+        {
+
+        }
+        else if (id == R.id.nav_admin_messages)
+        {
+
+        }
+        else if (id == R.id.nav_admin_logout)
+        {
+
+        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
@@ -299,6 +347,7 @@ public class AddUserActivity extends AppCompatActivity
             super.onPostExecute(s);
 
             ArrayAdapter<String> ad = new ArrayAdapter<String>(AddUserActivity.this, android.R.layout.simple_spinner_item, roleArrList);
+            ad.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             SPAdminRole.setAdapter(ad);
         }
     }

@@ -297,6 +297,29 @@
 
         </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/layAdminMessages"
+            style="@style/main_screen_layout"
+            android:gravity="center">
+
+            <ImageView
+                style="@style/adminHome_screen_image"
+                android:background="@drawable/activity" />
+
+            <TextView
+                style="@style/adminHome_screen_text"
+                android:text="@string/txt_admin_messages"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@android:color/transparent"/>
+
+        </LinearLayout>
+
     </LinearLayout>
 
 </LinearLayout>

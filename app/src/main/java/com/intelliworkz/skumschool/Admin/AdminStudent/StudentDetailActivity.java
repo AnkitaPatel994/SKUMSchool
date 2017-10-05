@@ -81,7 +81,6 @@ public class StudentDetailActivity extends AppCompatActivity
         GetStudentDetail getStudentDetail = new GetStudentDetail(id);
         getStudentDetail.execute();
 
-        //Toast.makeText(getApplicationContext(),"id"+id,Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -107,25 +106,6 @@ public class StudentDetailActivity extends AppCompatActivity
         i.putExtra("Medium",Medium);
         i.putExtra("Class",Class);
         startActivity(i);
-      /*  i.putExtra("StudentName",StudentName);
-        i.putExtra("Medium",Medium);
-        i.putExtra("Class",Class);
-        i.putExtra("Rollno",Rollno);
-        i.putExtra("Address",Address);
-        i.putExtra("Pincode",Pincode);
-        i.putExtra("BOD",BOD);
-        i.putExtra("AddmissionDate",AddmissionDate);
-        i.putExtra("GRNo",GRNo);
-        i.putExtra("VanNo",VanNo);
-        i.putExtra("FatherName",FatherName);
-        i.putExtra("Occupation",Occupation);
-        i.putExtra("Email",Email);
-        i.putExtra("MotherName",MotherName);
-        i.putExtra("MOccupation",MOccupation);
-        i.putExtra("MMobile",MMobile);
-        i.putExtra("MEmail",MEmail);
-        startActivity(i);*//*
-        Toast.makeText(getApplicationContext(),sid,Toast.LENGTH_SHORT).show();*/
         return true;
     }
 
@@ -134,89 +114,8 @@ public class StudentDetailActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_home)
-        {
-            Intent i = new Intent(this, HomeActivity.class);
-            startActivity(i);
-            finish();
-        }
-        else if (id == R.id.nav_profile)
-        {
-            Intent i = new Intent(this, ProfileActivity.class);
-            startActivity(i);
-            finish();
-        }
-        else if (id == R.id.nav_progessreport)
-        {
-            Intent i = new Intent(this,ProgressReportActivity.class);
-            startActivity(i);
-            finish();
-        }
-        else if (id == R.id.nav_noticeboard)
-        {
-            Intent i = new Intent(this, NoticeBoardActivity.class);
-            startActivity(i);
-            finish();
-        }
-        else if (id == R.id.nav_evaluation)
-        {
-            Intent i = new Intent(this, EvaluationActivity.class);
-            startActivity(i);
-            finish();
-        }
-        else if (id == R.id.nav_education)
-        {
-            Intent i = new Intent(this, EducationActivity.class);
-            startActivity(i);
-            finish();
-        }
-        else if (id == R.id.nav_environment)
-        {
-            Intent i = new Intent(this, EnvironmentActivity.class);
-            startActivity(i);
-            finish();
-        }
-        else if (id == R.id.nav_emotional)
-        {
-            Intent i = new Intent(this, Emotional_EvaluationActivity.class);
-            startActivity(i);
-            finish();
-        }
-        else if (id == R.id.nav_activity)
-        {
-            Intent i = new Intent(this, CalenderActivity.class);
-            startActivity(i);
-            finish();
-        }
-        else if (id == R.id.nav_share)
-        {
-            Intent i=new Intent(Intent.ACTION_SEND);
-            i.setType("text/plain");
-            String body="https://play.google.com/store/apps/details?id=com.intelliworkz.skumschool";
-            i.putExtra(Intent.EXTRA_SUBJECT,body);
-            i.putExtra(Intent.EXTRA_TEXT,body);
-            startActivity(Intent.createChooser(i,"Share using"));
-            finish();
-        }
-        else if (id == R.id.nav_rate)
-        {
-            Intent i=new Intent(Intent.ACTION_VIEW);
-            i.setData(Uri.parse("https://play.google.com/store/apps/details?id=com.intelliworkz.skumschool"));
-            if(!MyStartActivity(i))
-            {
-                i.setData(Uri.parse("https://play.google.com/store/apps/details?id=com.intelliworkz.skumschool"));
-                if(!MyStartActivity(i))
-                {
-                    Log.d("Like","Could not open browser");
-                }
-            }
-        }
-        else if (id == R.id.nav_logout)
-        {
-            Intent i = new Intent(this, LoginActivity.class);
-            startActivity(i);
-            finish();
-        }
+
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
@@ -239,7 +138,6 @@ public class StudentDetailActivity extends AppCompatActivity
 
     private class GetStudentDetail extends AsyncTask<String,Void,String> {
 
-        //String id,status,message,StudentName,pic,Class,Rollno,Medium,Address,BOD,GRNo,VanNo,AddmissionDate,FatherName,Occupation,Mobile,Email,MotherName,MOccupation,MMobile,MEmail;
         String id;
         public GetStudentDetail(String id) {
             this.id = id;

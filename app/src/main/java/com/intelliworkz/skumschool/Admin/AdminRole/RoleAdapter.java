@@ -66,7 +66,8 @@ public class RoleAdapter extends RecyclerView.Adapter<RoleAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
 
-        final String id = roleUserListArray.get(position).get("id");
+        //final String id = roleUserListArray.get(position).get("id");
+        final String username = roleUserListArray.get(position).get("username");
         String name = roleUserListArray.get(position).get("name");
 
         holder.txtAttClass.setText(name);
@@ -85,8 +86,6 @@ public class RoleAdapter extends RecyclerView.Adapter<RoleAdapter.ViewHolder> {
                 GetRole getRole = new GetRole(spRoleList);
                 getRole.execute();
 
-
-
                 spRoleList.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                     @Override
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -102,7 +101,7 @@ public class RoleAdapter extends RecyclerView.Adapter<RoleAdapter.ViewHolder> {
                 btnRoleSave.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        GetEditUser getEditUser = new GetEditUser(id);
+                        GetEditUser getEditUser = new GetEditUser(username);
                         getEditUser.execute();
                     }
                 });
@@ -201,10 +200,10 @@ public class RoleAdapter extends RecyclerView.Adapter<RoleAdapter.ViewHolder> {
 
     private class GetEditUser extends AsyncTask<String,Void,String> {
 
-        String id,status,message;
+        String username,status,message;
 
-        public GetEditUser(String id) {
-            this.id = id;
+        public GetEditUser(String username) {
+            this.username = username;
 
         }
 
@@ -213,7 +212,7 @@ public class RoleAdapter extends RecyclerView.Adapter<RoleAdapter.ViewHolder> {
 
             JSONObject eroleList=new JSONObject();
             try {
-                eroleList.put("id",id);
+                eroleList.put("username",username);
                 eroleList.put("role",pos);
                 Postdata postdata=new Postdata();
                 String rlPd=postdata.post(MainActivity.mainUrl+"userEdit",eroleList.toString());

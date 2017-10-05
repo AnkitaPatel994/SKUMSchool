@@ -3,63 +3,64 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_home"
+            android:id="@+id/nav_admin_home"
             android:icon="@drawable/ic_home_black_24dp"
             android:title="Home"/>
         <item
-            android:id="@+id/nav_role"
+            android:id="@+id/nav_admin_user"
+            android:icon="@drawable/ic_home_black_24dp"
+            android:title="User"/>
+        <item
+            android:id="@+id/nav_admin_role"
             android:icon="@drawable/ic_home_black_24dp"
             android:title="Role"/>
         <item
-            android:id="@+id/nav_attendence"
+            android:id="@+id/nav_admin_student"
+            android:icon="@drawable/ic_home_black_24dp"
+            android:title="Student"/>
+        <item
+            android:id="@+id/nav_admin_attendence"
             android:icon="@drawable/attendace"
             android:title="Attendence"/>
         <item
-            android:id="@+id/nav_profile"
-            android:icon="@drawable/profile"
-            android:title="Profile" />
-        <item
-            android:id="@+id/nav_progessreport"
+            android:id="@+id/nav_admin_progessreport"
             android:icon="@drawable/progress_report"
             android:title="Progress Report" />
         <item
-            android:id="@+id/nav_noticeboard"
+            android:id="@+id/nav_admin_noticeboard"
             android:icon="@drawable/noticeboard"
             android:title="Notice Board" />
         <item
-            android:id="@+id/nav_evaluation"
+            android:id="@+id/nav_admin_evaluation"
             android:icon="@drawable/evaluation"
             android:title="Evaluation" />
         <item
-            android:id="@+id/nav_education"
+            android:id="@+id/nav_admin_education"
             android:icon="@drawable/education"
             android:title="Education"/>
 
         <item
-            android:id="@+id/nav_environment"
+            android:id="@+id/nav_admin_environment"
             android:icon="@drawable/environment"
             android:title="Environment" />
 
         <item
-            android:id="@+id/nav_emotional"
+            android:id="@+id/nav_admin_emotional"
             android:icon="@drawable/emotional_evaluation"
             android:title="Emotional Evaluation" />
 
         <item
-            android:id="@+id/nav_activity"
+            android:id="@+id/nav_admin_activity"
             android:icon="@drawable/activity"
             android:title="Activity" />
 
         <item
-            android:id="@+id/nav_share"
-            android:icon="@drawable/ic_share_black_24dp"
-            android:title="Share App" />
+            android:id="@+id/nav_admin_messages"
+            android:icon="@drawable/activity"
+            android:title="Messages" />
+
         <item
-            android:id="@+id/nav_rate"
-            android:icon="@drawable/ic_rating_black_24dp"
-            android:title="Rate App" />
-        <item
-            android:id="@+id/nav_logout"
+            android:id="@+id/nav_admin_logout"
             android:icon="@drawable/ic_logout_black_24dp"
             android:title="Logout" />
 

@@ -122,15 +122,9 @@ public class ProfileActivity extends AppCompatActivity
             startActivity(i);
             finish();
         }
-        else if (id == R.id.nav_role)
-        {
-            Intent i = new Intent(this, AdminRoleActivity.class);
-            startActivity(i);
-            finish();
-        }
         else if (id == R.id.nav_attendence)
         {
-            Intent i = new Intent(this, AdminAttendenceActivity.class);
+            Intent i = new Intent(this, AttendenceActivity.class);
             startActivity(i);
             finish();
         }

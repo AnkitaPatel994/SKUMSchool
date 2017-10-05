@@ -112,9 +112,11 @@ public class RoleFragment extends Fragment {
                         JSONObject jo=JsArry.getJSONObject(i);
 
                         String id=jo.getString("id");
+                        String username=jo.getString("username");
                         String name=jo.getString("name");
 
                         hashMap.put("id",id);
+                        hashMap.put("username",username);
                         hashMap.put("name",name);
 
                         roleUserListArray.add(hashMap);

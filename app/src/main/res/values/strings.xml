@@ -114,6 +114,7 @@
     <string name="txt_admin_environment">Environment</string>
     <string name="txt_admin_emoEva">Emotional \n Evaluation</string>
     <string name="txt_admin_activity">Activity</string>
+    <string name="txt_admin_messages">Messages</string>
 
     <!--Admin Add Notice Board-->
     <string name="txt_hint_Admin_nbTitle">Enter Title</string>

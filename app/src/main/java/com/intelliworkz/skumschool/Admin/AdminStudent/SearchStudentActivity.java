@@ -23,6 +23,8 @@ import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import com.intelliworkz.skumschool.Admin.AdminAttendence.AdminAttendenceActivity;
+import com.intelliworkz.skumschool.Admin.AdminRole.AdminRoleActivity;
 import com.intelliworkz.skumschool.HttpHandler;
 import com.intelliworkz.skumschool.Login.LoginActivity;
 import com.intelliworkz.skumschool.R;
@@ -136,102 +138,8 @@ import java.util.ArrayList;public class SearchStudentActivity extends AppCompatA
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_home)
-        {
-            Intent i = new Intent(this, HomeActivity.class);
-            startActivity(i);
-            finish();
-        }
-        else if (id == R.id.nav_role)
-        {
-            Intent i = new Intent(this, AdminRoleActivity.class);
-            startActivity(i);
-            finish();
-        }
-        else if (id == R.id.nav_attendence)
-        {
-            Intent i = new Intent(this, AdminAttendenceActivity.class);
-            startActivity(i);
-            finish();
-        }
 
-        else if (id == R.id.nav_profile)
-        {
-            Intent i = new Intent(this, ProfileActivity.class);
-            startActivity(i);
-            finish();
-        }
-        else if (id == R.id.nav_progessreport)
-        {
-            Intent i = new Intent(this,ProgressReportActivity.class);
-            startActivity(i);
-            finish();
-        }
-        else if (id == R.id.nav_noticeboard)
-        {
-            Intent i = new Intent(this, NoticeBoardActivity.class);
-            startActivity(i);
-            finish();
-        }
-        else if (id == R.id.nav_evaluation)
-        {
-            Intent i = new Intent(this, EvaluationActivity.class);
-            startActivity(i);
-            finish();
-        }
-        else if (id == R.id.nav_education)
-        {
-            Intent i = new Intent(this, EducationActivity.class);
-            startActivity(i);
-            finish();
-        }
-        else if (id == R.id.nav_environment)
-        {
-            Intent i = new Intent(this, EnvironmentActivity.class);
-            startActivity(i);
-            finish();
-        }
-        else if (id == R.id.nav_emotional)
-        {
-            Intent i = new Intent(this, Emotional_EvaluationActivity.class);
-            startActivity(i);
-            finish();
-        }
-        else if (id == R.id.nav_activity)
-        {
-            Intent i = new Intent(this, CalenderActivity.class);
-            startActivity(i);
-            finish();
-        }
-        else if (id == R.id.nav_share)
-        {
-            Intent i=new Intent(Intent.ACTION_SEND);
-            i.setType("text/plain");
-            String body="https://play.google.com/store/apps/details?id=com.intelliworkz.skumschool";
-            i.putExtra(Intent.EXTRA_SUBJECT,body);
-            i.putExtra(Intent.EXTRA_TEXT,body);
-            startActivity(Intent.createChooser(i,"Share using"));
-            finish();
-        }
-        else if (id == R.id.nav_rate)
-        {
-            Intent i=new Intent(Intent.ACTION_VIEW);
-            i.setData(Uri.parse("https://play.google.com/store/apps/details?id=com.intelliworkz.skumschool"));
-            if(!MyStartActivity(i))
-            {
-                i.setData(Uri.parse("https://play.google.com/store/apps/details?id=com.intelliworkz.skumschool"));
-                if(!MyStartActivity(i))
-                {
-                    Log.d("Like","Could not open browser");
-                }
-            }
-        }
-        else if (id == R.id.nav_logout)
-        {
-            Intent i = new Intent(this, LoginActivity.class);
-            startActivity(i);
-            finish();
-        }
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;

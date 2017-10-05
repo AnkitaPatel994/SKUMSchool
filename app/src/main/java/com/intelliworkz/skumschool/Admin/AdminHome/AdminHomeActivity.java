@@ -19,7 +19,7 @@ import com.intelliworkz.skumschool.Login.LoginActivity;
 import com.intelliworkz.skumschool.R;
 
 public class AdminHomeActivity extends AppCompatActivity {
-    LinearLayout layAdminUser,layAdminRole,layAdmidStd,layAdminAttendence,layAdminProgressReport,layAdminNoticeBoard,layAdminEvaluation,layAdminEducation,layAdminEnvironment,layAdminEmoEva,layAdminActivity;
+    LinearLayout layAdminUser,layAdminRole,layAdmidStd,layAdminAttendence,layAdminProgressReport,layAdminNoticeBoard,layAdminEvaluation,layAdminEducation,layAdminEnvironment,layAdminEmoEva,layAdminActivity,layAdminMessages;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +37,7 @@ public class AdminHomeActivity extends AppCompatActivity {
         layAdminEnvironment=(LinearLayout)findViewById(R.id.layAdminEnvironment);
         layAdminEmoEva=(LinearLayout)findViewById(R.id.layAdminEmoEva);
         layAdminActivity=(LinearLayout)findViewById(R.id.layAdminActivity);
+        layAdminMessages=(LinearLayout)findViewById(R.id.layAdminMessages);
 
         layAdminUser.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -123,6 +124,14 @@ public class AdminHomeActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i=new Intent(getApplicationContext(),AdminEventActivity.class);
                 startActivity(i);
+            }
+        });
+
+        layAdminMessages.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                /*Intent i=new Intent(getApplicationContext(),AdminAttendenceActivity.class);
+                startActivity(i);*/
             }
         });
     }

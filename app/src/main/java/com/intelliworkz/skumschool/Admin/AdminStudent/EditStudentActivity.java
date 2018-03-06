@@ -683,7 +683,6 @@ public class EditStudentActivity extends AppCompatActivity
                 stdList.put("m_occupation",m_occupation);
                 stdList.put("m_emailid",m_emailid);
 
-
                 Postdata postdata=new Postdata();
                 String stdPd=postdata.post(MainActivity.mainUrl+"studentUpdate",stdList.toString());
                 JSONObject j=new JSONObject(stdPd);
@@ -709,7 +708,10 @@ public class EditStudentActivity extends AppCompatActivity
             super.onPostExecute(s);
             if(status.equals("1"))
             {
-                Toast.makeText(getApplicationContext(),message,Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(getApplicationContext(),StudentDetailActivity.class);
+                i.putExtra("id",sid);
+                startActivity(i);
+                finish();
             }
             else
             {

@@ -166,10 +166,9 @@ public class AddEventFragment extends Fragment implements View.OnClickListener {
     }
 
     private void requestFocus(View view) {
-        if (view.requestFocus()) {
-
+        if (view.requestFocus())
+        {
             getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
-
         }
     }
 

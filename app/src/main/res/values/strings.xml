@@ -126,5 +126,12 @@
 
     <!--Edit Student Activity-->
     <string name="btn_ed">Edit</string>
+    <string name="title_activity_admin_progress_report">AdminProgressReportActivity</string>
+    <string name="title_activity_admin_evaluation">AdminEvaluationActivity</string>
+    <string name="title_activity_admin_education">AdminEducationActivity</string>
+    <string name="title_activity_admin_environment">AdminEnvironmentActivity</string>
+    <string name="title_activity_admin_emotional__evaluation">AdminEmotional_EvaluationActivity
+    </string>
+    <string name="title_activity_admin_messages">AdminMessagesActivity</string>
 
 </resources>

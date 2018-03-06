@@ -47,7 +47,7 @@
 
             <ImageView
                 style="@style/adminHome_screen_image"
-                android:background="@drawable/profile" />
+                android:background="@drawable/ic_account_group" />
 
             <TextView
                 style="@style/adminHome_screen_text"
@@ -304,7 +304,7 @@
 
             <ImageView
                 style="@style/adminHome_screen_image"
-                android:background="@drawable/activity" />
+                android:background="@drawable/message" />
 
             <TextView
                 style="@style/adminHome_screen_text"

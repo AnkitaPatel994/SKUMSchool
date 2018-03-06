@@ -19,6 +19,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.intelliworkz.skumschool.Admin.AdminRole.AdminRoleActivity;
@@ -40,7 +42,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 
 public class AdminAttendenceActivity extends AppCompatActivity
@@ -49,6 +54,10 @@ public class AdminAttendenceActivity extends AppCompatActivity
     Button btnAddAttend;
     ArrayList<HashMap<String,String>> stuArrList=new ArrayList<>();
     String pos;
+    ImageButton previousButton,nextButton;
+    TextView txtDate;
+    String currentDate;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,10 +80,57 @@ public class AdminAttendenceActivity extends AppCompatActivity
         RecyclerView.LayoutManager rvLayoutManager=new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL,false);
         rlAttendStudList.setLayoutManager(rvLayoutManager);
 
-        GetAttendStudentList getAttendStudentList=new GetAttendStudentList();
+        pos=getIntent().getExtras().getString("pos");
+
+        previousButton = (ImageButton)findViewById(R.id.previousButton);
+        nextButton = (ImageButton)findViewById(R.id.nextButton);
+        txtDate = (TextView)findViewById(R.id.txtDate);
+
+        final Calendar c = Calendar.getInstance();
+
+        final DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+        currentDate = dateFormat.format(c.getTime());
+
+        final DateFormat df = new SimpleDateFormat("dd - MM - yyyy");
+        txtDate.setText(df.format(c.getTime()));
+
+        GetAttendStudentList getAttendStudentList=new GetAttendStudentList(currentDate);
         getAttendStudentList.execute();
 
-        pos=getIntent().getExtras().getString("pos");
+        nextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                c.add(Calendar.DATE, 1);
+                currentDate = dateFormat.format(c.getTime());
+
+                final DateFormat df = new SimpleDateFormat("dd - MM - yyyy");
+                txtDate.setText(df.format(c.getTime()));
+
+                GetAttendStudentList getAttendStudentList=new GetAttendStudentList(currentDate);
+                getAttendStudentList.execute();
+
+                /*Toast.makeText(getApplicationContext(),currentDate,Toast.LENGTH_LONG).show();*/
+            }
+        });
+
+        previousButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                c.add(Calendar.DATE, -1);
+                currentDate = dateFormat.format(c.getTime());
+
+                final DateFormat df = new SimpleDateFormat("dd - MM - yyyy");
+                txtDate.setText(df.format(c.getTime()));
+
+                GetAttendStudentList getAttendStudentList=new GetAttendStudentList(currentDate);
+                getAttendStudentList.execute();
+
+                /*Toast.makeText(getApplicationContext(),currentDate,Toast.LENGTH_LONG).show();*/
+            }
+        });
     }
 
     @Override
@@ -91,8 +147,6 @@ public class AdminAttendenceActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-
-
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
@@ -113,6 +167,12 @@ public class AdminAttendenceActivity extends AppCompatActivity
     private class GetAttendStudentList extends AsyncTask<String,Void,String> {
         String status,message;
         ProgressDialog dialog;
+        String currentDate;
+
+        public GetAttendStudentList(String currentDate) {
+            this.currentDate = currentDate;
+        }
+
         @Override
         protected void onPreExecute() {
             dialog = new ProgressDialog(AdminAttendenceActivity.this);
@@ -124,6 +184,8 @@ public class AdminAttendenceActivity extends AppCompatActivity
 
         @Override
         protected String doInBackground(String... params) {
+
+            stuArrList.clear();
             JSONObject studList=new JSONObject();
             try {
                 studList.put("class",pos);
@@ -166,11 +228,9 @@ public class AdminAttendenceActivity extends AppCompatActivity
             dialog.dismiss();
             if(status.equals("1"))
             {
-                RecyclerView.Adapter rvNewsAdapter=new ViewAttendStudAdapter(getApplicationContext(),stuArrList);
+                RecyclerView.Adapter rvNewsAdapter=new ViewAttendStudAdapter(getApplicationContext(),stuArrList,currentDate);
                 rlAttendStudList.setAdapter(rvNewsAdapter);
             }
         }
     }
-
-
 }

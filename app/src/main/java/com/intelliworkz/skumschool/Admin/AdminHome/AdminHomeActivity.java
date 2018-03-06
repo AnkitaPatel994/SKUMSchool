@@ -8,6 +8,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import com.intelliworkz.skumschool.Admin.AdminEducation.AdminEducationActivity;
+import com.intelliworkz.skumschool.Admin.AdminEmotional_Evaluation.AdminEmotional_EvaluationActivity;
+import com.intelliworkz.skumschool.Admin.AdminEnvironment.AdminEnvironmentActivity;
+import com.intelliworkz.skumschool.Admin.AdminEvaluation.AdminEvaluationActivity;
+import com.intelliworkz.skumschool.Admin.AdminMessages.AdminMessagesActivity;
+import com.intelliworkz.skumschool.Admin.AdminProgressReport.AdminProgressReportActivity;
 import com.intelliworkz.skumschool.Admin.AdminStudent.AddStudentActivity;
 import com.intelliworkz.skumschool.Admin.AdminAttendence.AttendenceStandardActivity;
 import com.intelliworkz.skumschool.Admin.AdminEvent.AdminEventActivity;
@@ -74,8 +80,8 @@ public class AdminHomeActivity extends AppCompatActivity {
         layAdminProgressReport.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*Intent i=new Intent(getApplicationContext(),AdminAttendenceActivity.class);
-                startActivity(i);*/
+                Intent i=new Intent(getApplicationContext(),AdminProgressReportActivity.class);
+                startActivity(i);
             }
         });
 
@@ -90,32 +96,32 @@ public class AdminHomeActivity extends AppCompatActivity {
         layAdminEvaluation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*Intent i=new Intent(getApplicationContext(),AdminAttendenceActivity.class);
-                startActivity(i);*/
+                Intent i=new Intent(getApplicationContext(),AdminEvaluationActivity.class);
+                startActivity(i);
             }
         });
 
         layAdminEducation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*Intent i=new Intent(getApplicationContext(),AdminAttendenceActivity.class);
-                startActivity(i);*/
+                Intent i=new Intent(getApplicationContext(),AdminEducationActivity.class);
+                startActivity(i);
             }
         });
 
         layAdminEnvironment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*Intent i=new Intent(getApplicationContext(),AdminAttendenceActivity.class);
-                startActivity(i);*/
+                Intent i=new Intent(getApplicationContext(),AdminEnvironmentActivity.class);
+                startActivity(i);
             }
         });
 
         layAdminEmoEva.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*Intent i=new Intent(getApplicationContext(),AdminAttendenceActivity.class);
-                startActivity(i);*/
+                Intent i=new Intent(getApplicationContext(),AdminEmotional_EvaluationActivity.class);
+                startActivity(i);
             }
         });
 
@@ -130,8 +136,8 @@ public class AdminHomeActivity extends AppCompatActivity {
         layAdminMessages.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*Intent i=new Intent(getApplicationContext(),AdminAttendenceActivity.class);
-                startActivity(i);*/
+                Intent i=new Intent(getApplicationContext(),AdminMessagesActivity.class);
+                startActivity(i);
             }
         });
     }
@@ -147,7 +153,8 @@ public class AdminHomeActivity extends AppCompatActivity {
 
         int id = item.getItemId();
 
-        if (id == R.id.home_cp) {
+        if (id == R.id.home_cp)
+        {
             Intent i = new Intent(getApplicationContext(),ChangePasswordActivity.class);
             startActivity(i);
         }

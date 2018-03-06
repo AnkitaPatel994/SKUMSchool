@@ -8,11 +8,11 @@
             android:title="Home"/>
         <item
             android:id="@+id/nav_Admin_user"
-            android:icon="@drawable/ic_home_black_24dp"
+            android:icon="@drawable/profile"
             android:title="User"/>
         <item
             android:id="@+id/nav_Admin_role"
-            android:icon="@drawable/ic_home_black_24dp"
+            android:icon="@drawable/ic_account_group"
             android:title="Role"/>
         <item
             android:id="@+id/nav_Admin_student"
@@ -53,6 +53,11 @@
             android:id="@+id/nav_Admin_activity"
             android:icon="@drawable/activity"
             android:title="Activity" />
+
+        <item
+            android:id="@+id/nav_Admin_messages"
+            android:icon="@drawable/message"
+            android:title="Messages" />
 
         <item
             android:id="@+id/nav_Admin_logout"

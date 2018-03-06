@@ -20,9 +20,15 @@ import android.view.MenuItem;
 //import com.intelliworkz.skumschool.Admin.SearchStudent.SearchStudActivity;
 import com.intelliworkz.skumschool.Admin.AdminAttendence.AdminAttendenceActivity;
 import com.intelliworkz.skumschool.Admin.AdminAttendence.AttendenceStandardActivity;
+import com.intelliworkz.skumschool.Admin.AdminEducation.AdminEducationActivity;
+import com.intelliworkz.skumschool.Admin.AdminEmotional_Evaluation.AdminEmotional_EvaluationActivity;
+import com.intelliworkz.skumschool.Admin.AdminEnvironment.AdminEnvironmentActivity;
+import com.intelliworkz.skumschool.Admin.AdminEvaluation.AdminEvaluationActivity;
 import com.intelliworkz.skumschool.Admin.AdminEvent.AdminEventActivity;
 import com.intelliworkz.skumschool.Admin.AdminHome.AdminHomeActivity;
+import com.intelliworkz.skumschool.Admin.AdminMessages.AdminMessagesActivity;
 import com.intelliworkz.skumschool.Admin.AdminNoticeBoard.AdminNoticeBoardActivity;
+import com.intelliworkz.skumschool.Admin.AdminProgressReport.AdminProgressReportActivity;
 import com.intelliworkz.skumschool.Admin.AdminRole.AdminRoleActivity;
 import com.intelliworkz.skumschool.Admin.AdminUser.AddUserActivity;
 import com.intelliworkz.skumschool.Student.Calender.CalenderActivity;
@@ -102,10 +108,10 @@ public class AddStudentActivity extends AppCompatActivity
 
         int id = item.getItemId();
 
-        if (id == R.id.search) {
+        if (id == R.id.search)
+        {
             Intent i = new Intent(getApplicationContext(),SearchStudentActivity.class);
             startActivity(i);
-            //Toast.makeText(getApplicationContext(),"hi",Toast.LENGTH_SHORT).show();
         }
 
         return super.onOptionsItemSelected(item);
@@ -122,15 +128,15 @@ public class AddStudentActivity extends AppCompatActivity
             startActivity(i);
             finish();
         }
-        else if (id == R.id.nav_Admin_role)
-        {
-            Intent i = new Intent(this, AdminRoleActivity.class);
-            startActivity(i);
-            finish();
-        }
         else if (id == R.id.nav_Admin_user)
         {
             Intent i = new Intent(this, AddUserActivity.class);
+            startActivity(i);
+            finish();
+        }
+        else if (id == R.id.nav_Admin_role)
+        {
+            Intent i = new Intent(this, AdminRoleActivity.class);
             startActivity(i);
             finish();
         }
@@ -142,7 +148,7 @@ public class AddStudentActivity extends AppCompatActivity
         }
         else if (id == R.id.nav_Admin_progessreport)
         {
-            Intent i = new Intent(this,ProgressReportActivity.class);
+            Intent i = new Intent(this, AdminProgressReportActivity.class);
             startActivity(i);
             finish();
         }
@@ -154,31 +160,37 @@ public class AddStudentActivity extends AppCompatActivity
         }
         else if (id == R.id.nav_Admin_evaluation)
         {
-            Intent i = new Intent(this, EvaluationActivity.class);
+            Intent i = new Intent(this, AdminEvaluationActivity.class);
             startActivity(i);
             finish();
         }
         else if (id == R.id.nav_Admin_education)
         {
-            Intent i = new Intent(this, EducationActivity.class);
+            Intent i = new Intent(this, AdminEducationActivity.class);
             startActivity(i);
             finish();
         }
         else if (id == R.id.nav_Admin_environment)
         {
-            Intent i = new Intent(this, EnvironmentActivity.class);
+            Intent i = new Intent(this, AdminEnvironmentActivity.class);
             startActivity(i);
             finish();
         }
         else if (id == R.id.nav_Admin_emotional)
         {
-            Intent i = new Intent(this, Emotional_EvaluationActivity.class);
+            Intent i = new Intent(this, AdminEmotional_EvaluationActivity.class);
             startActivity(i);
             finish();
         }
         else if (id == R.id.nav_Admin_activity)
         {
             Intent i = new Intent(this, AdminEventActivity.class);
+            startActivity(i);
+            finish();
+        }
+        else if (id == R.id.nav_Admin_messages)
+        {
+            Intent i = new Intent(this, AdminMessagesActivity.class);
             startActivity(i);
             finish();
         }

@@ -97,15 +97,37 @@
             android:label="@string/title_activity_add_user"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-			android:name=".Admin.AdminRole.AdminRoleActivity"
+            android:name=".Admin.AdminRole.AdminRoleActivity"
             android:label="@string/title_activity_admin_role"
-            android:theme="@style/AppTheme.NoActionBar"/>
-			
-		<activity
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".Admin.AdminStudent.EditStudentActivity"
             android:label="@string/title_activity_edit_student"
             android:theme="@style/AppTheme.NoActionBar" />
-
+        <activity
+            android:name=".Admin.AdminProgressReport.AdminProgressReportActivity"
+            android:label="@string/title_activity_admin_progress_report"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Admin.AdminEvaluation.AdminEvaluationActivity"
+            android:label="@string/title_activity_admin_evaluation"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Admin.AdminEducation.AdminEducationActivity"
+            android:label="@string/title_activity_admin_education"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Admin.AdminEnvironment.AdminEnvironmentActivity"
+            android:label="@string/title_activity_admin_environment"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Admin.AdminEmotional_Evaluation.AdminEmotional_EvaluationActivity"
+            android:label="@string/title_activity_admin_emotional__evaluation"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Admin.AdminMessages.AdminMessagesActivity"
+            android:label="@string/title_activity_admin_messages"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

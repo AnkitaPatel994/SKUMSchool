@@ -17,6 +17,7 @@ import com.intelliworkz.skumschool.Postdata;
 import com.intelliworkz.skumschool.R;
 import com.intelliworkz.skumschool.SplashScreen.MainActivity;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -32,54 +33,33 @@ class ViewAttendStudAdapter extends RecyclerView.Adapter<ViewAttendStudAdapter.V
     public static String stdDiv,stdRollno;
     Context context;
     ArrayList<HashMap<String, String>> stuArrList;
-    View v;
+    String currentDate;
 
-    public ViewAttendStudAdapter(Context context, ArrayList<HashMap<String, String>> stuArrList) {
+    public ViewAttendStudAdapter(Context context, ArrayList<HashMap<String, String>> stuArrList, String currentDate) {
         this.context=context;
         this.stuArrList=stuArrList;
+        this.currentDate=currentDate;
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        v= LayoutInflater.from(parent.getContext()).inflate(R.layout.stuattend_view,parent,false);
+        View v= LayoutInflater.from(parent.getContext()).inflate(R.layout.stuattend_view,parent,false);
         ViewHolder viewHolder=new ViewHolder(v);
         return viewHolder;
     }
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
+
         String name=stuArrList.get(position).get("name");
-        final String rollno=stuArrList.get(position).get("rollno");
-        final String classStud=stuArrList.get(position).get("class");
+        String rollno=stuArrList.get(position).get("rollno");
+        String classStud=stuArrList.get(position).get("class");
         holder.stuAttendViewName.setText(name);
         holder.stuAttendViewRollno.setText(classStud+rollno);
 
-        holder.layAttendViewstd.setOnClickListener(new View.OnClickListener() {
-            boolean clicked = true;
+        ViewAttendance viewAttendance=new ViewAttendance(classStud,rollno,holder.layAttendViewstd);
+        viewAttendance.execute();
 
-            @Override
-            public void onClick(View v) {
-                if(!clicked)
-                {
-                    holder.layAttendViewstd.setBackgroundResource(R.drawable.card_green);
-                    clicked=true;
-                    //Toast.makeText(context,classStud,Toast.LENGTH_SHORT).show();
-                    DeleteAttendance deleteAttendance=new DeleteAttendance(classStud,rollno);
-                    deleteAttendance.execute();
-
-
-                }
-                else
-                {
-                    holder.layAttendViewstd.setBackgroundResource(R.drawable.card_red);
-                    clicked=false;
-
-                   /* InsertAttenedance insertAttenedance=new InsertAttenedance(classStud, rollno);
-                    insertAttenedance.execute();*/
-                }
-
-            }
-        });
     }
 
     @Override
@@ -87,18 +67,20 @@ class ViewAttendStudAdapter extends RecyclerView.Adapter<ViewAttendStudAdapter.V
         return stuArrList.size();
     }
 
+
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView stuAttendViewName,stuAttendViewRollno;
         LinearLayout layAttendViewstd;
-        public ViewHolder(View itemView) {
-            super(itemView);
+        public ViewHolder(View v) {
+            super(v);
             stuAttendViewName=(TextView)v.findViewById(R.id.stuAttendViewName);
             stuAttendViewRollno=(TextView)v.findViewById(R.id.stuAttendViewRollno);
-            layAttendViewstd=(LinearLayout) v.findViewById(R.id.layAttendViewstd);
+            layAttendViewstd=(LinearLayout)v.findViewById(R.id.layAttendViewstd);
         }
     }
 
     private class InsertAttenedance extends AsyncTask<String,Void,String>{
+
         String status,message,s_stddiv,s_rollno;
 
         public InsertAttenedance(String classStud, String rollno) {
@@ -115,6 +97,7 @@ class ViewAttendStudAdapter extends RecyclerView.Adapter<ViewAttendStudAdapter.V
 
                 AttendList.put("s_stddiv",s_stddiv);
                 AttendList.put("s_rollno",s_rollno);
+                AttendList.put("date",currentDate);
 
                 Postdata postdata=new Postdata();
                 String stdPd=postdata.post(MainActivity.mainUrl+"attendenceInsert",AttendList.toString());
@@ -166,6 +149,7 @@ class ViewAttendStudAdapter extends RecyclerView.Adapter<ViewAttendStudAdapter.V
 
                 AttendList.put("s_stddiv",s_stddiv);
                 AttendList.put("s_rollno",s_rollno);
+                AttendList.put("date",currentDate);
 
                 Postdata postdata=new Postdata();
                 String stdPd=postdata.post(MainActivity.mainUrl+"attendenceDelete",AttendList.toString());
@@ -197,6 +181,79 @@ class ViewAttendStudAdapter extends RecyclerView.Adapter<ViewAttendStudAdapter.V
             else
             {
                 Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    private class ViewAttendance extends AsyncTask<String,Void,String> {
+
+        String status,message,s_stddiv,s_rollno;
+        LinearLayout layAttendViewstd;
+
+        public ViewAttendance(String classStud, String rollno, LinearLayout layAttendViewstd) {
+            this.s_stddiv = classStud;
+            this.layAttendViewstd = layAttendViewstd;
+            this.s_rollno = rollno;
+        }
+
+        @Override
+        protected String doInBackground(String... strings) {
+
+            JSONObject absentAttendList=new JSONObject();
+
+            try {
+
+                absentAttendList.put("s_stddiv",s_stddiv);
+                absentAttendList.put("s_rollno",s_rollno);
+                absentAttendList.put("date",currentDate);
+
+                Postdata postdata=new Postdata();
+                String stdPd=postdata.post(MainActivity.mainUrl+"attendenceView",absentAttendList.toString());
+                JSONObject j=new JSONObject(stdPd);
+                status=j.getString("status");
+                if(status.equals("1"))
+                {
+                    Log.d("Like","Successfully");
+                    message = j.getString("message");
+                }
+                else
+                {
+                    message = j.getString("message");
+                }
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+            if(status.equals("1"))
+            {
+                layAttendViewstd.setBackgroundResource(R.drawable.card_red);
+                layAttendViewstd.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        layAttendViewstd.setBackgroundResource(R.drawable.card_green);
+                        DeleteAttendance deleteAttendance=new DeleteAttendance(s_stddiv,s_rollno);
+                        deleteAttendance.execute();
+                    }
+                });
+            }
+            else
+            {
+                layAttendViewstd.setBackgroundResource(R.drawable.card_green);
+                layAttendViewstd.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        layAttendViewstd.setBackgroundResource(R.drawable.card_red);
+                        InsertAttenedance insertAttenedance=new InsertAttenedance(s_stddiv,s_rollno);
+                        insertAttenedance.execute();
+                    }
+                });
             }
         }
     }

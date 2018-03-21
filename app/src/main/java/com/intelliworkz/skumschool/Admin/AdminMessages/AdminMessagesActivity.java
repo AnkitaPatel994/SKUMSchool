@@ -13,6 +13,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.intelliworkz.skumschool.Admin.AdminAttendence.AttendenceStandardActivity;
 import com.intelliworkz.skumschool.Admin.AdminEducation.AdminEducationActivity;
@@ -31,6 +34,9 @@ import com.intelliworkz.skumschool.R;
 
 public class AdminMessagesActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    EditText txtMessage;
+    ImageView ivSend;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +57,17 @@ public class AdminMessagesActivity extends AppCompatActivity
         Menu menu = navigationView.getMenu();
         MenuItem menuItem = menu.getItem(12);
         menuItem.setChecked(true);
+
+        txtMessage = (EditText)findViewById(R.id.txt_message);
+        ivSend = (ImageView) findViewById(R.id.iv_send);
+
+        ivSend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(),"Send Message",Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 
     @Override

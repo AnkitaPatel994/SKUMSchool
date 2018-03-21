@@ -10,6 +10,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.intelliworkz.skumschool.R;
 
@@ -67,14 +68,14 @@ public class DayGridAdapter extends BaseAdapter {
             TextView button = (TextView) gridView.findViewById(R.id.day_grid_item);
             button.setText(days[position]);
 
-            /*llDay.setOnClickListener(new View.OnClickListener() {
+            llDay.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     String date = days[position] +"/"+month+"/"+year;
                     Toast.makeText(context,""+date,Toast.LENGTH_SHORT).show();
 
                 }
-            });*/
+            });
 
             Calendar c = Calendar.getInstance();
             SimpleDateFormat sdf = new SimpleDateFormat("d/M/yyyy");

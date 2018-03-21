@@ -320,8 +320,6 @@ public class AttendenceActivity extends AppCompatActivity
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-
-
             return null;
         }
 

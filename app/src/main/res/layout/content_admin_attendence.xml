@@ -53,13 +53,13 @@
     </android.support.constraint.ConstraintLayout>
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/rlAttendStudList"
-        android:layout_below="@+id/calendarHeader"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingBottom="17dp"
-        android:paddingLeft="17dp"
-        android:paddingRight="17dp"
-        android:paddingTop="17dp" />
+    android:id="@+id/rlAttendStudList"
+    android:layout_below="@+id/calendarHeader"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="17dp"
+    android:paddingLeft="17dp"
+    android:paddingRight="17dp"
+    android:paddingTop="17dp" />
 
 </RelativeLayout>
